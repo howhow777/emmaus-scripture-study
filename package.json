@@ -6,7 +6,7 @@
   "description": "Offline interactive scripture graph for the Emmaus study",
   "scripts": {
     "build:graph": "esbuild graph-source.js --bundle --minify --format=iife --target=es2020 --outfile=graph.bundle.js",
-    "check:graph": "node --check graph-model.mjs && node --check graph-source.js && node --check graph.bundle.js",
+    "check:graph": "node --check graph-model.mjs && node --check graph-layout.mjs && node --check graph-motion.mjs && node --check graph-selection.mjs && node --check graph-source.js && node --check graph.bundle.js",
     "test": "python3 scripts/build-graph-data.py --check && node --test tests/*.test.mjs"
   },
   "repository": {

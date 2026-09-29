@@ -3,6 +3,7 @@ import { select } from 'd3-selection';
 import { entryMatches, visibleGraph } from './graph-model.mjs';
 import { seedNode, makeSimulation } from './graph-layout.mjs';
 import { MIN_ZOOM, MAX_ZOOM, clampZoom, panTransform, pinchTransform, tapEligible, STILL_SWAY, swayImpulse, springStep, displayX, displayY } from './graph-motion.mjs';
+import { selectionAfterTap, hashAfterSelection } from './graph-selection.mjs';
 
 const data = window.EMMAUS_GRAPH_DATA;
 const $ = id => document.getElementById(id);
@@ -25,7 +26,8 @@ const groupNames = {
 };
 const bookOrder = 'GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI 1CH 2CH EZR NEH EST JOB PSA PRO ECC SNG ISA JER LAM EZK DAN HOS JOL AMO OBA JON MIC NAM HAB ZEP HAG ZEC MAL MAT MRK LUK JHN ACT ROM 1CO 2CO GAL EPH PHP COL 1TH 2TH 1TI 2TI TIT PHM HEB JAS 1PE 2PE 1JN 2JN 3JN JUD REV'.split(' ');
 const bookRank = new Map(bookOrder.map((code, i) => [code, i]));
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+let reducedMotion = motionPreference.matches;
 
 if (!data || data.version !== 1 || !Array.isArray(data.entries) || !ctx) {
   $('graphStatus').textContent = '圖譜資料未能載入。請重新開啟網站包，或返回研究頁。';
@@ -98,6 +100,7 @@ let width = 1, height = 1, dpr = 1, drawPending = false;
 let userHasMovedView = false;
 let wheelGesture = false;
 let layoutSettled = true;
+let layoutFrozenByGesture = false;
 let sway = STILL_SWAY, swayLastFrame = null;
 const pointers = new Map();
 let pointerStart = null, pointerBaseTransform = null, pointerNode = null, pointerMoved = false, hadMultiplePointers = false, pinchStart = null;
@@ -108,8 +111,19 @@ const simulation = makeSimulation([], [], entriesById)
   .on('end', () => { layoutSettled = true; });
 
 function maybeResumeLayout() {
-  if (!reducedMotion && !layoutSettled && !pointers.size && !wheelGesture && sway === STILL_SWAY) simulation.restart();
+  if (!reducedMotion && !layoutSettled && !layoutFrozenByGesture && !pointers.size && !wheelGesture && sway === STILL_SWAY) simulation.restart();
 }
+
+function motionPreferenceChanged(event) {
+  reducedMotion = event.matches;
+  if (reducedMotion) {
+    simulation.stop();
+    sway = STILL_SWAY; swayLastFrame = null;
+  } else maybeResumeLayout();
+  scheduleDraw();
+}
+if (motionPreference.addEventListener) motionPreference.addEventListener('change', motionPreferenceChanged);
+else motionPreference.addListener(motionPreferenceChanged);
 
 const zoomBehavior = zoom()
   .scaleExtent([MIN_ZOOM, MAX_ZOOM])
@@ -150,6 +164,7 @@ function buildVisible() {
   simulation.stop();
   simulation.nodes(visibleNodes);
   simulation.force('link').links(visibleLinks.map(link => ({ ...link })));
+  layoutFrozenByGesture = false;
   sway = STILL_SWAY; swayLastFrame = null;
   if (reducedMotion) {
     simulation.alpha(1);
@@ -187,7 +202,8 @@ function renderResultList() {
     for (const node of nodes) {
       const li = document.createElement('li'); const button = document.createElement('button');
       button.type = 'button'; button.textContent = node.label; button.dataset.nodeId = node.id;
-      button.setAttribute('aria-label', `選取${title}：${node.label}`);
+      button.setAttribute('aria-label', `選取或取消${title}：${node.label}`);
+      button.setAttribute('aria-pressed', String(node.id === selectedId));
       if (node.id === selectedId) button.setAttribute('aria-current', 'true');
       li.append(button); list.append(li);
     }
@@ -232,7 +248,7 @@ function renderDetails(node) {
   const target = $('detailsContent'); target.replaceChildren();
   if (!node) {
     const title = element('h2', '從一個點開始'); title.id = 'detailsTitle'; target.append(title);
-    target.append(element('p', '點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。'));
+    target.append(element('p', '點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。再次點選同一點或點選空白處可取消。'));
     return;
   }
   const title = element('h2', node.label); title.id = 'detailsTitle'; target.append(title);
@@ -263,22 +279,34 @@ function renderDetails(node) {
     appendSection(target, `全站相關研究條目（${node.related.length}）`, node.related.map(id => entryListItem(entriesById.get(id))));
   }
 }
+function syncSelectionHash(previousId, nextId) {
+  const nextHash = hashAfterSelection(location.hash, previousId, nextId);
+  if (nextHash === location.hash) return;
+  const url = new URL(location.href); url.hash = nextHash;
+  history.replaceState(null, '', url.href);
+}
 function clearSelection() {
-  selectedId = null; renderDetails(null); $('detailsJump').hidden = true;
+  syncSelectionHash(selectedId, null);
+  selectedId = null; hoveredId = null; renderDetails(null); $('detailsJump').hidden = true;
   updateSelectedLinks();
-  $('resultList').querySelector('[aria-current="true"]')?.removeAttribute('aria-current');
+  const previousButton = $('resultList').querySelector('[aria-current="true"]');
+  previousButton?.removeAttribute('aria-current');
+  previousButton?.setAttribute('aria-pressed', 'false');
   scheduleDraw();
 }
 function selectNode(node, focus = false, updateHash = true) {
   if (!node) return;
+  if (updateHash) syncSelectionHash(selectedId, node.id);
   selectedId = node.id;
   updateSelectedLinks();
   renderDetails(node);
-  $('resultList').querySelector('[aria-current="true"]')?.removeAttribute('aria-current');
+  const previousButton = $('resultList').querySelector('[aria-current="true"]');
+  previousButton?.removeAttribute('aria-current');
+  previousButton?.setAttribute('aria-pressed', 'false');
   const button = [...$('resultList').querySelectorAll('button[data-node-id]')].find(item => item.dataset.nodeId === node.id);
   button?.setAttribute('aria-current', 'true');
+  button?.setAttribute('aria-pressed', 'true');
   if (focus) centerNode(node);
-  if (node.kind === 'entry' && updateHash && location.hash !== `#${node.entry.id}`) history.replaceState(null, '', `#${node.entry.id}`);
   $('detailsJump').hidden = false;
   scheduleDraw();
 }
@@ -427,7 +455,10 @@ function startPinch() {
   const mid = { x: (points[0].x + points[1].x) / 2, y: (points[0].y + points[1].y) / 2 };
   pinchStart = { distance: Math.max(1, Math.hypot(points[1].x - points[0].x, points[1].y - points[0].y)),
     world: transform.invert([mid.x, mid.y]), k: transform.k };
+  sway = STILL_SWAY; swayLastFrame = null;
   pointerMoved = true; hadMultiplePointers = true; pointerNode = null;
+  layoutFrozenByGesture = true;
+  scheduleDraw();
 }
 function pointerDown(event) {
   if (event.pointerType === 'mouse' && event.button !== 0) return;
@@ -457,7 +488,9 @@ function pointerMove(event) {
     applyTransform(next.x, next.y, next.k);
     userHasMovedView = true; return;
   }
-  if (Math.hypot(point.x - pointerStart.x, point.y - pointerStart.y) > 5) pointerMoved = true;
+  if (Math.hypot(point.x - pointerStart.x, point.y - pointerStart.y) > 5) {
+    pointerMoved = true; layoutFrozenByGesture = true;
+  }
   if (!pointerMoved) return;
   const next = panTransform(pointerBaseTransform, pointerStart, point);
   applyTransform(next.x, next.y, next.k);
@@ -469,8 +502,11 @@ function pointerEnd(event) {
   event.preventDefault();
   const point = pointers.get(event.pointerId);
   const releasePoint = localPoint(event);
-  if (pointerStart && Math.hypot(releasePoint.x - pointerStart.x, releasePoint.y - pointerStart.y) > 5) pointerMoved = true;
-  if (pointers.size === 1 && pointerMoved) {
+  const cancelled = event.type !== 'pointerup';
+  if (!cancelled && pointerStart && Math.hypot(releasePoint.x - pointerStart.x, releasePoint.y - pointerStart.y) > 5) {
+    pointerMoved = true; layoutFrozenByGesture = true;
+  }
+  if (!cancelled && pointers.size === 1 && pointerMoved) {
     const next = panTransform(pointerBaseTransform, pointerStart, releasePoint);
     applyTransform(next.x, next.y, next.k);
     if (!reducedMotion) sway = swayImpulse(sway, releasePoint.x - point.x, releasePoint.y - point.y);
@@ -484,9 +520,10 @@ function pointerEnd(event) {
     pointerMoved = true; scheduleDraw(); return;
   }
   stopGestureSampling();
-  if (tapEligible(pointerMoved, hadMultiplePointers, event.type === 'pointercancel')) {
-    const node = pointerNode || hitNode(point);
-    if (node) selectNode(node, false);
+  if (tapEligible(pointerMoved, hadMultiplePointers, cancelled)) {
+    const nextId = selectionAfterTap(selectedId, pointerNode?.id || null);
+    if (nextId) selectNode(pointerNode, false);
+    else if (selectedId) clearSelection();
   }
   pointerNode = null; pointerStart = null; pinchStart = null;
   maybeResumeLayout();
@@ -496,13 +533,20 @@ canvas.addEventListener('pointerdown', pointerDown);
 canvas.addEventListener('pointermove', pointerMove);
 canvas.addEventListener('pointerup', pointerEnd);
 canvas.addEventListener('pointercancel', pointerEnd);
+canvas.addEventListener('lostpointercapture', pointerEnd);
 canvas.addEventListener('pointerleave', () => { if (!pointers.size) { hoveredId = null; scheduleDraw(); } });
 $('resultList').addEventListener('click', event => {
   const button = event.target.closest('button[data-node-id]'); if (!button) return;
-  selectNode(allNodes.get(button.dataset.nodeId), true);
-  if (window.matchMedia('(max-width: 760px)').matches) $('graphDetails').scrollIntoView({ block: 'start', behavior: reducedMotion ? 'instant' : 'smooth' });
+  const node = allNodes.get(button.dataset.nodeId);
+  if (!selectionAfterTap(selectedId, node?.id || null)) { clearSelection(); return; }
+  selectNode(node, true);
+  if (window.matchMedia('(max-width: 760px)').matches) $('graphDetails').scrollIntoView({ block: 'start', behavior: reducedMotion ? 'auto' : 'smooth' });
 });
-$('detailsJump').addEventListener('click', () => $('graphDetails').scrollIntoView({ block: 'start', behavior: reducedMotion ? 'instant' : 'smooth' }));
+$('detailsJump').addEventListener('click', () => $('graphDetails').scrollIntoView({ block: 'start', behavior: reducedMotion ? 'auto' : 'smooth' }));
+window.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || !selectedId || event.target instanceof Element && event.target.closest('input,textarea,select,[contenteditable]')) return;
+  event.preventDefault(); clearSelection();
+});
 $('zoomIn').addEventListener('click', () => { userHasMovedView = true; canvasSelection.call(zoomBehavior.scaleBy, 1.3); });
 $('zoomOut').addEventListener('click', () => { userHasMovedView = true; canvasSelection.call(zoomBehavior.scaleBy, 1 / 1.3); });
 $('fitGraph').addEventListener('click', fitGraph);

@@ -7,6 +7,7 @@ import {
   MIN_ZOOM, MAX_ZOOM, STILL_SWAY, clampZoom, panTransform, pinchTransform,
   tapEligible, swayImpulse, springStep, displayX, displayY,
 } from '../graph-motion.mjs';
+import { selectionAfterTap, hashAfterSelection } from '../graph-selection.mjs';
 
 const script = readFileSync(new URL('../graph-data.js', import.meta.url), 'utf8');
 const data = JSON.parse(script.slice('window.EMMAUS_GRAPH_DATA='.length, -2));
@@ -103,12 +104,25 @@ test('pinch scale stays bounded and multi-pointer gestures cannot become taps', 
 
 test('diagonal drag sway stays within 5 screen pixels at every zoom', () => {
   const sway = swayImpulse(STILL_SWAY, -1000, -1000);
-  const node = { x: 100, y: -80, swayX: 1.2, swayY: 1.2 };
-  for (const k of [MIN_ZOOM, 1, MAX_ZOOM]) {
-    const screenX = (displayX(node, sway, k) - node.x) * k;
-    const screenY = (displayY(node, sway, k) - node.y) * k;
-    assert.ok(Math.hypot(screenX, screenY) <= 5 + 1e-10);
+  const nodes = visibleGraph(data, state).nodeIds.map(id => seedNode({ id, kind: id.split(':')[0] }));
+  for (const node of nodes) {
+    for (const k of [MIN_ZOOM, 1, MAX_ZOOM]) {
+      const screenX = (displayX(node, sway, k) - node.x) * k;
+      const screenY = (displayY(node, sway, k) - node.y) * k;
+      assert.ok(Math.hypot(screenX, screenY) <= 5 + 1e-10);
+    }
   }
+});
+
+test('dragged nodes flex visibly by different amounts without moving their layout coordinates', () => {
+  const sway = swayImpulse(STILL_SWAY, -1000, 0);
+  const nodes = data.entries.slice(0, 49).map(entry => seedNode({ id: `entry:${entry.id}`, kind: 'entry' }));
+  const before = nodes.map(node => [node.x, node.y]);
+  const offsets = nodes.map(node => ({ x: displayX(node, sway, 1) - node.x, y: displayY(node, sway, 1) - node.y }));
+  const spread = Math.max(...offsets.map(offset => offset.x)) - Math.min(...offsets.map(offset => offset.x));
+  assert.ok(spread > 2.5, `Expected visible relative flex; spread=${spread}`);
+  assert.ok(offsets.some(offset => Math.abs(offset.y) > .5), 'Expected a subtle sideways offset');
+  assert.deepEqual(nodes.map(node => [node.x, node.y]), before);
 });
 
 test('released sway makes one small overshoot and settles by about 700 ms', () => {
@@ -122,4 +136,19 @@ test('released sway makes one small overshoot and settles by about 700 ms', () =
   assert.ok(lowest < -.1 && lowest > -.6, `Expected a small sign-changing overshoot; min=${lowest}`);
   assert.deepEqual(current, STILL_SWAY);
   assert.deepEqual(springStep(current, 1000 / 60), STILL_SWAY);
+});
+
+test('tap selection toggles the same node, clears on blank, and replaces with another node', () => {
+  assert.equal(selectionAfterTap(null, 'entry:E001'), 'entry:E001');
+  assert.equal(selectionAfterTap('entry:E001', 'entry:E001'), null);
+  assert.equal(selectionAfterTap('entry:E001', null), null);
+  assert.equal(selectionAfterTap('entry:E001', 'ot:GEN 1:26-28'), 'ot:GEN 1:26-28');
+});
+
+test('selection hash tracks explicit choices without erasing a pending deep link', () => {
+  assert.equal(hashAfterSelection('', null, 'entry:E001'), '#E001');
+  assert.equal(hashAfterSelection('#E001', 'entry:E001', null), '');
+  assert.equal(hashAfterSelection('#E001', 'entry:E001', 'nt:LUK 22:37'), '');
+  assert.equal(hashAfterSelection('#E001', 'entry:E001', 'entry:E002'), '#E002');
+  assert.equal(hashAfterSelection('#E002', 'entry:E001', null), '#E002');
 });

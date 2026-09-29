@@ -45,12 +45,12 @@
       </aside>
       <section class="graph-stage" aria-label="互動經文圖譜">
         <div class="graph-toolbar"><div id="graphStatus" role="status" aria-live="polite">正在整理經文圖譜…</div><div class="zoom-tools" aria-label="圖譜縮放"><button id="zoomOut" type="button" aria-label="縮小圖譜">−</button><button id="zoomIn" type="button" aria-label="放大圖譜">＋</button><button id="fitGraph" type="button" aria-label="讓全部可見節點出現在畫面內">全圖</button></div></div>
-        <canvas id="graphCanvas" aria-label="經文關係圖：單指在任意位置拖移畫布，雙指捏合縮放，輕點節點查看詳情。鍵盤使用者可透過篩選結果清單選取節點。"></canvas>
+        <canvas id="graphCanvas" aria-label="經文關係圖：單指在任意位置拖移畫布，雙指捏合縮放，輕點節點查看詳情；再次輕點已選節點、連線或空白處可取消選取。鍵盤使用者可透過篩選結果清單選取節點，按 Escape 取消。"></canvas>
         <button id="detailsJump" class="details-jump" type="button" hidden>查看所選節點詳情 ↓</button>
-        <div class="graph-hint">輕點節點查看詳情 <span aria-hidden="true">·</span> 單指拖移平移 <span aria-hidden="true">·</span> 雙指捏合縮放</div>
+        <div class="graph-hint">輕點節點選取／取消 <span aria-hidden="true">·</span> 輕點空白取消 <span aria-hidden="true">·</span> 單指平移、雙指縮放</div>
         <div class="legend" aria-label="圖例"><span><i class="legend-dot legend-entry"></i>研究條目</span><span><i class="legend-dot legend-ot"></i>舊約</span><span><i class="legend-dot legend-nt"></i>新約</span><span><i class="legend-dot legend-topic"></i>主題</span><span><i class="legend-line"></i>條目列出的經文</span><span><i class="legend-line dashed"></i>共同分類</span><span><i class="legend-line spoken"></i>原引用含耶穌發言</span></div>
       </section>
-      <aside class="details-panel" id="graphDetails" aria-labelledby="detailsTitle"><div class="details-header"><span class="eyebrow">INSPECT / 細讀</span></div><div id="detailsContent"><h2 id="detailsTitle">從一個點開始</h2><p>點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。</p></div></aside>
+      <aside class="details-panel" id="graphDetails" aria-labelledby="detailsTitle"><div class="details-header"><span class="eyebrow">INSPECT / 細讀</span></div><div id="detailsContent"><h2 id="detailsTitle">從一個點開始</h2><p>點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。再次點選同一點或點選空白處可取消。</p></div></aside>
     </div>
     <details class="gesture-metrics" id="gestureDiagnostics"><summary>手機手勢流暢度紀錄 <span>展開查看</span></summary><div class="metrics-body"><p>在圖面連續捏合或拖移約 10 秒後，這裡會顯示本機瀏覽器的近似影格間隔。它用來協助回報手感；結果會受裝置、電量與背景工作影響。</p><dl><div><dt>連續手勢</dt><dd id="gestureDuration">—</dd></div><div><dt>影格間隔 p95</dt><dd id="gestureP95">—</dd></div><div><dt>超過 50 ms</dt><dd id="gestureLongFrames">—</dd></div><div><dt>取樣影格</dt><dd id="gestureFrameSamples">—</dd></div></dl><p class="metric-target">60 Hz 裝置的參考目標：p95 ≤ 20 ms，超過 50 ms 的影格為 0。</p></div></details>
     <p class="page-footnote">資料沿用《以馬忤斯之路：舊約如何見證基督》的研究條目與原有經文網址。耶穌親口經節以另外核對的逐節標註呈現；未標註不表示該段沒有耶穌發言。</p>

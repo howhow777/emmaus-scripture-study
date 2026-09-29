@@ -11,8 +11,9 @@ export function seedNode(node) {
   const rangeX = node.kind === 'topic' ? 420 : node.kind === 'entry' ? 260 : 170;
   node.x = baseX + ((hashNumber(node.id + 'x') / 4294967295) - .5) * rangeX;
   node.y = (node.kind === 'topic' ? -220 : 0) + ((hashNumber(node.id + 'y') / 4294967295) - .5) * 480;
-  node.swayX = .8 + .4 * hashNumber(node.id + 'swayX') / 4294967295;
-  node.swayY = .8 + .4 * hashNumber(node.id + 'swayY') / 4294967295;
+  // Stable per-node differences make a dragged cluster flex instead of moving as one block.
+  node.swayGain = .35 + .8 * hashNumber(node.id + 'swayGain') / 4294967295;
+  node.swayTwist = -.25 + .5 * hashNumber(node.id + 'swayTwist') / 4294967295;
   return node;
 }
 

@@ -19,7 +19,7 @@ export function tapEligible(moved, multiplePointers, cancelled) {
 }
 
 export const STILL_SWAY = Object.freeze({ x: 0, y: 0, vx: 0, vy: 0 });
-const SWAY_CAP = 4.1; // Stable per-node factors make the maximum visible shift < 5 screen px.
+const SWAY_CAP = 4.1; // sqrt(1.15² + .25²) * 4.1 < 5 screen pixels.
 
 function capSway(x, y, vx, vy) {
   const length = Math.hypot(x, y);
@@ -29,7 +29,7 @@ function capSway(x, y, vx, vy) {
 
 export function swayImpulse(sway, dx, dy) {
   if (dx === 0 && dy === 0) return sway;
-  return capSway(sway.x - dx * .14, sway.y - dy * .14, sway.vx, sway.vy);
+  return capSway(sway.x - dx * .28, sway.y - dy * .28, sway.vx, sway.vy);
 }
 
 export function springStep(sway, elapsedMs) {
@@ -45,5 +45,9 @@ export function springStep(sway, elapsedMs) {
     ? STILL_SWAY : capSway(x, y, vx, vy);
 }
 
-export function displayX(node, sway, k) { return node.x + sway.x * node.swayX / k; }
-export function displayY(node, sway, k) { return node.y + sway.y * node.swayY / k; }
+export function displayX(node, sway, k) {
+  return node.x + (sway.x * node.swayGain - sway.y * node.swayTwist) / k;
+}
+export function displayY(node, sway, k) {
+  return node.y + (sway.y * node.swayGain + sway.x * node.swayTwist) / k;
+}
