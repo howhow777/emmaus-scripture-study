@@ -9,6 +9,8 @@ const prefix = 'window.EMMAUS_GRAPH_DATA=';
 assert.ok(dataScript.startsWith(prefix) && dataScript.endsWith(';\n'));
 const data = JSON.parse(dataScript.slice(prefix.length, -2));
 const index = read('../index.html');
+const dating = JSON.parse(read('../data/passage-dates.json'));
+const datingPage = read('../dating.html');
 
 const base = {
   scope: 'all', testament: 'both', book: '', group: '', topic: '', evidence: '',
@@ -44,6 +46,36 @@ test('generated data matches the 186 original cards and their linked passages', 
       }
     }
   }
+});
+
+test('every linked passage and Jesus speech span has a dated, sourced detail', () => {
+  assert.deepEqual(data.dates, dating.references);
+  const links = [...index.matchAll(/<a\b[^>]*href="https:\/\/www\.bible\.com\/bible\/46\/([^"]+)"[^>]*>/g)];
+  const badges = [...index.matchAll(/<!-- passage-date:start -->/g)];
+  assert.equal(links.length, badges.length);
+  assert.ok(index.includes('id="why"'));
+  assert.equal([...index.matchAll(/<p class="route-ref">/g)].length, 12);
+  for (const [, path] of links) {
+    const match = /^([0-9A-Z]+)\.(\d+)(?:\.(\d+(?:-\d+)?))?\.CUNP-%E7%A5%9E$/.exec(path);
+    assert.ok(match, `Unexpected Bible.com path ${path}`);
+    const ref = `${match[1]} ${match[2]}` + (match[3] ? `:${match[3]}` : '');
+    assert.ok(dating.references[ref], `Undated linked passage ${ref}`);
+  }
+  for (const entry of data.entries) for (const side of ['ot', 'nt']) for (const passage of entry[side]) {
+    assert.ok(data.dates[passage.ref], `Undated graph passage ${passage.ref}`);
+  }
+  for (const item of data.speech) for (const span of item.spans) {
+    assert.ok(data.dates[span.ref], `Undated Jesus speech span ${span.ref}`);
+  }
+  for (const [ref, date] of Object.entries(dating.references)) {
+    const anchor = 'date-' + ref.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    assert.ok(datingPage.includes(`id="${anchor}"`), `Missing date explanation for ${ref}`);
+    assert.ok(date.note && date.sourceIds.length, `Missing date rationale for ${ref}`);
+    assert.ok(date.sourceIds.every(id => dating.sources[id]?.url.startsWith('https://')));
+  }
+  assert.equal(dating.references['GEN 1:26-28'].background.certainty, 'unknown');
+  assert.equal(dating.references['PSA 22:1-31'].background.certainty, 'unknown');
+  assert.notEqual(dating.references['LUK 24'].background.label, dating.references['LUK 24'].composition.label);
 });
 
 test('citation edges represent only listed passages; topic edges remain distinct', () => {

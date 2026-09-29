@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "index.html"
 OUTPUT = ROOT / "graph-data.js"
 SPEECH = ROOT / "data" / "jesus-speech.json"
+DATES = ROOT / "data" / "passage-dates.json"
 
 BOOK_GROUPS = {
     "pentateuch": "GEN EXO LEV NUM DEU",
@@ -180,7 +181,14 @@ def build():
                 ):
                     raise ValueError(f"Speech span is outside source passage: {entry_id} {nt_ref}")
 
-    return {"version": 1, "entries": entries, "books": books, "speech": speech}
+    dates = json.loads(DATES.read_text(encoding="utf-8"))["references"]
+    cited_refs = {passage["ref"] for entry in entries for side in ("ot", "nt") for passage in entry[side]}
+    cited_refs.update(span["ref"] for item in speech for span in item["spans"])
+    missing_dates = cited_refs - dates.keys()
+    if missing_dates:
+        raise ValueError(f"Missing passage dates: {', '.join(sorted(missing_dates))}")
+
+    return {"version": 1, "entries": entries, "books": books, "speech": speech, "dates": dates}
 
 
 def main():

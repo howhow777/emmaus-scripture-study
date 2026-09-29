@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { visibleGraph } from '../graph-model.mjs';
-import { linkDistance, linkStrength, makeSimulation, seedNode } from '../graph-layout.mjs';
+import { TOPIC_ORDER, linkDistance, linkStrength, makeSimulation, placeTopicRing, seedNode, topicRingRadius } from '../graph-layout.mjs';
 import {
   MIN_ZOOM, MAX_ZOOM, STILL_SWAY, clampZoom, panTransform, pinchTransform,
   tapEligible, swayImpulse, springStep, displayX, displayY,
@@ -45,12 +45,13 @@ function median(values) {
   return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
 }
 
-function simulatedMedians() {
-  const graph = visibleGraph(data, state);
-  assert.equal(graph.entries.length, 186);
-  const nodes = graph.nodeIds.map(id => seedNode({ id, kind: id.split(':')[0] }));
+function simulatedLayout(scope = 'all') {
+  const graph = visibleGraph(data, { ...state, scope });
+  const ids = new Set(graph.nodeIds);
+  for (const topic of TOPIC_ORDER) ids.add(`topic:${topic}`);
+  const nodes = [...ids].map(id => seedNode({ id, kind: id.split(':')[0] }));
   const links = graph.links.map(link => ({ ...link }));
-  const simulation = makeSimulation(nodes, links, entriesById);
+  const simulation = makeSimulation(nodes, links, entriesById, scope);
   let randomState = 0x5eed1234;
   simulation.randomSource(() => ((randomState = (Math.imul(randomState, 1664525) + 1013904223) >>> 0) / 4294967296));
   simulation.stop().alpha(1).tick(350);
@@ -59,18 +60,52 @@ function simulatedMedians() {
     const group = link.kind === 'topic' ? 'topic' : entriesById.get(link.entryId).ev;
     lengths[group].push(Math.hypot(link.source.x - link.target.x, link.source.y - link.target.y));
   }
-  return Object.fromEntries(Object.entries(lengths).map(([key, values]) => [key, median(values)]));
+  const medians = Object.fromEntries(Object.entries(lengths).map(([key, values]) => [key, values.length ? median(values) : null]));
+  const inner = nodes.filter(node => node.kind !== 'topic');
+  const xs = inner.map(node => node.x), ys = inner.map(node => node.y);
+  const aspect = (Math.max(...xs) - Math.min(...xs)) / (Math.max(...ys) - Math.min(...ys));
+  return { medians, aspect, nodes };
 }
 
 test('the actual all-186 simulation has ordered median lengths with deterministic seeds', () => {
-  const first = simulatedMedians();
-  const second = simulatedMedians();
+  const first = simulatedLayout().medians;
+  const second = simulatedLayout().medians;
   for (const key of ['A', 'B', 'C', 'D', 'topic']) {
     assert.ok(Number.isFinite(first[key]));
     assert.ok(Math.abs(first[key] - second[key]) < 1e-7, `${key} layout drifted between identical runs`);
   }
   assert.ok(Math.max(first.A, first.B) < first.C, JSON.stringify(first));
   assert.ok(first.C < first.D && first.D < first.topic, JSON.stringify(first));
+});
+
+test('the 49-core and all-186 scripture clouds settle near circles inside their topic rings', () => {
+  for (const scope of ['core', 'all']) {
+    const { aspect, nodes, medians } = simulatedLayout(scope);
+    assert.ok(aspect >= .85 && aspect <= 1.15, `${scope} aspect: ${aspect}`);
+    const radius = topicRingRadius(scope);
+    assert.equal(nodes.filter(node => node.kind === 'topic').length, 10);
+    assert.ok(nodes.filter(node => node.kind !== 'topic').every(node => Math.hypot(node.x, node.y) < radius), `${scope} has scripture nodes beyond the topic ring`);
+    assert.ok(Math.abs(medians.A - medians.B) < 15, `${scope} A/B lengths differ: ${JSON.stringify(medians)}`);
+    assert.ok(Math.max(medians.A, medians.B) < medians.C, `${scope} A/B/C lengths: ${JSON.stringify(medians)}`);
+    if (scope === 'all') assert.ok(medians.C < medians.D, JSON.stringify(medians));
+  }
+});
+
+test('all ten topic positions stay fixed when a scope is filtered', () => {
+  for (const scope of ['core', 'all']) {
+    const topics = selectedTopic => {
+      const graph = visibleGraph(data, { ...state, scope, topic: selectedTopic });
+      const ids = new Set(graph.nodeIds);
+      for (const topic of TOPIC_ORDER) ids.add(`topic:${topic}`);
+      const nodes = [...ids].map(id => seedNode({ id, kind: id.split(':')[0] }));
+      placeTopicRing(nodes, scope);
+      return new Map(nodes.filter(node => node.kind === 'topic').map(node => [node.id, [node.fx, node.fy]]));
+    };
+    const unfiltered = topics('');
+    const filtered = topics('受苦');
+    assert.equal(unfiltered.size, 10);
+    for (const [id, position] of unfiltered) assert.deepEqual(filtered.get(id), position);
+  }
 });
 
 test('pan and pinch calculations follow finger positions and keep the pinched world point fixed', () => {

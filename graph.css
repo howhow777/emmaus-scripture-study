@@ -61,6 +61,8 @@ h1{font-size:clamp(30px,3.3vw,48px);letter-spacing:.035em;line-height:1.35;margi
 .result-group ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
 .result-group button{border:0;background:transparent;color:#d3e3d6;text-align:left;font-size:12px;width:100%;padding:5px 6px;border-radius:4px}
 .result-group button:hover,.result-group button[aria-current="true"]{background:#244939;color:#fff}
+.result-group button.inactive-topic{opacity:.48}
+.result-group button.inactive-topic:hover,.result-group button.inactive-topic[aria-current="true"]{opacity:1}
 .graph-stage{position:relative;min-width:0;min-height:650px;overflow:hidden;border:1px solid #41604b;border-radius:12px;background:radial-gradient(circle at 48% 44%,#19392a 0,#102a20 33%,#091b15 77%,#071710 100%)}
 .graph-stage:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(#819582 1px,transparent 1px);background-size:31px 31px}
 #graphCanvas{display:block;width:100%;height:100%;min-height:650px;position:absolute;inset:0;touch-action:none;cursor:grab}
@@ -92,6 +94,9 @@ h1{font-size:clamp(30px,3.3vw,48px);letter-spacing:.035em;line-height:1.35;margi
 .detail-section li{font-size:12px;line-height:1.45}
 .detail-section li a{display:block}
 .detail-section li small{display:block;color:#a9bba7;margin-top:2px;font-size:10px}
+.passage-date{display:block;color:#b5c7b9;font-size:11px;line-height:1.55;margin:4px 0 8px}
+.passage-date a,.detail-section li .passage-date a{display:inline;color:#e6c78d;text-decoration:underline}
+.speech-passage{margin:8px 0 0 8px;padding-left:10px;border-left:1px solid #55705a}
 .detail-primary{display:inline-flex;align-items:center;justify-content:center;border:1px solid #b19055;background:#8d6b3b;color:#fff6e5;border-radius:7px;padding:9px 12px;text-decoration:none;font-size:12px;min-height:40px;margin:7px 0}
 .detail-primary:hover{background:#a47b40;color:#fff}
 .detail-note{font-size:11px!important;color:#aebcae!important}

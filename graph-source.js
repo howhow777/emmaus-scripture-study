@@ -1,7 +1,7 @@
 import { zoom, zoomIdentity } from 'd3-zoom';
 import { select } from 'd3-selection';
 import { entryMatches, visibleGraph } from './graph-model.mjs';
-import { seedNode, makeSimulation } from './graph-layout.mjs';
+import { TOPIC_ORDER, seedNode, makeSimulation, placeTopicRing } from './graph-layout.mjs';
 import { MIN_ZOOM, MAX_ZOOM, clampZoom, panTransform, pinchTransform, tapEligible, STILL_SWAY, swayImpulse, springStep, displayX, displayY } from './graph-motion.mjs';
 import { selectionAfterTap, hashAfterSelection } from './graph-selection.mjs';
 
@@ -18,7 +18,7 @@ const ctx = canvas.getContext('2d', { alpha: true });
 const stage = canvas.parentElement;
 const canvasSelection = select(canvas);
 const colors = { entry: '#e8bf79', ot: '#7ed5b0', nt: '#87c5e8', topic: '#c7a4df' };
-const topicNames = ['身分', '降生', '事工', '受苦', '贖罪', '復活', '榮耀', '立約', '萬邦', '終末'];
+const topicNames = TOPIC_ORDER;
 const groupNames = {
   pentateuch: '摩西五經', history: '歷史書', poetry: '詩歌智慧書',
   'major-prophets': '大先知書', 'minor-prophets': '小先知書',
@@ -35,6 +35,7 @@ if (!data || data.version !== 1 || !Array.isArray(data.entries) || !ctx) {
 }
 
 const entries = data.entries;
+const passageDates = data.dates || {};
 const entriesById = new Map(entries.map(entry => [entry.id, entry]));
 const speechByEntry = new Map();
 for (const item of data.speech || []) {
@@ -93,6 +94,7 @@ let visibleNodes = [];
 let visibleLinks = [];
 let regularLinks = [], spokenLinks = [], topicLinks = [], selectedLinks = [];
 let visibleNodeIds = new Set();
+let activeTopicIds = new Set(), ringRadius = 0;
 let selectedId = null;
 let hoveredId = null;
 let transform = zoomIdentity;
@@ -154,13 +156,17 @@ function buildVisible() {
   regularLinks = visibleLinks.filter(link => link.kind === 'citation' && !link.spoken);
   spokenLinks = visibleLinks.filter(link => link.kind === 'citation' && link.spoken);
   topicLinks = visibleLinks.filter(link => link.kind === 'topic');
+  activeTopicIds = new Set(topicLinks.map(link => link.target));
   visibleNodeIds = new Set(result.nodeIds);
+  if (state.topics) for (const topic of topicNames) visibleNodeIds.add(`topic:${topic}`);
   visibleNodes = [...visibleNodeIds].map(id => allNodes.get(id)).filter(Boolean);
+  ringRadius = state.topics ? placeTopicRing(visibleNodes, state.scope) : 0;
   if (selectedId && !visibleNodeIds.has(selectedId)) clearSelection();
   updateSelectedLinks();
   $('graphStatus').textContent = `${visibleEntries.length} 組研究 · ${visibleNodes.filter(node => node.kind === 'ot').length} 處舊約 · ${visibleNodes.filter(node => node.kind === 'nt').length} 處新約`;
   $('resultCount').textContent = `${visibleEntries.length} 組`;
   renderResultList();
+  if (selectedId) renderDetails(allNodes.get(selectedId));
   simulation.stop();
   simulation.nodes(visibleNodes);
   simulation.force('link').links(visibleLinks.map(link => ({ ...link })));
@@ -184,8 +190,8 @@ function buildVisible() {
 function renderResultList() {
   const target = $('resultList');
   target.replaceChildren();
-  if (!visibleNodes.length) {
-    const p = document.createElement('p'); p.textContent = '沒有符合條件的節點，請放寬篩選。'; target.append(p); return;
+  if (!visibleEntries.length) {
+    const p = document.createElement('p'); p.textContent = '沒有符合條件的研究，請放寬篩選。'; target.append(p);
   }
   const groups = [
     ['entry', '研究條目', visibleNodes.filter(node => node.kind === 'entry').sort((a, b) => a.entry.id.localeCompare(b.entry.id))],
@@ -204,6 +210,10 @@ function renderResultList() {
       button.type = 'button'; button.textContent = node.label; button.dataset.nodeId = node.id;
       button.setAttribute('aria-label', `選取或取消${title}：${node.label}`);
       button.setAttribute('aria-pressed', String(node.id === selectedId));
+      if (node.kind === 'topic' && !activeTopicIds.has(node.id)) {
+        button.classList.add('inactive-topic');
+        button.setAttribute('aria-label', `選取或取消${title}：${node.label}，本次篩選無符合條目`);
+      }
       if (node.id === selectedId) button.setAttribute('aria-current', 'true');
       li.append(button); list.append(li);
     }
@@ -230,12 +240,27 @@ function appendSection(parent, title, items) {
   for (const item of items) list.append(item);
   section.append(list); parent.append(section);
 }
+function appendPassageDate(parent, ref) {
+  const date = passageDates[ref];
+  if (!date) return;
+  const label = field => date[field].label + (date[field].certainty === 'contested' ? '（有分歧）' : '');
+  const note = element('small', `背景：${label('background')}｜成書：${label('composition')} `, 'passage-date');
+  const anchor = 'date-' + ref.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  note.append(safeLink(`dating.html#${anchor}`, '年代依據 ↗'));
+  parent.append(note);
+}
 function passageListItem(passage, spans = []) {
   const li = document.createElement('li');
   li.append(safeLink(passage.href, `${passage.label} ↗`, true));
+  appendPassageDate(li, passage.ref);
   if (spans.length) {
     li.append(element('small', '含已核對的耶穌親口經節：'));
-    for (const span of spans) li.append(safeLink(span.href, `${span.label} ↗`, true));
+    for (const span of spans) {
+      const item = element('div', '', 'speech-passage');
+      item.append(safeLink(span.href, `${span.label} ↗`, true));
+      appendPassageDate(item, span.ref);
+      li.append(item);
+    }
   }
   return li;
 }
@@ -270,10 +295,12 @@ function renderDetails(node) {
     if (node.kind === 'nt') for (const id of node.related) for (const span of speechByEntry.get(id)?.get(node.ref) || []) spans.set(span.ref, span);
     if (spans.size) target.append(element('p', '此節點是原研究引用的完整段落；確切屬於耶穌發言的經節另列於下方。完整段落也可能含旁白或語者有爭議的經節。', 'detail-note'));
     target.append(safeLink(node.href, '開啟經文原頁 ↗', true, 'detail-primary'));
+    appendPassageDate(target, node.ref);
     appendSection(target, '全站相關研究條目', node.related.map(id => entryListItem(entriesById.get(id))));
     if (spans.size) appendSection(target, '已核對的耶穌親口經節', [...spans.values()].map(span => passageListItem(span)));
   } else {
     target.append(element('span', '共同研究主題', 'detail-badge'));
+    target.append(element('p', `本次篩選有 ${visibleEntries.filter(entry => entry.tags.includes(node.label)).length} 組相關研究；全站有 ${node.related.length} 組。`));
     target.append(element('p', '虛線只表示這些條目共用分類，不代表經文之間彼此引用或應驗。'));
     target.append(safeLink(`index.html?topic=${encodeURIComponent(node.label)}#catalog`, `在原研究查看「${node.label}」 ↗`, false, 'detail-primary'));
     appendSection(target, `全站相關研究條目（${node.related.length}）`, node.related.map(id => entryListItem(entriesById.get(id))));
@@ -371,6 +398,10 @@ function draw(time) {
   }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, width, height);
   ctx.translate(transform.x, transform.y); ctx.scale(transform.k, transform.k);
+  if (ringRadius) {
+    ctx.beginPath(); ctx.arc(0, 0, ringRadius, 0, Math.PI * 2);
+    ctx.strokeStyle = '#c7a4df36'; ctx.lineWidth = .8 / transform.k; ctx.stroke();
+  }
   drawLinks(regularLinks, '#7da48e55', .75);
   drawLinks(spokenLinks, '#eac98288', 1.15);
   drawLinks(topicLinks, '#b295cc55', .8, true);
@@ -381,8 +412,10 @@ function draw(time) {
     const screenX = transform.applyX(node.drawX), screenY = transform.applyY(node.drawY);
     if (screenX < -30 || screenX > width + 30 || screenY < -30 || screenY > height + 30) continue;
     const selected = node.id === selectedId, hovered = node.id === hoveredId;
-    const radius = Math.max(node.kind === 'topic' ? 6 : node.kind === 'entry' ? 4.8 : 3.6, 2.1 / transform.k);
-    ctx.globalAlpha = selectedId && !selected && !connected.has(node.id) ? .33 : 1;
+    const radius = Math.max(node.kind === 'topic' ? 6 : node.kind === 'entry' ? 4.8 : 3.6,
+      (node.kind === 'topic' ? 4 : 2.1) / transform.k);
+    ctx.globalAlpha = (selectedId && !selected && !connected.has(node.id) ? .33 : 1) *
+      (node.kind === 'topic' && !activeTopicIds.has(node.id) && !selected ? .28 : 1);
     if (selected || hovered) {
       ctx.beginPath(); ctx.arc(node.drawX, node.drawY, radius + 7 / transform.k, 0, Math.PI * 2);
       ctx.fillStyle = selected ? '#f3cf8b38' : '#e8f1e138'; ctx.fill();
@@ -403,10 +436,11 @@ function draw(time) {
   for (const node of labelNodes) {
     const text = node.label.length > 27 ? node.label.slice(0, 27) + '…' : node.label;
     ctx.shadowColor = '#06160e'; ctx.shadowBlur = 5 / transform.k;
+    ctx.globalAlpha = node.kind === 'topic' && !activeTopicIds.has(node.id) && node.id !== selectedId ? .45 : 1;
     ctx.fillStyle = node.id === selectedId ? '#fff5d7' : '#e0eee1';
     ctx.fillText(text, node.drawX + 10 / transform.k, node.drawY - 7 / transform.k);
   }
-  ctx.shadowBlur = 0;
+  ctx.shadowBlur = 0; ctx.globalAlpha = 1;
   if (sway !== STILL_SWAY && !pinching) scheduleDraw();
   else if (hadSway) { swayLastFrame = null; maybeResumeLayout(); }
 }
