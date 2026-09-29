@@ -1,0 +1,24 @@
+{
+  "name": "emmaus-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline interactive scripture graph for the Emmaus study",
+  "scripts": {
+    "build:graph": "esbuild graph-source.js --bundle --minify --format=iife --target=es2020 --outfile=graph.bundle.js",
+    "check:graph": "node --check graph-model.mjs && node --check graph-source.js && node --check graph.bundle.js",
+    "test": "python3 scripts/build-graph-data.py --check && node --test tests/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howhow777/emmaus-scripture-study.git"
+  },
+  "dependencies": {
+    "d3-force": "^3.0.0",
+    "d3-selection": "^3.0.0",
+    "d3-zoom": "^3.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="以互動圖譜探索《以馬忤斯之路》186組研究條目與舊約、新約經文的連結。">
+  <title>互動經文圖譜｜以馬忤斯之路</title>
+  <link rel="stylesheet" href="graph.css">
+  <script defer src="graph-data.js"></script>
+  <script defer src="graph.bundle.js"></script>
+</head>
+<body>
+  <noscript><p class="no-script">互動圖譜需要 JavaScript。你仍可<a href="index.html#catalog">閱讀完整的 186 組研究條目</a>。</p></noscript>
+  <a class="skip-link" href="#graphControls">跳到圖譜篩選</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回《以馬忤斯之路》研究首頁"><span class="brand-mark" aria-hidden="true">✦</span><span>以馬忤斯之路</span></a>
+    <nav aria-label="頁面導覽"><a href="index.html">閱讀研究</a><span aria-current="page">互動圖譜</span></nav>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="graphTitle">
+      <div><p class="eyebrow">SCRIPTURE ATLAS / 互動經文圖譜</p><h1 id="graphTitle">循著經文之間的光。</h1><p class="intro-copy">從一組研究出發，看見它列出的舊約與新約段落。點選節點閱讀連結；放大、拖移或篩選，追索你想看的路徑。</p></div>
+      <a class="back-link" href="index.html#catalog">回到 186 組研究 <span aria-hidden="true">↗</span></a>
+    </section>
+    <div class="research-boundary" role="note"><strong>讀圖界線</strong><span>實線表示研究條目實際列出的經文；虛線只表示共用主題，並非經文彼此直接引用或應驗。這是研究索引，不是以馬忤斯路上講章的還原。</span></div>
+    <div class="workspace">
+      <aside class="controls" id="graphControls" aria-labelledby="controlsTitle">
+        <details class="filter-fold" open><summary><span><span class="eyebrow">EXPLORE / 探索</span><strong id="controlsTitle">篩選圖譜</strong></span><span class="fold-chevron" aria-hidden="true">⌄</span></summary>
+          <div class="filter-body">
+            <label class="field" for="graphSearch"><span>關鍵字</span><input id="graphSearch" type="search" placeholder="經文、主題、條目編號…" autocomplete="off"></label>
+            <div class="filter-pair"><label class="field" for="scopeFilter"><span>研究範圍</span><select id="scopeFilter"><option value="core">主線 49 組</option><option value="all">全部 186 組</option></select></label><label class="field" for="testamentFilter"><span>顯示經文</span><select id="testamentFilter"><option value="both">舊約＋新約</option><option value="ot">只看舊約</option><option value="nt">只看新約</option></select></label></div>
+            <div class="filter-pair"><label class="field" for="bookFilter"><span>相關書卷</span><select id="bookFilter"><option value="">全部書卷</option></select></label><label class="field" for="groupFilter"><span>書卷類別</span><select id="groupFilter"><option value="">全部類別</option></select></label></div>
+            <div class="filter-pair"><label class="field" for="topicFilter"><span>救恩主題</span><select id="topicFilter"><option value="">全部主題</option></select></label><label class="field" for="evidenceFilter"><span>證據類型</span><select id="evidenceFilter"><option value="">全部類型</option><option value="A">A · 明確引用／採用</option><option value="B">B · 明示類比／對照</option><option value="C">C · 主題呼應</option><option value="D">D · 有爭議的候選</option></select></label></div>
+            <div class="check-list">
+              <label><input id="pentateuchOnly" type="checkbox"><span>摩西五經相關</span></label>
+              <label><input id="jesusSpeechOnly" type="checkbox"><span>耶穌親口說的經節 <span class="info-mark" title="保留含已核對發言經節的研究；圖上的經文點仍是原研究引用的完整段落，點開可看確切發言節數。">ⓘ</span></span></label>
+              <label><input id="jesusCompareOnly" type="checkbox"><span>原研究「耶穌親引／比較」</span></label>
+              <label><input id="showTopics" type="checkbox" checked><span>顯示主題節點與虛線</span></label>
+            </div>
+            <p class="filter-note">書卷與類別會找出相關研究；「顯示經文」決定圖上呈現哪一約。不同篩選條件可一起使用。</p>
+            <button class="reset-button" id="clearFilters" type="button">清除篩選</button>
+          </div>
+        </details>
+        <details class="result-fold" id="resultsFold"><summary><span>可用鍵盤瀏覽的結果</span><span id="resultCount">—</span></summary><div class="result-body"><p>選取結果可在右側查看經文與研究連結。</p><div id="resultList"></div></div></details>
+      </aside>
+      <section class="graph-stage" aria-label="互動經文圖譜">
+        <div class="graph-toolbar"><div id="graphStatus" role="status" aria-live="polite">正在整理經文圖譜…</div><div class="zoom-tools" aria-label="圖譜縮放"><button id="zoomOut" type="button" aria-label="縮小圖譜">−</button><button id="zoomIn" type="button" aria-label="放大圖譜">＋</button><button id="fitGraph" type="button" aria-label="讓全部可見節點出現在畫面內">全圖</button></div></div>
+        <canvas id="graphCanvas" aria-label="經文關係圖：可拖移、捏合縮放並點選節點。鍵盤使用者可透過左側結果清單選取節點。"></canvas>
+        <button id="detailsJump" class="details-jump" type="button" hidden>查看所選節點詳情 ↓</button>
+        <div class="graph-hint">點選節點查看詳情 <span aria-hidden="true">·</span> 拖移空白處平移 <span aria-hidden="true">·</span> 雙指捏合縮放</div>
+        <div class="legend" aria-label="圖例"><span><i class="legend-dot legend-entry"></i>研究條目</span><span><i class="legend-dot legend-ot"></i>舊約</span><span><i class="legend-dot legend-nt"></i>新約</span><span><i class="legend-dot legend-topic"></i>主題</span><span><i class="legend-line"></i>條目列出的經文</span><span><i class="legend-line dashed"></i>共同分類</span><span><i class="legend-line spoken"></i>原引用含耶穌發言</span></div>
+      </section>
+      <aside class="details-panel" id="graphDetails" aria-labelledby="detailsTitle"><div class="details-header"><span class="eyebrow">INSPECT / 細讀</span></div><div id="detailsContent"><h2 id="detailsTitle">從一個點開始</h2><p>點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。</p></div></aside>
+    </div>
+    <details class="gesture-metrics" id="gestureDiagnostics"><summary>手機手勢流暢度紀錄 <span>展開查看</span></summary><div class="metrics-body"><p>在圖面連續捏合或拖移約 10 秒後，這裡會顯示本機瀏覽器的近似影格間隔。它用來協助回報手感；結果會受裝置、電量與背景工作影響。</p><dl><div><dt>連續手勢</dt><dd id="gestureDuration">—</dd></div><div><dt>影格間隔 p95</dt><dd id="gestureP95">—</dd></div><div><dt>超過 50 ms</dt><dd id="gestureLongFrames">—</dd></div><div><dt>取樣影格</dt><dd id="gestureFrameSamples">—</dd></div></dl><p class="metric-target">60 Hz 裝置的參考目標：p95 ≤ 20 ms，超過 50 ms 的影格為 0。</p></div></details>
+    <p class="page-footnote">資料沿用《以馬忤斯之路：舊約如何見證基督》的研究條目與原有經文網址。耶穌親口經節以另外核對的逐節標註呈現；未標註不表示該段沒有耶穌發言。</p>
+  </main>
+</body>
+</html>
