@@ -22,7 +22,7 @@
       <div><p class="eyebrow">SCRIPTURE ATLAS / 互動經文圖譜</p><h1 id="graphTitle">循著經文之間的光。</h1><p class="intro-copy">從一組研究出發，看見它列出的舊約與新約段落。點選節點閱讀連結；放大、拖移或篩選，追索你想看的路徑。</p></div>
       <a class="back-link" href="index.html#catalog">回到 186 組研究 <span aria-hidden="true">↗</span></a>
     </section>
-    <div class="research-boundary" role="note"><strong>讀圖界線</strong><span>實線表示研究條目實際列出的經文；虛線只表示共用主題，並非經文彼此直接引用或應驗。這是研究索引，不是以馬忤斯路上講章的還原。</span></div>
+    <div class="research-boundary" role="note"><strong>讀圖界線</strong><span>實線表示研究條目實際列出的經文；虛線只表示共用主題，並非經文彼此直接引用或應驗。布局將 A／B 條目的經文線設得最短、C 次之、D 較長；共用經文的條目也會聚在附近。實際線長仍受共用節點、碰撞與布局影響，不能當作證據分數。A–D 只標示條目的主要連結類型，並非每條附帶經文的獨立評分。這是研究索引，不是以馬忤斯路上講章的還原。</span></div>
     <div class="workspace">
       <aside class="controls" id="graphControls" aria-labelledby="controlsTitle">
         <details class="filter-fold" open><summary><span><span class="eyebrow">EXPLORE / 探索</span><strong id="controlsTitle">篩選圖譜</strong></span><span class="fold-chevron" aria-hidden="true">⌄</span></summary>
@@ -45,9 +45,9 @@
       </aside>
       <section class="graph-stage" aria-label="互動經文圖譜">
         <div class="graph-toolbar"><div id="graphStatus" role="status" aria-live="polite">正在整理經文圖譜…</div><div class="zoom-tools" aria-label="圖譜縮放"><button id="zoomOut" type="button" aria-label="縮小圖譜">−</button><button id="zoomIn" type="button" aria-label="放大圖譜">＋</button><button id="fitGraph" type="button" aria-label="讓全部可見節點出現在畫面內">全圖</button></div></div>
-        <canvas id="graphCanvas" aria-label="經文關係圖：可拖移、捏合縮放並點選節點。鍵盤使用者可透過左側結果清單選取節點。"></canvas>
+        <canvas id="graphCanvas" aria-label="經文關係圖：單指在任意位置拖移畫布，雙指捏合縮放，輕點節點查看詳情。鍵盤使用者可透過篩選結果清單選取節點。"></canvas>
         <button id="detailsJump" class="details-jump" type="button" hidden>查看所選節點詳情 ↓</button>
-        <div class="graph-hint">點選節點查看詳情 <span aria-hidden="true">·</span> 拖移空白處平移 <span aria-hidden="true">·</span> 雙指捏合縮放</div>
+        <div class="graph-hint">輕點節點查看詳情 <span aria-hidden="true">·</span> 單指拖移平移 <span aria-hidden="true">·</span> 雙指捏合縮放</div>
         <div class="legend" aria-label="圖例"><span><i class="legend-dot legend-entry"></i>研究條目</span><span><i class="legend-dot legend-ot"></i>舊約</span><span><i class="legend-dot legend-nt"></i>新約</span><span><i class="legend-dot legend-topic"></i>主題</span><span><i class="legend-line"></i>條目列出的經文</span><span><i class="legend-line dashed"></i>共同分類</span><span><i class="legend-line spoken"></i>原引用含耶穌發言</span></div>
       </section>
       <aside class="details-panel" id="graphDetails" aria-labelledby="detailsTitle"><div class="details-header"><span class="eyebrow">INSPECT / 細讀</span></div><div id="detailsContent"><h2 id="detailsTitle">從一個點開始</h2><p>點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。</p></div></aside>

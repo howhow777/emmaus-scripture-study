@@ -1,7 +1,8 @@
-import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY } from 'd3-force';
 import { zoom, zoomIdentity } from 'd3-zoom';
 import { select } from 'd3-selection';
 import { entryMatches, visibleGraph } from './graph-model.mjs';
+import { seedNode, makeSimulation } from './graph-layout.mjs';
+import { MIN_ZOOM, MAX_ZOOM, clampZoom, panTransform, pinchTransform, tapEligible, STILL_SWAY, swayImpulse, springStep, displayX, displayY } from './graph-motion.mjs';
 
 const data = window.EMMAUS_GRAPH_DATA;
 const $ = id => document.getElementById(id);
@@ -43,18 +44,6 @@ const passageNodes = new Map();
 const topicNodes = new Map();
 const entryNodes = new Map();
 
-function hashNumber(value) {
-  let result = 2166136261;
-  for (let i = 0; i < value.length; i++) result = Math.imul(result ^ value.charCodeAt(i), 16777619);
-  return result >>> 0;
-}
-function seedNode(node) {
-  const baseX = node.kind === 'ot' ? -260 : node.kind === 'nt' ? 260 : node.kind === 'topic' ? 0 : 0;
-  const rangeX = node.kind === 'topic' ? 420 : node.kind === 'entry' ? 260 : 170;
-  node.x = baseX + ((hashNumber(node.id + 'x') / 4294967295) - .5) * rangeX;
-  node.y = (node.kind === 'topic' ? -220 : 0) + ((hashNumber(node.id + 'y') / 4294967295) - .5) * 480;
-  return node;
-}
 function addNode(node) {
   allNodes.set(node.id, seedNode(node));
   return node;
@@ -108,24 +97,26 @@ let transform = zoomIdentity;
 let width = 1, height = 1, dpr = 1, drawPending = false;
 let userHasMovedView = false;
 let wheelGesture = false;
+let layoutSettled = true;
+let sway = STILL_SWAY, swayLastFrame = null;
 const pointers = new Map();
-let pointerMode = null, pointerStart = null, pointerBaseTransform = null, pointerNode = null, pointerNodeOffset = null, pointerMoved = false, hadMultiplePointers = false, pinchStart = null;
+let pointerStart = null, pointerBaseTransform = null, pointerNode = null, pointerMoved = false, hadMultiplePointers = false, pinchStart = null;
 let gestureStartedAt = null, lastSampleAt = null, sampleFrameId = null, frameIntervals = [];
 
-const simulation = forceSimulation([])
-  .force('link', forceLink([]).id(node => node.id).distance(link => link.kind === 'topic' ? 84 : 66).strength(link => link.kind === 'topic' ? .08 : .23))
-  .force('charge', forceManyBody().strength(node => node.kind === 'topic' ? -110 : node.kind === 'entry' ? -65 : -35).distanceMax(260))
-  .force('collision', forceCollide().radius(node => node.kind === 'topic' ? 16 : node.kind === 'entry' ? 10 : 7).iterations(2))
-  .force('x', forceX(node => node.kind === 'ot' ? -250 : node.kind === 'nt' ? 250 : 0).strength(node => node.kind === 'topic' ? .02 : .055))
-  .force('y', forceY(node => node.kind === 'topic' ? -180 : 0).strength(.025))
-  .on('tick', () => { if (!pointers.size && !wheelGesture) scheduleDraw(); });
+const simulation = makeSimulation([], [], entriesById)
+  .on('tick', () => { if (!pointers.size && !wheelGesture) scheduleDraw(); })
+  .on('end', () => { layoutSettled = true; });
+
+function maybeResumeLayout() {
+  if (!reducedMotion && !layoutSettled && !pointers.size && !wheelGesture && sway === STILL_SWAY) simulation.restart();
+}
 
 const zoomBehavior = zoom()
-  .scaleExtent([.22, 5])
+  .scaleExtent([MIN_ZOOM, MAX_ZOOM])
   .filter(event => event.type === 'wheel')
   .on('start', event => { if (event.sourceEvent?.type === 'wheel') { wheelGesture = true; simulation.stop(); } })
   .on('zoom', event => { transform = event.transform; if (event.sourceEvent?.type === 'wheel') userHasMovedView = true; scheduleDraw(); })
-  .on('end', event => { if (event.sourceEvent?.type === 'wheel') { wheelGesture = false; scheduleDraw(); } });
+  .on('end', event => { if (event.sourceEvent?.type === 'wheel') { wheelGesture = false; maybeResumeLayout(); scheduleDraw(); } });
 canvasSelection.call(zoomBehavior);
 canvasSelection.on('dblclick.zoom', null);
 
@@ -159,12 +150,17 @@ function buildVisible() {
   simulation.stop();
   simulation.nodes(visibleNodes);
   simulation.force('link').links(visibleLinks.map(link => ({ ...link })));
+  sway = STILL_SWAY; swayLastFrame = null;
   if (reducedMotion) {
     simulation.alpha(1);
     simulation.tick(Math.min(90, Math.max(35, Math.round(18000 / Math.max(visibleNodes.length, 1)))));
     simulation.stop();
+    layoutSettled = true;
   } else {
-    simulation.alpha(.72).restart();
+    layoutSettled = false;
+    simulation.alpha(.72);
+    simulation.tick(60); // Establish near-final bounds before the first fit, without animating clipped edges.
+    maybeResumeLayout();
   }
   fitGraph();
   scheduleDraw();
@@ -301,7 +297,8 @@ function fitGraph() {
   const xs = visibleNodes.map(node => node.x), ys = visibleNodes.map(node => node.y);
   const minX = Math.min(...xs) - 46, maxX = Math.max(...xs) + 46;
   const minY = Math.min(...ys) - 66, maxY = Math.max(...ys) + 85;
-  const k = Math.max(.22, Math.min(2.2, (width - 48) / (maxX - minX), (height - 158) / (maxY - minY)));
+  const safety = layoutSettled ? 1 : .9;
+  const k = Math.max(MIN_ZOOM, Math.min(2.2, (width - 48) / (maxX - minX), (height - 158) / (maxY - minY)) * safety);
   const midX = (minX + maxX) / 2, midY = (minY + maxY) / 2;
   canvasSelection.call(zoomBehavior.transform, zoomIdentity.translate(width / 2 - midX * k, height / 2 - midY * k).scale(k));
   userHasMovedView = false;
@@ -317,7 +314,7 @@ function resizeCanvas() {
 function scheduleDraw() {
   if (drawPending) return;
   drawPending = true;
-  requestAnimationFrame(() => { drawPending = false; draw(); });
+  requestAnimationFrame(time => { drawPending = false; draw(time); });
 }
 function endpoint(link, side) { return typeof link[side] === 'string' ? allNodes.get(link[side]) : link[side]; }
 function drawLinks(links, color, lineWidth, dashed = false) {
@@ -326,14 +323,24 @@ function drawLinks(links, color, lineWidth, dashed = false) {
   ctx.setLineDash(dashed ? [4 / transform.k, 5 / transform.k] : []);
   for (const link of links) {
     const source = endpoint(link, 'source'), target = endpoint(link, 'target');
-    const x1 = transform.applyX(source.x), y1 = transform.applyY(source.y);
-    const x2 = transform.applyX(target.x), y2 = transform.applyY(target.y);
+    const x1 = transform.applyX(source.drawX), y1 = transform.applyY(source.drawY);
+    const x2 = transform.applyX(target.drawX), y2 = transform.applyY(target.drawY);
     if (Math.max(x1, x2) < -30 || Math.min(x1, x2) > width + 30 || Math.max(y1, y2) < -30 || Math.min(y1, y2) > height + 30) continue;
-    ctx.moveTo(source.x, source.y); ctx.lineTo(target.x, target.y);
+    ctx.moveTo(source.drawX, source.drawY); ctx.lineTo(target.drawX, target.drawY);
   }
   ctx.stroke(); ctx.setLineDash([]);
 }
-function draw() {
+function draw(time) {
+  const hadSway = sway !== STILL_SWAY;
+  const pinching = pointers.size >= 2;
+  if (hadSway && !pinching) {
+    sway = springStep(sway, swayLastFrame === null ? 0 : time - swayLastFrame);
+    swayLastFrame = time;
+  } else if (pinching) swayLastFrame = null;
+  for (const node of visibleNodes) {
+    node.drawX = displayX(node, sway, transform.k);
+    node.drawY = displayY(node, sway, transform.k);
+  }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, width, height);
   ctx.translate(transform.x, transform.y); ctx.scale(transform.k, transform.k);
   drawLinks(regularLinks, '#7da48e55', .75);
@@ -343,35 +350,37 @@ function draw() {
   const connected = new Set();
   for (const link of selectedLinks) { connected.add(endpoint(link, 'source').id); connected.add(endpoint(link, 'target').id); }
   for (const node of visibleNodes) {
-    const screenX = transform.applyX(node.x), screenY = transform.applyY(node.y);
+    const screenX = transform.applyX(node.drawX), screenY = transform.applyY(node.drawY);
     if (screenX < -30 || screenX > width + 30 || screenY < -30 || screenY > height + 30) continue;
     const selected = node.id === selectedId, hovered = node.id === hoveredId;
     const radius = Math.max(node.kind === 'topic' ? 6 : node.kind === 'entry' ? 4.8 : 3.6, 2.1 / transform.k);
     ctx.globalAlpha = selectedId && !selected && !connected.has(node.id) ? .33 : 1;
     if (selected || hovered) {
-      ctx.beginPath(); ctx.arc(node.x, node.y, radius + 7 / transform.k, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.arc(node.drawX, node.drawY, radius + 7 / transform.k, 0, Math.PI * 2);
       ctx.fillStyle = selected ? '#f3cf8b38' : '#e8f1e138'; ctx.fill();
     }
-    ctx.beginPath(); ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+    ctx.beginPath(); ctx.arc(node.drawX, node.drawY, radius, 0, Math.PI * 2);
     ctx.fillStyle = colors[node.kind]; ctx.fill();
     if (node.kind === 'entry' || node.kind === 'topic') {
       ctx.strokeStyle = selected ? '#fff3ce' : '#d8e8d277'; ctx.lineWidth = 1 / transform.k; ctx.stroke();
     }
   }
   ctx.globalAlpha = 1;
-  const gesture = pointers.size > 0 || wheelGesture;
+  const gesture = pointers.size > 0 || wheelGesture || sway !== STILL_SWAY;
   const labelNodes = visibleNodes.filter(node => node.id === selectedId || node.id === hoveredId ||
     (!gesture && (node.kind === 'topic' || (transform.k > 1.45 && node.kind === 'entry') || (transform.k > 2.4 && node.kind !== 'entry'))))
-    .filter(node => { const x = transform.applyX(node.x), y = transform.applyY(node.y); return x > -120 && x < width + 120 && y > -40 && y < height + 40; });
+    .filter(node => { const x = transform.applyX(node.drawX), y = transform.applyY(node.drawY); return x > -120 && x < width + 120 && y > -40 && y < height + 40; });
   ctx.font = `${11 / transform.k}px -apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif`;
   ctx.textBaseline = 'middle';
   for (const node of labelNodes) {
     const text = node.label.length > 27 ? node.label.slice(0, 27) + '…' : node.label;
     ctx.shadowColor = '#06160e'; ctx.shadowBlur = 5 / transform.k;
     ctx.fillStyle = node.id === selectedId ? '#fff5d7' : '#e0eee1';
-    ctx.fillText(text, node.x + 10 / transform.k, node.y - 7 / transform.k);
+    ctx.fillText(text, node.drawX + 10 / transform.k, node.drawY - 7 / transform.k);
   }
   ctx.shadowBlur = 0;
+  if (sway !== STILL_SWAY && !pinching) scheduleDraw();
+  else if (hadSway) { swayLastFrame = null; maybeResumeLayout(); }
 }
 
 function localPoint(event) {
@@ -380,7 +389,8 @@ function localPoint(event) {
 function hitNode(point) {
   let found = null, best = Infinity;
   for (const node of visibleNodes) {
-    const sx = transform.applyX(node.x), sy = transform.applyY(node.y);
+    const sx = transform.applyX(displayX(node, sway, transform.k));
+    const sy = transform.applyY(displayY(node, sway, transform.k));
     const distance = Math.hypot(point.x - sx, point.y - sy);
     const radius = node.kind === 'topic' ? 17 : node.kind === 'entry' ? 16 : 13;
     if (distance <= radius && distance < best) { found = node; best = distance; }
@@ -388,7 +398,7 @@ function hitNode(point) {
   return found;
 }
 function applyTransform(x, y, k) {
-  canvasSelection.call(zoomBehavior.transform, zoomIdentity.translate(x, y).scale(Math.max(.22, Math.min(5, k))));
+  canvasSelection.call(zoomBehavior.transform, zoomIdentity.translate(x, y).scale(clampZoom(k)));
 }
 function sampleGestureFrame(time) {
   if (gestureStartedAt === null) return;
@@ -417,7 +427,7 @@ function startPinch() {
   const mid = { x: (points[0].x + points[1].x) / 2, y: (points[0].y + points[1].y) / 2 };
   pinchStart = { distance: Math.max(1, Math.hypot(points[1].x - points[0].x, points[1].y - points[0].y)),
     world: transform.invert([mid.x, mid.y]), k: transform.k };
-  pointerMode = 'pinch'; pointerMoved = true; hadMultiplePointers = true; pointerNode = null;
+  pointerMoved = true; hadMultiplePointers = true; pointerNode = null;
 }
 function pointerDown(event) {
   if (event.pointerType === 'mouse' && event.button !== 0) return;
@@ -425,10 +435,8 @@ function pointerDown(event) {
   if (!pointers.size) startGestureSampling();
   const point = localPoint(event); pointers.set(event.pointerId, point);
   if (pointers.size === 1) {
-    pointerMode = 'pan'; pointerStart = point; pointerBaseTransform = transform;
-    pointerNode = hitNode(point); if (pointerNode) pointerMode = 'node';
-    if (pointerNode) { const world = transform.invert([point.x, point.y]); pointerNodeOffset = { x: pointerNode.x - world[0], y: pointerNode.y - world[1] }; }
-    else pointerNodeOffset = null;
+    pointerStart = point; pointerBaseTransform = transform;
+    pointerNode = hitNode(point);
     pointerMoved = false; hadMultiplePointers = false;
   } else startPinch();
 }
@@ -440,24 +448,21 @@ function pointerMove(event) {
     }
     return;
   }
-  event.preventDefault(); pointers.set(event.pointerId, point);
+  event.preventDefault();
+  const previousPoint = pointers.get(event.pointerId);
+  pointers.set(event.pointerId, point);
   if (pointers.size >= 2) {
     const points = [...pointers.values()].slice(0, 2);
-    const mid = { x: (points[0].x + points[1].x) / 2, y: (points[0].y + points[1].y) / 2 };
-    const distance = Math.max(1, Math.hypot(points[1].x - points[0].x, points[1].y - points[0].y));
-    const k = Math.max(.22, Math.min(5, pinchStart.k * distance / pinchStart.distance));
-    applyTransform(mid.x - pinchStart.world[0] * k, mid.y - pinchStart.world[1] * k, k);
+    const next = pinchTransform(pinchStart, points[0], points[1]);
+    applyTransform(next.x, next.y, next.k);
     userHasMovedView = true; return;
   }
   if (Math.hypot(point.x - pointerStart.x, point.y - pointerStart.y) > 5) pointerMoved = true;
   if (!pointerMoved) return;
-  if (pointerMode === 'node' && pointerNode) {
-    const world = transform.invert([point.x, point.y]); pointerNode.x = world[0] + pointerNodeOffset.x; pointerNode.y = world[1] + pointerNodeOffset.y;
-    pointerNode.vx = 0; pointerNode.vy = 0; scheduleDraw();
-  } else {
-    applyTransform(pointerBaseTransform.x + point.x - pointerStart.x, pointerBaseTransform.y + point.y - pointerStart.y, pointerBaseTransform.k);
-    userHasMovedView = true;
-  }
+  const next = panTransform(pointerBaseTransform, pointerStart, point);
+  applyTransform(next.x, next.y, next.k);
+  if (!reducedMotion) sway = swayImpulse(sway, point.x - previousPoint.x, point.y - previousPoint.y);
+  userHasMovedView = true;
 }
 function pointerEnd(event) {
   if (!pointers.has(event.pointerId)) return;
@@ -465,19 +470,26 @@ function pointerEnd(event) {
   const point = pointers.get(event.pointerId);
   const releasePoint = localPoint(event);
   if (pointerStart && Math.hypot(releasePoint.x - pointerStart.x, releasePoint.y - pointerStart.y) > 5) pointerMoved = true;
+  if (pointers.size === 1 && pointerMoved) {
+    const next = panTransform(pointerBaseTransform, pointerStart, releasePoint);
+    applyTransform(next.x, next.y, next.k);
+    if (!reducedMotion) sway = swayImpulse(sway, releasePoint.x - point.x, releasePoint.y - point.y);
+    userHasMovedView = true;
+  }
   pointers.delete(event.pointerId);
   if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
   if (pointers.size >= 2) { startPinch(); return; }
   if (pointers.size === 1) {
-    pointerMode = 'pan'; pointerNode = null; pointerStart = [...pointers.values()][0]; pointerBaseTransform = transform;
-    pointerMoved = true; return;
+    pointerNode = null; pointerStart = [...pointers.values()][0]; pointerBaseTransform = transform;
+    pointerMoved = true; scheduleDraw(); return;
   }
   stopGestureSampling();
-  if (!pointerMoved && !hadMultiplePointers && event.type !== 'pointercancel') {
+  if (tapEligible(pointerMoved, hadMultiplePointers, event.type === 'pointercancel')) {
     const node = pointerNode || hitNode(point);
     if (node) selectNode(node, false);
   }
-  pointerMode = null; pointerNode = null; pointerNodeOffset = null; pointerStart = null; pinchStart = null;
+  pointerNode = null; pointerStart = null; pinchStart = null;
+  maybeResumeLayout();
   scheduleDraw();
 }
 canvas.addEventListener('pointerdown', pointerDown);
