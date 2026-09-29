@@ -78,13 +78,19 @@ test('the actual all-186 simulation has ordered median lengths with deterministi
   assert.ok(first.C < first.D && first.D < first.topic, JSON.stringify(first));
 });
 
-test('the 49-core and all-186 scripture clouds settle near circles inside their topic rings', () => {
+test('the 49-core and all-186 scripture clouds settle near circles around inset topic rings', () => {
   for (const scope of ['core', 'all']) {
     const { aspect, nodes, medians } = simulatedLayout(scope);
     assert.ok(aspect >= .85 && aspect <= 1.15, `${scope} aspect: ${aspect}`);
     const radius = topicRingRadius(scope);
-    assert.equal(nodes.filter(node => node.kind === 'topic').length, 10);
-    assert.ok(nodes.filter(node => node.kind !== 'topic').every(node => Math.hypot(node.x, node.y) < radius), `${scope} has scripture nodes beyond the topic ring`);
+    const topics = nodes.filter(node => node.kind === 'topic');
+    const scriptures = nodes.filter(node => node.kind !== 'topic');
+    assert.equal(topics.length, 10);
+    assert.ok(scriptures.filter(node => Math.hypot(node.x, node.y) > radius).length / scriptures.length > .6,
+      `${scope} topic ring is not surrounded by enough scripture and entry nodes`);
+    assert.ok(topics.every(topic => scriptures.filter(node => Math.hypot(node.x - topic.x, node.y - topic.y) < 150).length >= (scope === 'core' ? 25 : 50)),
+      `${scope} has an isolated topic node`);
+    assert.ok(medians.topic < (scope === 'core' ? 300 : 380), `${scope} topic links remain too long: ${medians.topic}`);
     assert.ok(Math.abs(medians.A - medians.B) < 15, `${scope} A/B lengths differ: ${JSON.stringify(medians)}`);
     assert.ok(Math.max(medians.A, medians.B) < medians.C, `${scope} A/B/C lengths: ${JSON.stringify(medians)}`);
     if (scope === 'all') assert.ok(medians.C < medians.D, JSON.stringify(medians));

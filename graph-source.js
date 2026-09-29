@@ -404,8 +404,9 @@ function draw(time) {
   }
   drawLinks(regularLinks, '#7da48e55', .75);
   drawLinks(spokenLinks, '#eac98288', 1.15);
-  drawLinks(topicLinks, '#b295cc55', .8, true);
-  drawLinks(selectedLinks, '#f6d188', 1.7);
+  drawLinks(topicLinks, selectedId ? '#b295cc14' : '#b295cc28', .8, true);
+  drawLinks(selectedLinks.filter(link => link.kind === 'citation'), '#f6d188', 1.7);
+  drawLinks(selectedLinks.filter(link => link.kind === 'topic'), '#e4c2f1e0', 1.6, true);
   const connected = new Set();
   for (const link of selectedLinks) { connected.add(endpoint(link, 'source').id); connected.add(endpoint(link, 'target').id); }
   for (const node of visibleNodes) {

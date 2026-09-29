@@ -3,7 +3,7 @@ import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY
 export const TOPIC_ORDER = ['立約', '身分', '降生', '事工', '受苦', '贖罪', '復活', '榮耀', '萬邦', '終末'];
 
 export function topicRingRadius(scope) {
-  return scope === 'all' ? 750 : 520;
+  return scope === 'all' ? 280 : 200;
 }
 
 export function placeTopicRing(nodes, scope = null) {
@@ -34,9 +34,8 @@ function softOuterBoundary() {
   }
   force.initialize = value => {
     nodes = value;
-    const topic = nodes.find(node => node.kind === 'topic');
-    const radius = topic ? Math.hypot(topic.fx, topic.fy) : Math.max(250, Math.min(840, 35 + 32 * Math.sqrt(nodes.length)));
-    limit = radius - 90;
+    const nonTopicCount = nodes.filter(node => node.kind !== 'topic').length;
+    limit = Math.max(300, Math.min(660, 28 * Math.sqrt(nonTopicCount)));
   };
   return force;
 }
