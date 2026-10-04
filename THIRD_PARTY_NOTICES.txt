@@ -1,4 +1,4 @@
-Third-party notices for graph.bundle.js
+Third-party notices for this site
 
 
 d3-color 3.1.0
@@ -201,3 +201,16 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
 OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
 TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
+
+Scripture preview excerpts
+============================================================
+Source: 聖經 (和合本), 神版, Wikisource transcription adjusted toward 1919 usage.
+https://zh.wikisource.org/wiki/聖經_(和合本)
+
+The Wikisource source page identifies this work as public domain. The site
+displays up to four verses per cited passage from pinned book revisions listed
+in the source repository's scripts/build-scripture-previews.py. The builder
+corrects a misplaced verse marker in Isaiah 4:3–4 and joins the continued
+line in Ezekiel 47:2 in that transcription. The previews are not the same
+edition as the external Bible.com CUNP-神 links; wording and punctuation may
+differ.

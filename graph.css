@@ -84,6 +84,7 @@ h1{font-size:clamp(30px,3.3vw,48px);letter-spacing:.035em;line-height:1.35;margi
 .legend-line.spoken{border-color:#f7d78b;border-top-width:3px}
 .details-panel{padding:20px 19px 24px;overflow:auto;max-height:650px}
 .details-header{display:flex;align-items:center;justify-content:space-between}
+.details-panel .preview-hint{color:#b7c9bb;margin:9px 0 0;font-size:11px}
 #detailsContent{overflow-wrap:anywhere}
 #detailsContent h2{font-size:23px;line-height:1.42;margin:13px 0 14px}
 #detailsContent p{font-size:13px;color:#b7c9bb;margin:11px 0}

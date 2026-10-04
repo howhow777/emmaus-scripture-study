@@ -1,0 +1,22 @@
+.scripture-preview[hidden]{display:none}
+.scripture-preview-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.scripture-preview{position:fixed;z-index:1000;width:min(390px,calc(100vw - 24px));max-height:min(65vh,470px);overflow:auto;border:1px solid #bdcbb9;border-radius:12px;background:#fffef9;color:#244136;box-shadow:0 16px 48px #10251c3d;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;line-height:1.6;padding:17px 18px 15px}
+.scripture-preview *{box-sizing:border-box}
+.scripture-preview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.scripture-preview-kicker{display:block;color:#8a6b35;font-size:10px;font-weight:700;letter-spacing:.12em}
+.scripture-preview h2{margin:3px 0 0;color:#1d4837;font-size:19px;font-weight:650;line-height:1.35}
+.scripture-preview-close{flex:none;width:32px;height:32px;border:1px solid #cbd6c8;border-radius:50%;background:#f3f5ed;color:#345944;font-size:22px;line-height:1;cursor:pointer}
+.scripture-preview-close:hover{background:#e6eddf}
+.scripture-preview-extent{margin:8px 0 10px;color:#67796b;font-size:11px}
+.scripture-preview-verses{display:grid;gap:8px;margin:0 0 12px;max-height:245px;overflow:auto;overscroll-behavior:contain}
+.scripture-preview-verse{display:flex;align-items:baseline;gap:8px;margin:0;font-size:14px;line-height:1.8}
+.scripture-preview-verse strong{flex:none;color:#9a783e;font-size:11px}
+.scripture-preview-version{padding-top:10px;border-top:1px solid #e3e8de;color:#617468;font-size:11px;line-height:1.5}
+.scripture-preview-version a{color:#426b51}
+.scripture-preview-open{display:inline-block;margin-top:11px;padding:7px 11px;border-radius:6px;background:#21553b;color:#fff!important;text-decoration:none;font-size:12px;font-weight:600}
+.scripture-preview-open:hover{background:#347050}
+.scripture-preview :focus-visible{outline:3px solid #b5873f;outline-offset:2px}
+a[href^="https://www.bible.com/bible/46/"]{-webkit-touch-callout:none}
+.preview-hint{margin:9px 0 15px;color:#5c7163;font-size:12px;line-height:1.6}
+@media(max-width:640px){.scripture-preview.is-pinned{left:12px!important;right:12px!important;top:auto!important;bottom:max(12px,env(safe-area-inset-bottom));width:auto;max-height:min(67dvh,500px)}}
+@media print{.scripture-preview{display:none!important}}
