@@ -1,6 +1,6 @@
 import { zoom, zoomIdentity } from 'd3-zoom';
 import { select } from 'd3-selection';
-import { entryMatches, visibleGraph } from './graph-model.mjs';
+import { entryMatches, normalizeQuery, passageSearchIndex, visibleGraph } from './graph-model.mjs';
 import { TOPIC_ORDER, seedNode, makeSimulation, placeTopicRing } from './graph-layout.mjs';
 import { MIN_ZOOM, MAX_ZOOM, clampZoom, panTransform, pinchTransform, tapEligible, STILL_SWAY, swayImpulse, springStep, displayX, displayY } from './graph-motion.mjs';
 import { selectionAfterTap, hashAfterSelection } from './graph-selection.mjs';
@@ -35,6 +35,8 @@ if (!data || data.version !== 1 || !Array.isArray(data.entries) || !ctx) {
 }
 
 const entries = data.entries;
+const scripturePreviews = window.EMMAUS_SCRIPTURE_PREVIEWS?.passages || {};
+const passageSearch = passageSearchIndex(scripturePreviews);
 const passageDates = data.dates || {};
 const entriesById = new Map(entries.map(entry => [entry.id, entry]));
 const speechByEntry = new Map();
@@ -146,11 +148,11 @@ function readState() {
   };
 }
 function matchesEntry(entry, state) {
-  return entryMatches(entry, state, data.books, new Set(speechByEntry.keys()));
+  return entryMatches(entry, state, data.books, new Set(speechByEntry.keys()), passageSearch);
 }
 function buildVisible() {
   const state = readState();
-  const result = visibleGraph(data, state);
+  const result = visibleGraph(data, state, passageSearch);
   visibleEntries = result.entries;
   visibleLinks = result.links;
   regularLinks = visibleLinks.filter(link => link.kind === 'citation' && !link.spoken);
@@ -166,6 +168,7 @@ function buildVisible() {
   $('graphStatus').textContent = `${visibleEntries.length} 組研究 · ${visibleNodes.filter(node => node.kind === 'ot').length} 處舊約 · ${visibleNodes.filter(node => node.kind === 'nt').length} 處新約`;
   $('resultCount').textContent = `${visibleEntries.length} 組`;
   renderResultList();
+  if (state.search) $('resultsFold').open = true;
   if (selectedId) renderDetails(allNodes.get(selectedId));
   simulation.stop();
   simulation.nodes(visibleNodes);
@@ -189,14 +192,21 @@ function buildVisible() {
 
 function renderResultList() {
   const target = $('resultList');
+  const query = normalizeQuery(controls.search.value);
   target.replaceChildren();
   if (!visibleEntries.length) {
     const p = document.createElement('p'); p.textContent = '沒有符合條件的研究，請放寬篩選。'; target.append(p);
   }
+  const matchedPassages = query ? visibleNodes.filter(node =>
+    (node.kind === 'ot' || node.kind === 'nt')
+    && scripturePreviews[node.ref]?.verses.some(verse => normalizeQuery(verse.text).includes(query))) : [];
+  const matchedIds = new Set(matchedPassages.map(node => node.id));
+  const byLabel = (a, b) => a.label.localeCompare(b.label, 'zh-Hant');
   const groups = [
+    ['match', '符合關鍵字的經文', matchedPassages.sort(byLabel)],
     ['entry', '研究條目', visibleNodes.filter(node => node.kind === 'entry').sort((a, b) => a.entry.id.localeCompare(b.entry.id))],
-    ['ot', '舊約經文', visibleNodes.filter(node => node.kind === 'ot').sort((a, b) => a.label.localeCompare(b.label, 'zh-Hant'))],
-    ['nt', '新約經文', visibleNodes.filter(node => node.kind === 'nt').sort((a, b) => a.label.localeCompare(b.label, 'zh-Hant'))],
+    ['ot', '舊約經文', visibleNodes.filter(node => node.kind === 'ot' && !matchedIds.has(node.id)).sort(byLabel)],
+    ['nt', '新約經文', visibleNodes.filter(node => node.kind === 'nt' && !matchedIds.has(node.id)).sort(byLabel)],
     ['topic', '共同主題', visibleNodes.filter(node => node.kind === 'topic').sort((a, b) => topicNames.indexOf(a.label) - topicNames.indexOf(b.label))]
   ];
   const fragment = document.createDocumentFragment();
@@ -215,7 +225,17 @@ function renderResultList() {
         button.setAttribute('aria-label', `選取或取消${title}：${node.label}，本次篩選無符合條目`);
       }
       if (node.id === selectedId) button.setAttribute('aria-current', 'true');
-      li.append(button); list.append(li);
+      li.append(button);
+      if (query && (node.kind === 'ot' || node.kind === 'nt')) {
+        const verse = scripturePreviews[node.ref]?.verses.find(item => normalizeQuery(item.text).includes(query));
+        if (verse) {
+          const excerpt = document.createElement('small');
+          excerpt.className = 'search-excerpt';
+          excerpt.textContent = `${verse.number}節：${verse.text}`;
+          li.append(excerpt);
+        }
+      }
+      list.append(li);
     }
     section.dataset.kind = kind; section.append(list); fragment.append(section);
   }

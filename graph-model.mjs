@@ -3,7 +3,12 @@ export function normalizeQuery(value) {
   return String(value).normalize('NFKC').toLocaleLowerCase().replace(/[\p{P}\p{Z}\p{S}]+/gu, '');
 }
 
-export function entryMatches(entry, state, books, spokenEntryIds) {
+export function passageSearchIndex(previews) {
+  return Object.fromEntries(Object.entries(previews).map(([ref, passage]) =>
+    [ref, normalizeQuery(passage.verses.map(verse => verse.text).join(' '))]));
+}
+
+export function entryMatches(entry, state, books, spokenEntryIds, passageSearch = {}) {
   const passages = [...entry.ot, ...entry.nt];
   const hasBook = code => passages.some(passage => passage.ref.startsWith(code + ' '));
   const hasGroup = group => passages.some(passage => books[passage.ref.split(' ')[0]]?.group === group);
@@ -15,14 +20,18 @@ export function entryMatches(entry, state, books, spokenEntryIds) {
   if (state.pentateuch && !hasGroup('pentateuch')) return false;
   if (state.speech && !spokenEntryIds.has(entry.id)) return false;
   if (state.compare && !entry.jesus) return false;
-  if (state.search && !normalizeQuery(entry.text).includes(normalizeQuery(state.search))) return false;
+  if (state.search) {
+    const query = normalizeQuery(state.search);
+    if (query && !normalizeQuery(entry.text).includes(query)
+      && !passages.some(passage => passageSearch[passage.ref]?.includes(query))) return false;
+  }
   return true;
 }
 
-export function visibleGraph(data, state) {
+export function visibleGraph(data, state, passageSearch = {}) {
   const spokenRefs = new Set(data.speech.map(item => `${item.entryId}|${item.ntRef}`));
   const spokenEntryIds = new Set(data.speech.map(item => item.entryId));
-  const entries = data.entries.filter(entry => entryMatches(entry, state, data.books, spokenEntryIds));
+  const entries = data.entries.filter(entry => entryMatches(entry, state, data.books, spokenEntryIds, passageSearch));
   const nodes = new Set(entries.map(entry => `entry:${entry.id}`));
   const links = [];
   for (const entry of entries) {

@@ -1,13 +1,18 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { visibleGraph } from '../graph-model.mjs';
+import { passageSearchIndex, visibleGraph } from '../graph-model.mjs';
 
 const read = path => readFileSync(new URL(path, import.meta.url), 'utf8');
 const dataScript = read('../graph-data.js');
 const prefix = 'window.EMMAUS_GRAPH_DATA=';
 assert.ok(dataScript.startsWith(prefix) && dataScript.endsWith(';\n'));
 const data = JSON.parse(dataScript.slice(prefix.length, -2));
+const previewsScript = read('../scripture-previews-data.js');
+const previewsPrefix = 'window.EMMAUS_SCRIPTURE_PREVIEWS=';
+assert.ok(previewsScript.startsWith(previewsPrefix));
+const previews = JSON.parse(previewsScript.slice(previewsPrefix.length, -2));
+const passageSearch = passageSearchIndex(previews.passages);
 const index = read('../index.html');
 const dating = JSON.parse(read('../data/passage-dates.json'));
 const datingPage = read('../dating.html');
@@ -16,7 +21,7 @@ const base = {
   scope: 'all', testament: 'both', book: '', group: '', topic: '', evidence: '',
   pentateuch: false, speech: false, compare: false, search: '', topics: false,
 };
-const show = changes => visibleGraph(data, { ...base, ...changes });
+const show = changes => visibleGraph(data, { ...base, ...changes }, passageSearch);
 const ids = graph => graph.entries.map(entry => entry.id);
 
 test('generated data matches the 186 original cards and their linked passages', () => {
@@ -117,6 +122,15 @@ test('keyword search accepts spaced and unspaced Chinese scripture references', 
   assert.deepEqual(ids(show({ search: '詩篇22' })), ['E065']);
   assert.deepEqual(ids(show({ search: '詩篇 22' })), ['E065']);
   assert.deepEqual(ids(show({ search: '以賽亞書53' })), ['E117']);
+});
+
+test('keyword search finds cited 和合本 preview verses and retains the core scope', () => {
+  assert.deepEqual(ids(show({ scope: 'core', search: '彼拉多' })), ['E018', 'E061']);
+  assert.deepEqual(ids(show({ scope: 'core', search: '說的是' })), ['E041', 'E165']);
+  assert.ok(ids(show({ scope: 'core', search: '十字架' })).includes('E065'));
+  assert.ok(ids(show({ scope: 'core', search: '審判' })).includes('E117'));
+  assert.ok(ids(show({ scope: 'all', search: '彼拉多' })).includes('E140'));
+  assert.deepEqual(ids(show({ scope: 'core', search: '彼拉多', book: 'GEN' })), []);
 });
 
 test('testament scope changes passage nodes, not matching study entries', () => {
