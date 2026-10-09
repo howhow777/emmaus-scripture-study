@@ -60,6 +60,9 @@ h1{font-size:clamp(30px,3.3vw,48px);letter-spacing:.035em;line-height:1.35;margi
 .result-group h3{color:var(--gold);font-size:11px;letter-spacing:.08em;margin-bottom:7px}
 .result-group ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
 .result-group button{border:0;background:transparent;color:#d3e3d6;text-align:left;font-size:12px;width:100%;padding:5px 6px;border-radius:4px}
+.result-group a{display:block;color:#d3e3d6;font-size:12px;padding:5px 6px;border-radius:4px;text-decoration:none}
+.result-group a:hover,.result-group a:focus-visible{background:#244939;color:#fff}
+.result-group .result-note{color:var(--muted);font-size:11px;line-height:1.5;margin:0 6px 5px}
 .result-group button:hover,.result-group button[aria-current="true"]{background:#244939;color:#fff}
 .result-group .search-excerpt{display:-webkit-box;color:var(--muted);font-size:11px;line-height:1.45;padding:0 6px 5px;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .result-group button.inactive-topic{opacity:.48}

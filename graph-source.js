@@ -37,6 +37,8 @@ if (!data || data.version !== 1 || !Array.isArray(data.entries) || !ctx) {
 const entries = data.entries;
 const scriptureSearch = window.EMMAUS_SCRIPTURE_SEARCH?.passages || {};
 const passageSearch = passageSearchIndex(scriptureSearch);
+const graphRefs = new Set(entries.flatMap(entry => [...entry.ot, ...entry.nt].map(passage => passage.ref)));
+const otherRefs = Object.keys(scriptureSearch).filter(ref => !graphRefs.has(ref));
 const passageDates = data.dates || {};
 const entriesById = new Map(entries.map(entry => [entry.id, entry]));
 const speechByEntry = new Map();
@@ -92,6 +94,7 @@ for (const group of Object.keys(groupNames)) {
 }
 
 let visibleEntries = [];
+let otherSearchRefs = [];
 let visibleNodes = [];
 let visibleLinks = [];
 let regularLinks = [], spokenLinks = [], topicLinks = [], selectedLinks = [];
@@ -152,6 +155,8 @@ function matchesEntry(entry, state) {
 }
 function buildVisible() {
   const state = readState();
+  const query = normalizeQuery(state.search);
+  otherSearchRefs = query ? otherRefs.filter(ref => passageSearch[ref]?.some(verse => verse.includes(query))) : [];
   const result = visibleGraph(data, state, passageSearch);
   visibleEntries = result.entries;
   visibleLinks = result.links;
@@ -165,8 +170,8 @@ function buildVisible() {
   ringRadius = state.topics ? placeTopicRing(visibleNodes, state.scope) : 0;
   if (selectedId && !visibleNodeIds.has(selectedId)) clearSelection();
   updateSelectedLinks();
-  $('graphStatus').textContent = `${visibleEntries.length} 組研究 · ${visibleNodes.filter(node => node.kind === 'ot').length} 處舊約 · ${visibleNodes.filter(node => node.kind === 'nt').length} 處新約`;
-  $('resultCount').textContent = `${visibleEntries.length} 組`;
+  $('graphStatus').textContent = `${visibleEntries.length} 組研究 · ${visibleNodes.filter(node => node.kind === 'ot').length} 處舊約 · ${visibleNodes.filter(node => node.kind === 'nt').length} 處新約${otherSearchRefs.length ? ` · ${otherSearchRefs.length} 處站內其他經文` : ''}`;
+  $('resultCount').textContent = `${visibleEntries.length} 組${otherSearchRefs.length ? ` + ${otherSearchRefs.length} 處經文` : ''}`;
   renderResultList();
   if (state.search) $('resultsFold').open = true;
   if (selectedId) renderDetails(allNodes.get(selectedId));
@@ -194,7 +199,7 @@ function renderResultList() {
   const target = $('resultList');
   const query = normalizeQuery(controls.search.value);
   target.replaceChildren();
-  if (!visibleEntries.length) {
+  if (!visibleEntries.length && !otherSearchRefs.length) {
     const p = document.createElement('p'); p.textContent = '沒有符合條件的研究，請放寬篩選。'; target.append(p);
   }
   const matchedPassages = query ? visibleNodes.filter(node =>
@@ -210,6 +215,23 @@ function renderResultList() {
     ['topic', '共同主題', visibleNodes.filter(node => node.kind === 'topic').sort((a, b) => topicNames.indexOf(a.label) - topicNames.indexOf(b.label))]
   ];
   const fragment = document.createDocumentFragment();
+  if (otherSearchRefs.length) {
+    const section = document.createElement('section'); section.className = 'result-group';
+    section.append(element('h3', `站內其他引用經文（${otherSearchRefs.length}）`));
+    section.append(element('p', '這些經文未列為研究條目的引用，圖上沒有關係線。', 'result-note'));
+    const list = document.createElement('ul');
+    for (const ref of otherSearchRefs) {
+      const [code, chapterVerse] = ref.split(' ');
+      const li = document.createElement('li');
+      li.append(safeLink(`https://www.bible.com/bible/46/${code}.${chapterVerse.replace(':', '.')}.CUNP-%E7%A5%9E`,
+        `${data.books[code]?.name || code} ${chapterVerse.replace('-', '–')} ↗`, true));
+      const verse = scriptureSearch[ref].find(item => normalizeQuery(item.text).includes(query));
+      const excerpt = document.createElement('small'); excerpt.className = 'search-excerpt';
+      excerpt.textContent = `${verse.numberLabel || verse.number}節：${searchExcerpt(verse.text, query)}`;
+      li.append(excerpt); list.append(li);
+    }
+    section.append(list); fragment.append(section);
+  }
   for (const [kind, title, nodes] of groups) {
     if (!nodes.length) continue;
     const section = document.createElement('section'); section.className = 'result-group';
