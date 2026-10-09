@@ -12,7 +12,11 @@ const previewsScript = read('../scripture-previews-data.js');
 const previewsPrefix = 'window.EMMAUS_SCRIPTURE_PREVIEWS=';
 assert.ok(previewsScript.startsWith(previewsPrefix));
 const previews = JSON.parse(previewsScript.slice(previewsPrefix.length, -2));
-const passageSearch = passageSearchIndex(previews.passages);
+const searchScript = read('../scripture-search-data.js');
+const searchPrefix = 'window.EMMAUS_SCRIPTURE_SEARCH=';
+assert.ok(searchScript.startsWith(searchPrefix));
+const searchData = JSON.parse(searchScript.slice(searchPrefix.length, -2));
+const passageSearch = passageSearchIndex(searchData.passages);
 const index = read('../index.html');
 const dating = JSON.parse(read('../data/passage-dates.json'));
 const datingPage = read('../dating.html');
@@ -124,13 +128,15 @@ test('keyword search accepts spaced and unspaced Chinese scripture references', 
   assert.deepEqual(ids(show({ search: '以賽亞書53' })), ['E117']);
 });
 
-test('keyword search finds cited 和合本 preview verses and retains the core scope', () => {
-  assert.deepEqual(ids(show({ scope: 'core', search: '彼拉多' })), ['E018', 'E061']);
-  assert.deepEqual(ids(show({ scope: 'core', search: '說的是' })), ['E041', 'E165']);
+test('keyword search finds every verse in cited 和合本 ranges and retains the core scope', () => {
+  assert.ok(ids(show({ scope: 'core', search: '彼拉多' })).includes('E018'));
+  assert.ok(ids(show({ scope: 'core', search: '說的是' })).includes('E041'));
   assert.ok(ids(show({ scope: 'core', search: '十字架' })).includes('E065'));
   assert.ok(ids(show({ scope: 'core', search: '審判' })).includes('E117'));
   assert.ok(ids(show({ scope: 'all', search: '彼拉多' })).includes('E140'));
   assert.deepEqual(ids(show({ scope: 'core', search: '彼拉多', book: 'GEN' })), []);
+  assert.ok(!previews.passages['GEN 22:1-14'].verses.some(verse => verse.text.includes('燔祭的柴放在')));
+  assert.ok(ids(show({ scope: 'core', search: '燔祭的柴放在' })).includes('E011'));
 });
 
 test('testament scope changes passage nodes, not matching study entries', () => {

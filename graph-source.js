@@ -35,8 +35,8 @@ if (!data || data.version !== 1 || !Array.isArray(data.entries) || !ctx) {
 }
 
 const entries = data.entries;
-const scripturePreviews = window.EMMAUS_SCRIPTURE_PREVIEWS?.passages || {};
-const passageSearch = passageSearchIndex(scripturePreviews);
+const scriptureSearch = window.EMMAUS_SCRIPTURE_SEARCH?.passages || {};
+const passageSearch = passageSearchIndex(scriptureSearch);
 const passageDates = data.dates || {};
 const entriesById = new Map(entries.map(entry => [entry.id, entry]));
 const speechByEntry = new Map();
@@ -199,7 +199,7 @@ function renderResultList() {
   }
   const matchedPassages = query ? visibleNodes.filter(node =>
     (node.kind === 'ot' || node.kind === 'nt')
-    && scripturePreviews[node.ref]?.verses.some(verse => normalizeQuery(verse.text).includes(query))) : [];
+    && passageSearch[node.ref]?.some(verse => verse.includes(query))) : [];
   const matchedIds = new Set(matchedPassages.map(node => node.id));
   const byLabel = (a, b) => a.label.localeCompare(b.label, 'zh-Hant');
   const groups = [
@@ -227,11 +227,11 @@ function renderResultList() {
       if (node.id === selectedId) button.setAttribute('aria-current', 'true');
       li.append(button);
       if (query && (node.kind === 'ot' || node.kind === 'nt')) {
-        const verse = scripturePreviews[node.ref]?.verses.find(item => normalizeQuery(item.text).includes(query));
+        const verse = scriptureSearch[node.ref]?.find(item => normalizeQuery(item.text).includes(query));
         if (verse) {
           const excerpt = document.createElement('small');
           excerpt.className = 'search-excerpt';
-          excerpt.textContent = `${verse.number}節：${verse.text}`;
+          excerpt.textContent = `${verse.numberLabel || verse.number}節：${searchExcerpt(verse.text, query)}`;
           li.append(excerpt);
         }
       }
@@ -240,6 +240,22 @@ function renderResultList() {
     section.dataset.kind = kind; section.append(list); fragment.append(section);
   }
   target.append(fragment);
+}
+
+function searchExcerpt(value, query) {
+  let normalized = '', offset = 0;
+  const positions = [];
+  for (const character of value) {
+    const part = normalizeQuery(character);
+    normalized += part;
+    for (let i = 0; i < part.length; i++) positions.push(offset);
+    offset += character.length;
+  }
+  const at = normalized.indexOf(query);
+  if (at < 0) return value;
+  const start = Math.max(0, positions[at] - 18);
+  const end = Math.min(value.length, positions[at + query.length - 1] + 31);
+  return `${start ? '…' : ''}${value.slice(start, end)}${end < value.length ? '…' : ''}`;
 }
 
 function safeLink(href, label, external = false, className = '') {
@@ -609,12 +625,18 @@ $('clearFilters').addEventListener('click', () => {
   controls.search.value = ''; controls.scope.value = 'core'; controls.testament.value = 'both';
   controls.book.value = ''; controls.group.value = ''; controls.topic.value = ''; controls.evidence.value = '';
   controls.pentateuch.checked = false; controls.speech.checked = false; controls.compare.checked = false; controls.topics.checked = true;
+  scopeChosenByUser = false;
   buildVisible();
 });
 let searchTimer;
+let scopeChosenByUser = false;
 for (const [name, control] of Object.entries(controls)) {
   control.addEventListener(name === 'search' ? 'input' : 'change', () => {
-    if (name === 'search') { clearTimeout(searchTimer); searchTimer = setTimeout(buildVisible, 120); }
+    if (name === 'scope') scopeChosenByUser = true;
+    if (name === 'search') {
+      if (control.value.trim() && !scopeChosenByUser && controls.scope.value === 'core') controls.scope.value = 'all';
+      clearTimeout(searchTimer); searchTimer = setTimeout(buildVisible, 120);
+    }
     else buildVisible();
   });
 }

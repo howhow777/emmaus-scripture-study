@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.html"
 GRAPH = ROOT / "graph-data.js"
 OUTPUT = ROOT / "scripture-previews-data.js"
+SEARCH_OUTPUT = ROOT / "scripture-search-data.js"
 DEFAULT_SOURCE_DIR = ROOT.parent / "scripture-source" / "wikisource-1919"
 SOURCE = {
     "label": "和合本（維基文庫 1919 用字版，神版）",
@@ -209,6 +210,7 @@ def build(source_dir):
         raise ValueError(f"Missing book names: {sorted(books - names.keys())}")
     parsed = {book: parse_book(book, source_dir) for book in books}
     passages = {}
+    search_passages = {}
     for book, chapter, first, last in refs:
         chapter_verses = parsed[book].get(chapter)
         if not chapter_verses:
@@ -224,18 +226,34 @@ def build(source_dir):
         missing = [number for number in numbers if number not in chapter_verses]
         if missing:
             raise ValueError(f"Missing verses in {book} {chapter}: {missing}")
-        first_four = list(numbers)[:4]
+        verses = []
+        for number in numbers:
+            raw = chapter_verses[number]
+            if book == "PSA" and chapter == 8 and number in (6, 7):
+                if raw != "":
+                    raise ValueError("Wikisource Psalm 8:6–8 verse grouping changed; review correction")
+                continue
+            verse = {"number": number, "text": plain_verse(raw)}
+            if book == "PSA" and chapter == 8 and number == 8:
+                verse["numberLabel"] = "6–8"
+            verses.append(verse)
         passage = {
             "label": label,
-            "verses": [{"number": number, "text": plain_verse(chapter_verses[number])} for number in first_four],
+            "verses": verses[:4],
             "total": len(numbers),
         }
-        passages[passage_key(book, chapter, first, last)] = passage
-    return {"source": SOURCE, "passages": passages}
+        key = passage_key(book, chapter, first, last)
+        passages[key] = passage
+        search_passages[key] = verses
+    return {"source": SOURCE, "passages": passages}, {"source": SOURCE, "passages": search_passages}
 
 
 def serialized(data):
     return "window.EMMAUS_SCRIPTURE_PREVIEWS=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
+
+
+def serialized_search(data):
+    return "window.EMMAUS_SCRIPTURE_SEARCH=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
 
 
 def check_existing():
@@ -259,7 +277,32 @@ def check_existing():
             raise ValueError(f"Invalid preview text: {key}")
     if current != serialized(data):
         raise ValueError("scripture-previews-data.js is not canonically serialized")
-    return current
+    if not SEARCH_OUTPUT.exists():
+        raise ValueError("scripture-search-data.js is missing")
+    search_current = SEARCH_OUTPUT.read_text(encoding="utf-8")
+    search_prefix = "window.EMMAUS_SCRIPTURE_SEARCH="
+    if not search_current.startswith(search_prefix) or not search_current.endswith(";\n"):
+        raise ValueError("scripture-search-data.js has unexpected format")
+    search_data = json.loads(search_current[len(search_prefix):-2])
+    if search_data.get("source") != SOURCE or set(search_data.get("passages", {})) != expected_keys:
+        raise ValueError("Search source or reference coverage is out of date")
+    for key, verses in search_data["passages"].items():
+        preview = data["passages"][key]
+        book_chapter = key.split(":")[0]
+        combined_psalm_8 = book_chapter == "PSA 8" and preview["total"] >= 8
+        expected_length = preview["total"] - (2 if combined_psalm_8 else 0)
+        if not isinstance(verses, list) or len(verses) != expected_length or verses[:4] != preview["verses"]:
+            raise ValueError(f"Incomplete scripture search range: {key}")
+        first = int(re.search(r":(\d+)", key).group(1)) if ":" in key else 1
+        expected_numbers = [number for number in range(first, first + preview["total"])
+                            if not (combined_psalm_8 and number in (6, 7))]
+        if [verse.get("number") for verse in verses] != expected_numbers or any(
+            not isinstance(verse.get("text"), str) or not verse["text"] for verse in verses
+        ):
+            raise ValueError(f"Invalid scripture search verse: {key}")
+    if search_current != serialized_search(search_data):
+        raise ValueError("scripture-search-data.js is not canonically serialized")
+    return current, search_current
 
 
 def fetch_sources(source_dir):
@@ -286,17 +329,19 @@ def main():
     if args.fetch:
         fetch_sources(args.source_dir)
     if args.check:
-        current = check_existing()
+        current, search_current = check_existing()
         if all((args.source_dir / f"{book}.txt").exists() for book in {ref[0] for ref in references()}):
-            if current != serialized(build(args.source_dir)):
-                parser.exit(1, "scripture-previews-data.js differs from pinned source\n")
-            print("Preview data matches all pinned source pages and current links")
+            preview_data, search_data = build(args.source_dir)
+            if current != serialized(preview_data) or search_current != serialized_search(search_data):
+                parser.exit(1, "Scripture preview or search data differs from pinned source\n")
+            print("Preview and full-range search data match all pinned source pages and current links")
         else:
-            print("Preview coverage and format match; source cache absent, text comparison skipped")
+            print("Preview and search coverage and format match; source cache absent, text comparison skipped")
     else:
-        output = serialized(build(args.source_dir))
-        OUTPUT.write_text(output, encoding="utf-8")
-        print(f"Updated {OUTPUT.name} ({len(references())} passages)")
+        preview_data, search_data = build(args.source_dir)
+        OUTPUT.write_text(serialized(preview_data), encoding="utf-8")
+        SEARCH_OUTPUT.write_text(serialized_search(search_data), encoding="utf-8")
+        print(f"Updated preview and search data ({len(references())} passages)")
 
 
 if __name__ == "__main__":

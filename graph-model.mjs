@@ -3,9 +3,9 @@ export function normalizeQuery(value) {
   return String(value).normalize('NFKC').toLocaleLowerCase().replace(/[\p{P}\p{Z}\p{S}]+/gu, '');
 }
 
-export function passageSearchIndex(previews) {
-  return Object.fromEntries(Object.entries(previews).map(([ref, passage]) =>
-    [ref, normalizeQuery(passage.verses.map(verse => verse.text).join(' '))]));
+export function passageSearchIndex(passages) {
+  return Object.fromEntries(Object.entries(passages).map(([ref, verses]) =>
+    [ref, verses.map(verse => normalizeQuery(verse.text))]));
 }
 
 export function entryMatches(entry, state, books, spokenEntryIds, passageSearch = {}) {
@@ -23,7 +23,7 @@ export function entryMatches(entry, state, books, spokenEntryIds, passageSearch 
   if (state.search) {
     const query = normalizeQuery(state.search);
     if (query && !normalizeQuery(entry.text).includes(query)
-      && !passages.some(passage => passageSearch[passage.ref]?.includes(query))) return false;
+      && !passages.some(passage => passageSearch[passage.ref]?.some(verse => verse.includes(query)))) return false;
   }
   return true;
 }

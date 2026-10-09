@@ -4,6 +4,8 @@
 
 閱讀頁與圖譜詳情中的 Bible.com 經文連結可用滑鼠懸浮預覽；手機長按連結約半秒可預覽，輕點仍開啟原連結。鍵盤選取連結可預覽，按向下鍵進入預覽、Escape 關閉。預覽至多顯示前四節，文字取自維基文庫的和合本 1919 用字版（神版）；外連是 Bible.com 的新標點和合本（神版），文字與標點可能不同。
 
+圖譜關鍵字會搜尋研究說明與每處引用經文的完整段落，並在結果清單顯示命中的經節；搜尋文字使用上述維基文庫和合本。初次載入顯示主線 49 組，輸入關鍵字時自動切換為全部 186 組，也可手動只查主線。網站只索引研究實際引用的經文段落，不是全本聖經搜尋。
+
 圖譜的實線僅代表研究條目列出的經文。虛線代表共同研究主題，不表示經文本身彼此直接引用或應驗。耶穌親口經節的逐節標註與原研究的「耶穌親引／比較」標記分開；判準見 [`data/jesus-speech-notes.md`](data/jesus-speech-notes.md)。
 
 ## 維護
@@ -21,6 +23,6 @@ npm run check:graph
 
 首次重建預覽資料時，先執行 `python3 scripts/build-scripture-previews.py --fetch` 下載並驗證固定修訂的經文來源；之後 `npm run build:previews` 可離線產生資料。原始來源快取不需部署。
 
-公開網站包含 `index.html`、`graph.html`、`dating.html`、`graph.css`、`graph-data.js`、`graph.bundle.js`、`scripture-preview.css`、`scripture-preview.js`、`scripture-previews-data.js`，並附 `THIRD_PARTY_NOTICES.txt`。`graph.bundle.js` 已包含 D3 依賴，公開頁面不讀取 CDN。
+公開網站包含 `index.html`、`graph.html`、`dating.html`、`graph.css`、`graph-data.js`、`graph.bundle.js`、`scripture-preview.css`、`scripture-preview.js`、`scripture-previews-data.js`、`scripture-search-data.js`，並附 `THIRD_PARTY_NOTICES.txt`。`graph.bundle.js` 已包含 D3 依賴，公開頁面不讀取 CDN。
 
 發布前，請在 iPhone Safari 與 Android Chrome 各測試捏合、拖移、篩選、條目跳轉和經文連結。圖譜頁下方的「手機手勢流暢度紀錄」提供近似影格間隔，供實機檢查。

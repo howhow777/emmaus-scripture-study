@@ -7,8 +7,10 @@ const root = new URL('../', import.meta.url);
 const file = name => readFileSync(new URL(name, root), 'utf8');
 const context = { window: {} };
 runInNewContext(file('scripture-previews-data.js'), context);
+runInNewContext(file('scripture-search-data.js'), context);
 runInNewContext(file('graph-data.js'), context);
 const { source, passages } = context.window.EMMAUS_SCRIPTURE_PREVIEWS;
+const fullSearch = context.window.EMMAUS_SCRIPTURE_SEARCH;
 const graph = context.window.EMMAUS_GRAPH_DATA;
 
 function referenceFromHref(href) {
@@ -55,6 +57,19 @@ test('previews state their source and show up to four numbered verses', () => {
       assert.doesNotMatch(verse.text, /\{\{|\[\[|<[^>]+>/, ref);
     });
   }
+});
+
+test('full search covers every cited verse beyond the four-verse preview', () => {
+  assert.equal(JSON.stringify(fullSearch.source), JSON.stringify(source));
+  assert.deepEqual(new Set(Object.keys(fullSearch.passages)), new Set(Object.keys(passages)));
+  for (const [ref, preview] of Object.entries(passages)) {
+    const verses = fullSearch.passages[ref];
+    assert.equal(JSON.stringify(verses.slice(0, 4)), JSON.stringify(preview.verses), ref);
+    assert.equal(verses.length, preview.total - (ref === 'PSA 8:1-9' ? 2 : 0), ref);
+  }
+  assert.equal(fullSearch.passages['LUK 24'].at(-1).number, 53);
+  assert.match(fullSearch.passages['GEN 22:1-14'][5].text, /燔祭的柴放在/);
+  assert.equal(fullSearch.passages['PSA 8:1-9'].find(verse => verse.number === 8).numberLabel, '6–8');
 });
 
 test('chapter and source transcription edge cases remain accurate', () => {
