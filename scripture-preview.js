@@ -31,6 +31,7 @@
   let blockedUntil = 0;
   let lastInput = 'keyboard';
   let returningFocus = false;
+  let touchY = null;
   const touches = new Set();
 
   function linkAt(target) { return target instanceof Element && !card.contains(target) ? target.closest(selector) : null; }
@@ -44,6 +45,7 @@
       clearTimeout(press.timer);
       if (closePreview && press.triggered && activeLink === press.link) close();
     }
+    card.classList.remove('is-pressing');
     press = null;
   }
   function close() {
@@ -52,9 +54,11 @@
     const previousLink = activeLink;
     if (activeLink) activeLink.removeAttribute('aria-describedby');
     card.hidden = true;
-    card.classList.remove('is-pinned');
+    card.classList.remove('is-pinned', 'is-above-touch', 'is-pressing');
+    card.style.removeProperty('--preview-touch-space');
     activeLink = null;
     pinned = false;
+    touchY = null;
     status.textContent = '';
     if (restoreFocus) {
       returningFocus = true;
@@ -70,8 +74,20 @@
     if (!activeLink || card.hidden) return;
     if (pinned && window.innerWidth <= 640) {
       card.style.left = card.style.top = '';
+      if (touchY !== null) {
+        // Leave room for the held finger and mobile safe areas on either edge.
+        const above = Math.max(0, touchY - 76);
+        const below = Math.max(0, window.innerHeight - touchY - 76);
+        card.classList.toggle('is-above-touch', above >= below);
+        card.style.setProperty('--preview-touch-space', `${Math.max(above, below)}px`);
+      } else {
+        card.classList.remove('is-above-touch');
+        card.style.removeProperty('--preview-touch-space');
+      }
       return;
     }
+    card.classList.remove('is-above-touch');
+    card.style.removeProperty('--preview-touch-space');
     const anchor = activeLink.getBoundingClientRect();
     const width = card.offsetWidth;
     const height = card.offsetHeight;
@@ -81,13 +97,14 @@
     card.style.left = `${left}px`;
     card.style.top = `${top}px`;
   }
-  function open(link, pin = false, announce = false) {
+  function open(link, pin = false, announce = false, pressY = null) {
     const item = data.passages[reference(link)];
     if (!item) return false;
     if (activeLink && activeLink !== link) activeLink.removeAttribute('aria-describedby');
     stopTimers();
     activeLink = link;
     pinned = pin;
+    touchY = pin ? pressY : null;
     heading.textContent = item.label;
     extent.textContent = item.total > item.verses.length
       ? `節錄前 ${item.verses.length} 節／全段 ${item.total} 節` : `全段 ${item.total} 節`;
@@ -159,7 +176,10 @@
     const next = { id: event.pointerId, link, x: event.clientX, y: event.clientY, timer: 0, triggered: false };
     next.timer = setTimeout(() => {
       if (press !== next) return;
-      if (open(link, true)) next.triggered = true;
+      if (open(link, true, false, next.y)) {
+        next.triggered = true;
+        card.classList.add('is-pressing');
+      }
     }, 480);
     press = next;
   }, true);
@@ -174,12 +194,13 @@
     const x = press.x;
     const y = press.y;
     cancelPress();
-    if (triggered && event.type === 'pointerup') {
+    if (triggered) {
+      // A browser may cancel the held pointer as the card appears; keep the preview open.
       blockedClick = { link, x, y };
       blockedUntil = performance.now() + 700;
-      event.preventDefault();
+      if (event.cancelable) event.preventDefault();
       closeButton.focus({ preventScroll: true });
-    } else if (triggered) close();
+    }
   }
   document.addEventListener('pointerup', endTouch, true);
   document.addEventListener('pointercancel', endTouch, true);
