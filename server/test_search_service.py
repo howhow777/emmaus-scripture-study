@@ -6,7 +6,7 @@ import unittest
 import urllib.request
 import urllib.error
 from http.server import ThreadingHTTPServer
-from search_service import MODEL, ORIGIN, Search, ServiceError, make_handler, selected_results
+from search_service import MODEL, ORIGIN, Search, ServiceError, catalog_messages, make_handler, selected_results
 
 
 class SearchTests(unittest.TestCase):
@@ -26,6 +26,17 @@ class SearchTests(unittest.TestCase):
     def tearDown(self):
         self.search.db.close()
         self.directory.cleanup()
+
+    def test_complete_catalog_survives_hermes_content_limit(self):
+        catalog = ('GEN 1:1 | text\n' * 6000) + 'JHN 20:25-27 | 多馬與釘痕\n' + ('ZEC 13:6 | text\n' * 6000)
+        messages = catalog_messages('Search instructions', catalog, '手上的傷口')
+        self.assertGreater(len(messages), 3)
+        self.assertTrue(all(len(message['content']) <= 50000 for message in messages))
+        # Simulate the live gateway's per-message cap and system concatenation.
+        transmitted = ''.join(m['content'][:65536] for m in messages[1:-1])
+        self.assertEqual(transmitted, catalog)
+        self.assertIn('JHN 20:25-27', transmitted)
+        self.assertEqual(messages[-1], {'role': 'user', 'content': '手上的傷口'})
 
     def test_whitelist_deduplicates_and_drops_invented_references(self):
         result = selected_results(self.index, {'refs': ['XXX 1:1', 'JHN 20:25-27', 'JHN 20:25-27'], 'entryIds': ['E999']})

@@ -4,7 +4,7 @@
 
 ## 本機部署
 
-- 專用 Hermes profile：`~/.hermes/profiles/emmaus-search`，由官方 `hermes profile create emmaus-search --no-skills --no-alias` 建立，沒有複製主 profile 的對話、記憶或憑證。沿用 Hermes 共用 Codex 登入；模型為 `gpt-6-luna` / `openai-codex`，fallback 清單為空。
+- 專用 Hermes profile：`~/.hermes/profiles/emmaus-search`，由官方 `hermes profile create emmaus-search --no-skills --no-alias` 建立，沒有複製主 profile 的對話、記憶或憑證。沿用 Hermes 共用 Codex 登入；模型為 `gpt-6.1-sol` / `openai-codex`，fallback 清單為空。
 - profile 的 `platform_toolsets.api_server`、`cli` 設為 `[no_mcp]`，所有工具停用；內建記憶與 user profile 停用。專用隨機 `API_SERVER_KEY` 只存在該 profile 的 `.env`，檔案權限 600，不可提交 Git。
 - 公開服務只接受搜尋文字，沒有聊天、sessions、任意模型、tools 或代理路由。原有 Hermes API 不直接對網站公開。每次模型請求使用新的 session id，不承接其他查詢的對話。
 - 執行目錄：`~/.hermes/projects/emmaus-search`。程式以 Python 標準函式庫執行，沒有額外套件依賴。只綁定 `127.0.0.1:18891`。
