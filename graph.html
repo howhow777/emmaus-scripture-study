@@ -6,12 +6,13 @@
   <meta name="color-scheme" content="dark">
   <meta name="description" content="以互動圖譜探索《以馬忤斯之路》186組研究條目與舊約、新約經文的連結。">
   <title>互動經文圖譜｜以馬忤斯之路</title>
-  <link rel="stylesheet" href="graph.css?v=search3">
+  <link rel="stylesheet" href="graph.css?v=search4">
   <link rel="stylesheet" href="scripture-preview.css?v=touch2">
   <script defer src="graph-data.js"></script>
   <script defer src="scripture-previews-data.js"></script>
   <script defer src="scripture-search-data.js"></script>
-  <script defer src="graph.bundle.js?v=search3"></script>
+  <script defer src="semantic-config.js?v=search4"></script>
+  <script defer src="graph.bundle.js?v=search4"></script>
   <script defer src="scripture-preview.js?v=touch2"></script>
 </head>
 <body>
@@ -31,7 +32,11 @@
       <aside class="controls" id="graphControls" aria-labelledby="controlsTitle">
         <details class="filter-fold" open><summary><span><span class="eyebrow">EXPLORE / 探索</span><strong id="controlsTitle">篩選圖譜</strong></span><span class="fold-chevron" aria-hidden="true">⌄</span></summary>
           <div class="filter-body">
-            <label class="field" for="graphSearch"><span>關鍵字</span><input id="graphSearch" type="search" placeholder="經文、主題、條目編號…" autocomplete="off"></label>
+            <label class="field" for="graphSearch"><span>關鍵字或一句話</span><input id="graphSearch" type="search" placeholder="例如：不相信復活，想摸釘痕" maxlength="200" autocomplete="off"></label>
+            <button class="reset-button semantic-button" id="semanticSearch" type="button">用 AI 找相關經文</button>
+            <p class="filter-note">輸入即查文字；按此按鈕或 Enter 加入語意搜尋。搜尋內容會傳至站主的 Hermes 專用搜尋服務與雲端模型；僅搜尋本站引用段落。</p>
+            <p id="semanticStatus" class="filter-note" role="status" aria-live="polite"></p>
+            <div id="searchFeedback" class="search-feedback" role="status" hidden></div>
             <div class="filter-pair"><label class="field" for="scopeFilter"><span>研究範圍</span><select id="scopeFilter"><option value="core">主線 49 組</option><option value="all">全部 186 組</option></select></label><label class="field" for="testamentFilter"><span>顯示經文</span><select id="testamentFilter"><option value="both">舊約＋新約</option><option value="ot">只看舊約</option><option value="nt">只看新約</option></select></label></div>
             <div class="filter-pair"><label class="field" for="bookFilter"><span>相關書卷</span><select id="bookFilter"><option value="">全部書卷</option></select></label><label class="field" for="groupFilter"><span>書卷類別</span><select id="groupFilter"><option value="">全部類別</option></select></label></div>
             <div class="filter-pair"><label class="field" for="topicFilter"><span>救恩主題</span><select id="topicFilter"><option value="">全部主題</option></select></label><label class="field" for="evidenceFilter"><span>證據類型</span><select id="evidenceFilter"><option value="">全部類型</option><option value="A">A · 明確引用／採用</option><option value="B">B · 明示類比／對照</option><option value="C">C · 主題呼應</option><option value="D">D · 有爭議的候選</option></select></label></div>
@@ -52,7 +57,7 @@
         <canvas id="graphCanvas" aria-label="經文關係圖：單指在任意位置拖移畫布，雙指捏合縮放，輕點節點查看詳情；再次輕點已選節點、連線或空白處可取消選取。鍵盤使用者可透過篩選結果清單選取節點，按 Escape 取消。"></canvas>
         <button id="detailsJump" class="details-jump" type="button" hidden>查看所選節點詳情 ↓</button>
         <div class="graph-hint">輕點節點選取／取消 <span aria-hidden="true">·</span> 輕點空白取消 <span aria-hidden="true">·</span> 單指平移、雙指縮放</div>
-        <div class="legend" aria-label="圖例"><span><i class="legend-dot legend-entry"></i>研究條目</span><span><i class="legend-dot legend-ot"></i>舊約</span><span><i class="legend-dot legend-nt"></i>新約</span><span><i class="legend-dot legend-topic"></i>主題入口（圓環）</span><span><i class="legend-line"></i>條目列出的經文</span><span><i class="legend-line dashed"></i>共同分類</span><span><i class="legend-line spoken"></i>原引用含耶穌發言</span></div>
+        <div class="legend" aria-label="圖例"><span><i class="legend-dot legend-entry"></i>研究條目</span><span><i class="legend-dot legend-ot"></i>舊約</span><span><i class="legend-dot legend-nt"></i>新約</span><span><i class="legend-dot legend-keyword"></i>文字命中</span><span><i class="legend-dot legend-semantic"></i>語意建議</span><span><i class="legend-dot legend-topic"></i>主題入口（圓環）</span><span><i class="legend-line"></i>條目列出的經文</span><span><i class="legend-line dashed"></i>共同分類</span><span><i class="legend-line spoken"></i>原引用含耶穌發言</span></div>
       </section>
       <aside class="details-panel" id="graphDetails" aria-labelledby="detailsTitle"><div class="details-header"><span class="eyebrow">INSPECT / 細讀</span></div><p class="preview-hint">滑鼠停在經文連結上，或用手指長按，可先預覽經文節錄。</p><div id="detailsContent"><h2 id="detailsTitle">從一個點開始</h2><p>點選圖上的研究、經文或主題，或從篩選結果清單選取，就能在這裡閱讀與開啟原研究及經文連結。再次點選同一點或點選空白處可取消。</p></div></aside>
     </div>

@@ -8,6 +8,14 @@ export function passageSearchIndex(passages) {
     [ref, verses.map(verse => normalizeQuery(verse.text))]));
 }
 
+export function nodeMatchesKeyword(node, value, passageSearch = {}) {
+  const query = normalizeQuery(value);
+  if (!query) return false;
+  if (node.kind === 'entry') return normalizeQuery(node.entry.text).includes(query);
+  return normalizeQuery(`${node.label} ${node.ref || ''}`).includes(query)
+    || Boolean(passageSearch[node.ref]?.some(verse => verse.includes(query)));
+}
+
 export function entryMatches(entry, state, books, spokenEntryIds, passageSearch = {}) {
   const passages = [...entry.ot, ...entry.nt];
   const hasBook = code => passages.some(passage => passage.ref.startsWith(code + ' '));
@@ -23,7 +31,9 @@ export function entryMatches(entry, state, books, spokenEntryIds, passageSearch 
   if (state.search) {
     const query = normalizeQuery(state.search);
     if (query && !normalizeQuery(entry.text).includes(query)
-      && !passages.some(passage => passageSearch[passage.ref]?.some(verse => verse.includes(query)))) return false;
+      && !passages.some(passage => passageSearch[passage.ref]?.some(verse => verse.includes(query)))
+      && !state.semanticEntryIds?.has(entry.id)
+      && !passages.some(passage => state.semanticRefs?.has(passage.ref))) return false;
   }
   return true;
 }

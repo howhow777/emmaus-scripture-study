@@ -6,6 +6,10 @@
 
 圖譜關鍵字會搜尋研究說明與站內每處引用經文的完整段落，並在結果清單顯示命中的經節；搜尋文字使用上述維基文庫和合本。初次載入顯示主線 49 組，輸入關鍵字時自動切換為全部 186 組，也可手動只查主線。未列為研究條目引用的站內經文會單獨列出並直達原經文，不在圖上畫新的關係線。網站只索引已引用的段落，不是全本聖經搜尋。
 
+關鍵字實際命中的節點會以橘色放大，並輕微呼吸；「減少動態效果」開啟時保留靜態高亮。被其他篩選隱藏的研究會顯示提示，可一鍵恢復全部搜尋結果。
+
+輸入一句話後，按「用 AI 找相關經文」或 Enter 可加入語意搜尋，模型建議以粉紅色放大標示，與文字命中分開。語意搜尋由站主本機 Hermes 的獨立 `emmaus-search` profile 使用 Codex 訂閱模型執行；模型對照本站 598 處引用段落及 186 組研究文字選取，伺服器再驗證回傳代碼。語意建議可能不準確，請核對原文；不增加圖譜關係或研究結論。查詢會傳至 Hermes 與雲端模型。主機休眠、離線或模型額度不足時，語意搜尋可能無法使用，文字搜尋仍在瀏覽器本機執行。服務設定見 `server/README.md`。
+
 圖譜的實線僅代表研究條目列出的經文。虛線代表共同研究主題，不表示經文本身彼此直接引用或應驗。耶穌親口經節的逐節標註與原研究的「耶穌親引／比較」標記分開；判準見 [`data/jesus-speech-notes.md`](data/jesus-speech-notes.md)。
 
 ## 維護
@@ -23,6 +27,6 @@ npm run check:graph
 
 首次重建預覽資料時，先執行 `python3 scripts/build-scripture-previews.py --fetch` 下載並驗證固定修訂的經文來源；之後 `npm run build:previews` 可離線產生資料。原始來源快取不需部署。
 
-公開網站包含 `index.html`、`graph.html`、`dating.html`、`graph.css`、`graph-data.js`、`graph.bundle.js`、`scripture-preview.css`、`scripture-preview.js`、`scripture-previews-data.js`、`scripture-search-data.js`，並附 `THIRD_PARTY_NOTICES.txt`。`graph.bundle.js` 已包含 D3 依賴，公開頁面不讀取 CDN。
+公開網站包含 `index.html`、`graph.html`、`dating.html`、`graph.css`、`graph-data.js`、`graph.bundle.js`、`scripture-preview.css`、`scripture-preview.js`、`scripture-previews-data.js`、`scripture-search-data.js`、`semantic-config.js`，並附 `THIRD_PARTY_NOTICES.txt`。`graph.bundle.js` 已包含 D3 依賴，公開頁面不讀取 CDN。
 
 發布前，請在 iPhone Safari 與 Android Chrome 各測試捏合、拖移、篩選、條目跳轉和經文連結。圖譜頁下方的「手機手勢流暢度紀錄」提供近似影格間隔，供實機檢查。

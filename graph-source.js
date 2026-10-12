@@ -1,6 +1,6 @@
 import { zoom, zoomIdentity } from 'd3-zoom';
 import { select } from 'd3-selection';
-import { entryMatches, normalizeQuery, passageSearchIndex, visibleGraph } from './graph-model.mjs';
+import { entryMatches, nodeMatchesKeyword, normalizeQuery, passageSearchIndex, visibleGraph } from './graph-model.mjs';
 import { TOPIC_ORDER, seedNode, makeSimulation, placeTopicRing } from './graph-layout.mjs';
 import { MIN_ZOOM, MAX_ZOOM, clampZoom, panTransform, pinchTransform, tapEligible, STILL_SWAY, swayImpulse, springStep, displayX, displayY } from './graph-motion.mjs';
 import { selectionAfterTap, hashAfterSelection } from './graph-selection.mjs';
@@ -93,6 +93,9 @@ for (const group of Object.keys(groupNames)) {
   const option = document.createElement('option'); option.value = group; option.textContent = groupNames[group]; controls.group.append(option);
 }
 
+let semanticResult = null, semanticRequest = null;
+let searchHitIds = new Set(), semanticHitIds = new Set();
+let graphInView = true, pulseTime = 0, pulseLastFrame = null;
 let visibleEntries = [];
 let otherSearchRefs = [];
 let visibleNodes = [];
@@ -147,7 +150,9 @@ function readState() {
     testament: controls.testament.value, book: controls.book.value, group: controls.group.value,
     topic: controls.topic.value, evidence: controls.evidence.value,
     pentateuch: controls.pentateuch.checked, speech: controls.speech.checked,
-    compare: controls.compare.checked, topics: controls.topics.checked
+    compare: controls.compare.checked, topics: controls.topics.checked,
+    semanticRefs: new Set(semanticResult?.results.filter(item => item.kind === 'passage').map(item => item.ref) || []),
+    semanticEntryIds: new Set(semanticResult?.results.filter(item => item.kind === 'entry').map(item => item.entryId) || [])
   };
 }
 function matchesEntry(entry, state) {
@@ -156,7 +161,7 @@ function matchesEntry(entry, state) {
 function buildVisible() {
   const state = readState();
   const query = normalizeQuery(state.search);
-  otherSearchRefs = query ? otherRefs.filter(ref => passageSearch[ref]?.some(verse => verse.includes(query))) : [];
+  otherSearchRefs = query ? otherRefs.filter(ref => state.semanticRefs.has(ref) || passageSearch[ref]?.some(verse => verse.includes(query))) : [];
   const result = visibleGraph(data, state, passageSearch);
   visibleEntries = result.entries;
   visibleLinks = result.links;
@@ -167,6 +172,9 @@ function buildVisible() {
   visibleNodeIds = new Set(result.nodeIds);
   if (state.topics) for (const topic of topicNames) visibleNodeIds.add(`topic:${topic}`);
   visibleNodes = [...visibleNodeIds].map(id => allNodes.get(id)).filter(Boolean);
+  searchHitIds = new Set(visibleNodes.filter(node => nodeMatchesKeyword(node, query, passageSearch)).map(node => node.id));
+  semanticHitIds = new Set(visibleNodes.filter(node => node.kind === 'entry' ? state.semanticEntryIds.has(node.entry.id) : state.semanticRefs.has(node.ref)).map(node => node.id));
+  renderSearchFeedback(state);
   ringRadius = state.topics ? placeTopicRing(visibleNodes, state.scope) : 0;
   if (selectedId && !visibleNodeIds.has(selectedId)) clearSelection();
   updateSelectedLinks();
@@ -204,17 +212,18 @@ function renderResultList() {
   }
   const matchedPassages = query ? visibleNodes.filter(node =>
     (node.kind === 'ot' || node.kind === 'nt')
-    && passageSearch[node.ref]?.some(verse => verse.includes(query))) : [];
+    && (searchHitIds.has(node.id) || semanticHitIds.has(node.id))) : [];
   const matchedIds = new Set(matchedPassages.map(node => node.id));
   const byLabel = (a, b) => a.label.localeCompare(b.label, 'zh-Hant');
   const groups = [
-    ['match', '符合關鍵字的經文', matchedPassages.sort(byLabel)],
+    ['match', '搜尋命中的經文', matchedPassages.sort(byLabel)],
     ['entry', '研究條目', visibleNodes.filter(node => node.kind === 'entry').sort((a, b) => a.entry.id.localeCompare(b.entry.id))],
     ['ot', '舊約經文', visibleNodes.filter(node => node.kind === 'ot' && !matchedIds.has(node.id)).sort(byLabel)],
     ['nt', '新約經文', visibleNodes.filter(node => node.kind === 'nt' && !matchedIds.has(node.id)).sort(byLabel)],
     ['topic', '共同主題', visibleNodes.filter(node => node.kind === 'topic').sort((a, b) => topicNames.indexOf(a.label) - topicNames.indexOf(b.label))]
   ];
   const fragment = document.createDocumentFragment();
+  const otherFragment = document.createDocumentFragment();
   if (otherSearchRefs.length) {
     const section = document.createElement('section'); section.className = 'result-group';
     section.append(element('h3', `站內其他引用經文（${otherSearchRefs.length}）`));
@@ -227,12 +236,13 @@ function renderResultList() {
         `${data.books[code]?.name || code} ${chapterVerse.replace('-', '–')} ↗`, true));
       const verse = scriptureSearch[ref].find(item => normalizeQuery(item.text).includes(query));
       const excerpt = document.createElement('small'); excerpt.className = 'search-excerpt';
-      excerpt.textContent = `${verse.numberLabel || verse.number}節：${searchExcerpt(verse.text, query)}`;
+      excerpt.textContent = verse ? `${verse.numberLabel || verse.number}節：${searchExcerpt(verse.text, query)}` : scriptureSearch[ref].map(item => item.text).join(' ').slice(0, 120);
       li.append(excerpt); list.append(li);
     }
-    section.append(list); fragment.append(section);
+    section.append(list); otherFragment.append(section);
   }
   for (const [kind, title, nodes] of groups) {
+    if (kind === 'entry') fragment.append(otherFragment);
     if (!nodes.length) continue;
     const section = document.createElement('section'); section.className = 'result-group';
     const h = document.createElement('h3'); h.textContent = `${title}（${nodes.length}）`; section.append(h);
@@ -240,6 +250,8 @@ function renderResultList() {
     for (const node of nodes) {
       const li = document.createElement('li'); const button = document.createElement('button');
       button.type = 'button'; button.textContent = node.label; button.dataset.nodeId = node.id;
+      if (searchHitIds.has(node.id)) { button.classList.add('keyword-hit'); button.append(element('small', '文字命中', 'hit-badge')); }
+      else if (semanticHitIds.has(node.id)) { button.classList.add('semantic-hit'); button.append(element('small', '語意建議', 'hit-badge')); }
       button.setAttribute('aria-label', `選取或取消${title}：${node.label}`);
       button.setAttribute('aria-pressed', String(node.id === selectedId));
       if (node.kind === 'topic' && !activeTopicIds.has(node.id)) {
@@ -257,11 +269,12 @@ function renderResultList() {
           li.append(excerpt);
         }
       }
+      if (semanticHitIds.has(node.id) && !searchHitIds.has(node.id) && node.ref) li.append(element('small', scriptureSearch[node.ref]?.map(item => item.text).join(' ').slice(0, 120) || '', 'search-excerpt'));
       list.append(li);
     }
     section.dataset.kind = kind; section.append(list); fragment.append(section);
   }
-  target.append(fragment);
+  target.append(fragment, otherFragment);
 }
 
 function searchExcerpt(value, query) {
@@ -443,7 +456,71 @@ function drawLinks(links, color, lineWidth, dashed = false) {
   }
   ctx.stroke(); ctx.setLineDash([]);
 }
+function highlighted(node) { return searchHitIds.has(node.id) || semanticHitIds.has(node.id); }
+function nodeRadius(node, pulse = 0) {
+  const base = Math.max(node.kind === 'topic' ? 6 : node.kind === 'entry' ? 4.8 : 3.6,
+    (node.kind === 'topic' ? 4 : 2.1) / transform.k);
+  return highlighted(node) ? Math.max(base * 1.45, (6.5 + pulse * 1.2) / transform.k) : base;
+}
+function renderSearchFeedback(state) {
+  const target = $('searchFeedback');
+  if (!state.search) { target.hidden = true; target.replaceChildren(); return; }
+  const total = entries.filter(entry => matchesEntry(entry, { ...state, scope: 'all', book: '', group: '', topic: '', evidence: '', pentateuch: false, speech: false, compare: false })).length;
+  const hidden = total - visibleEntries.length;
+  target.replaceChildren(); target.hidden = hidden <= 0;
+  if (hidden > 0) {
+    target.append(element('p', `另有 ${hidden} 組搜尋結果被目前的篩選隱藏。`));
+    const button = element('button', '顯示全部搜尋結果'); button.type = 'button';
+    button.addEventListener('click', () => {
+      controls.scope.value = 'all'; controls.testament.value = 'both';
+      for (const key of ['book', 'group', 'topic', 'evidence']) controls[key].value = '';
+      for (const key of ['pentateuch', 'speech', 'compare']) controls[key].checked = false;
+      scopeChosenByUser = false; buildVisible();
+    }); target.append(button);
+  }
+}
+function resetSemantic() {
+  semanticRequest?.abort(); semanticRequest = null; semanticResult = null;
+  $('semanticStatus').textContent = ''; $('semanticSearch').disabled = false;
+}
+async function searchSemantic() {
+  const query = controls.search.value.trim();
+  if (query.length < 2 || query.length > 200) { $('semanticStatus').textContent = '請輸入 2 至 200 字。'; return; }
+  resetSemantic();
+  const controller = new AbortController(); semanticRequest = controller;
+  const timeout = setTimeout(() => controller.abort(), 55000);
+  $('semanticSearch').disabled = true;
+  $('semanticStatus').textContent = '模型正在理解搜尋意圖…文字搜尋仍可使用。';
+  try {
+    const response = await fetch(window.EMMAUS_SEMANTIC_CONFIG.endpoint, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }), signal: controller.signal, credentials: 'omit'
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || '搜尋服務暫時無法使用。');
+    if (result.corpus !== window.EMMAUS_SEMANTIC_CONFIG.corpus || !Array.isArray(result.results)) throw new Error('搜尋索引正在更新，請稍後再試。');
+    if (semanticRequest !== controller || controls.search.value.trim() !== query) return;
+    semanticResult = { results: result.results.filter(item => item.kind === 'passage' ? Object.prototype.hasOwnProperty.call(scriptureSearch, item.ref) : item.kind === 'entry' && entriesById.has(item.entryId)) };
+    if (!scopeChosenByUser) controls.scope.value = 'all';
+    $('semanticStatus').textContent = semanticResult.results.length ? '已加入模型的語意建議；請點開原文核對。語意建議不代表新增經文關係或證據。' : '模型未找到合適的本站經文，仍顯示文字搜尋結果。';
+    buildVisible();
+  } catch (error) {
+    if (semanticRequest !== controller) return;
+    $('semanticStatus').textContent = error.name === 'AbortError' ? '語意搜尋逾時，請稍後再試；文字搜尋仍可使用。' : `${error.message} 文字搜尋仍可使用。`;
+  } finally {
+    clearTimeout(timeout);
+    if (semanticRequest === controller) { semanticRequest = null; $('semanticSearch').disabled = false; }
+  }
+}
+$('semanticSearch').addEventListener('click', searchSemantic);
+controls.search.addEventListener('keydown', event => { if (event.key === 'Enter' && !event.isComposing) { event.preventDefault(); searchSemantic(); } });
+new IntersectionObserver(items => { graphInView = items[0].isIntersecting; pulseLastFrame = null; if (graphInView) scheduleDraw(); }).observe(canvas);
+document.addEventListener('visibilitychange', () => { pulseLastFrame = null; if (!document.hidden) scheduleDraw(); });
 function draw(time) {
+  const breathing = !reducedMotion && graphInView && !document.hidden && !pointers.size && !wheelGesture && (searchHitIds.size || semanticHitIds.size);
+  if (breathing && pulseLastFrame !== null) pulseTime += Math.min(40, time - pulseLastFrame);
+  pulseLastFrame = breathing ? time : null;
+  const pulse = reducedMotion ? 0 : (1 + Math.sin(pulseTime * Math.PI * 2 / 2600)) / 2;
   const hadSway = sway !== STILL_SWAY;
   const pinching = pointers.size >= 2;
   if (hadSway && !pinching) {
@@ -471,16 +548,20 @@ function draw(time) {
     const screenX = transform.applyX(node.drawX), screenY = transform.applyY(node.drawY);
     if (screenX < -30 || screenX > width + 30 || screenY < -30 || screenY > height + 30) continue;
     const selected = node.id === selectedId, hovered = node.id === hoveredId;
-    const radius = Math.max(node.kind === 'topic' ? 6 : node.kind === 'entry' ? 4.8 : 3.6,
-      (node.kind === 'topic' ? 4 : 2.1) / transform.k);
-    ctx.globalAlpha = (selectedId && !selected && !connected.has(node.id) ? .33 : 1) *
+    const radius = nodeRadius(node, pulse);
+    const hit = highlighted(node), hitColor = searchHitIds.has(node.id) ? '#ff986d' : '#ff79bf';
+    ctx.globalAlpha = (selectedId && !selected && !hit && !connected.has(node.id) ? .33 : 1) *
       (node.kind === 'topic' && !activeTopicIds.has(node.id) && !selected ? .28 : 1);
+    if (hit) {
+      ctx.beginPath(); ctx.arc(node.drawX, node.drawY, radius + (4 + pulse * 3) / transform.k, 0, Math.PI * 2);
+      ctx.fillStyle = hitColor + (reducedMotion ? '33' : '2b'); ctx.fill();
+    }
     if (selected || hovered) {
       ctx.beginPath(); ctx.arc(node.drawX, node.drawY, radius + 7 / transform.k, 0, Math.PI * 2);
       ctx.fillStyle = selected ? '#f3cf8b38' : '#e8f1e138'; ctx.fill();
     }
     ctx.beginPath(); ctx.arc(node.drawX, node.drawY, radius, 0, Math.PI * 2);
-    ctx.fillStyle = colors[node.kind]; ctx.fill();
+    ctx.fillStyle = hit ? hitColor : colors[node.kind]; ctx.fill();
     if (node.kind === 'entry' || node.kind === 'topic') {
       ctx.strokeStyle = selected ? '#fff3ce' : '#d8e8d277'; ctx.lineWidth = 1 / transform.k; ctx.stroke();
     }
@@ -488,7 +569,7 @@ function draw(time) {
   ctx.globalAlpha = 1;
   const gesture = pointers.size > 0 || wheelGesture || sway !== STILL_SWAY;
   const labelNodes = visibleNodes.filter(node => node.id === selectedId || node.id === hoveredId ||
-    (!gesture && (node.kind === 'topic' || (transform.k > 1.45 && node.kind === 'entry') || (transform.k > 2.4 && node.kind !== 'entry'))))
+    (!gesture && ((highlighted(node) && searchHitIds.size + semanticHitIds.size <= 12) || node.kind === 'topic' || (transform.k > 1.45 && node.kind === 'entry') || (transform.k > 2.4 && node.kind !== 'entry'))))
     .filter(node => { const x = transform.applyX(node.drawX), y = transform.applyY(node.drawY); return x > -120 && x < width + 120 && y > -40 && y < height + 40; });
   ctx.font = `${11 / transform.k}px -apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif`;
   ctx.textBaseline = 'middle';
@@ -500,7 +581,7 @@ function draw(time) {
     ctx.fillText(text, node.drawX + 10 / transform.k, node.drawY - 7 / transform.k);
   }
   ctx.shadowBlur = 0; ctx.globalAlpha = 1;
-  if (sway !== STILL_SWAY && !pinching) scheduleDraw();
+  if (breathing || (sway !== STILL_SWAY && !pinching)) scheduleDraw();
   else if (hadSway) { swayLastFrame = null; maybeResumeLayout(); }
 }
 
@@ -513,7 +594,7 @@ function hitNode(point) {
     const sx = transform.applyX(displayX(node, sway, transform.k));
     const sy = transform.applyY(displayY(node, sway, transform.k));
     const distance = Math.hypot(point.x - sx, point.y - sy);
-    const radius = node.kind === 'topic' ? 17 : node.kind === 'entry' ? 16 : 13;
+    const radius = Math.max(node.kind === 'topic' ? 17 : node.kind === 'entry' ? 16 : 13, nodeRadius(node, 1) * transform.k + 4);
     if (distance <= radius && distance < best) { found = node; best = distance; }
   }
   return found;
@@ -644,6 +725,7 @@ $('zoomIn').addEventListener('click', () => { userHasMovedView = true; canvasSel
 $('zoomOut').addEventListener('click', () => { userHasMovedView = true; canvasSelection.call(zoomBehavior.scaleBy, 1 / 1.3); });
 $('fitGraph').addEventListener('click', fitGraph);
 $('clearFilters').addEventListener('click', () => {
+  resetSemantic();
   controls.search.value = ''; controls.scope.value = 'core'; controls.testament.value = 'both';
   controls.book.value = ''; controls.group.value = ''; controls.topic.value = ''; controls.evidence.value = '';
   controls.pentateuch.checked = false; controls.speech.checked = false; controls.compare.checked = false; controls.topics.checked = true;
@@ -656,6 +738,7 @@ for (const [name, control] of Object.entries(controls)) {
   control.addEventListener(name === 'search' ? 'input' : 'change', () => {
     if (name === 'scope') scopeChosenByUser = true;
     if (name === 'search') {
+      resetSemantic();
       if (control.value.trim() && !scopeChosenByUser && controls.scope.value === 'core') controls.scope.value = 'all';
       clearTimeout(searchTimer); searchTimer = setTimeout(buildVisible, 120);
     }
@@ -667,6 +750,7 @@ function focusHash() {
   const entry = entriesById.get(id); if (!entry) return;
   if (!entry.core && controls.scope.value === 'core') controls.scope.value = 'all';
   if (!matchesEntry(entry, readState())) {
+    resetSemantic();
     controls.search.value = ''; controls.book.value = ''; controls.group.value = '';
     controls.topic.value = ''; controls.evidence.value = ''; controls.pentateuch.checked = false;
     controls.speech.checked = false; controls.compare.checked = false;
@@ -679,4 +763,4 @@ window.addEventListener('hashchange', focusHash);
 if (window.matchMedia('(max-width: 760px)').matches) $('graphControls').querySelector('.filter-fold').open = false;
 new ResizeObserver(resizeCanvas).observe(stage);
 resizeCanvas(); buildVisible(); focusHash();
-window.EMMAUS_GRAPH_APP = { readState, getVisible: () => ({ entries: visibleEntries.map(entry => entry.id), nodes: visibleNodes.map(node => node.id), links: visibleLinks.length }), selectEntry: id => selectNode(entryNodes.get(id), true) };
+window.EMMAUS_GRAPH_APP = { readState, getVisible: () => ({ entries: visibleEntries.map(entry => entry.id), nodes: visibleNodes.map(node => node.id), links: visibleLinks.length, keywordHits: [...searchHitIds], semanticHits: [...semanticHitIds], reducedMotion }), selectEntry: id => selectNode(entryNodes.get(id), true) };
