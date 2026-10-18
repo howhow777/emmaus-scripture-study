@@ -84,6 +84,8 @@ Android與iPhone已由使用者分別回報「android測試ok」、「iPhone測�
 
 這次正式站AI查詢使用同版本的已驗證快取；**不列入前述48次未快取模型成績**。公開請求及原始結果見[正式站驗證](production-verification.json)。原預覽的瀏覽器紀錄另存[歷史紀錄](diagnostics/browser-preview-audit.json)。沒有把手機模擬當成iPhone或Android實機證明；實機通過來自使用者的兩次回報。
 
+[下載本版網站包](https://howhow777.github.io/emmaus-scripture-study/emmaus_website.zip)。網站包包含公開研究資料、圖譜、經文預覽與查核紀錄，不含伺服器金鑰或資料庫。
+
 ## 重跑方法
 
 ```sh
