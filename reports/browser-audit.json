@@ -155,5 +155,9 @@
   ],
   "consoleErrors": [],
   "browser": "155.0.8059.82",
-  "realPhones": "pending user"
+  "realPhones": {
+    "android": "passed-user-reported",
+    "iphoneSafari": "pending",
+    "frameMetrics": "not supplied"
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "corpus": "4dce84e4f5eb107fa141",
+  "android": {
+    "status": "passed-user-reported",
+    "message": "android測試ok",
+    "recordedAt": "2026-10-18T06:15:48+00:00",
+    "frameMetrics": "not supplied"
+  },
+  "iphoneSafari": {
+    "status": "pending"
+  }
+}
