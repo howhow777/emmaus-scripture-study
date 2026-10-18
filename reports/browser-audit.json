@@ -1,5 +1,5 @@
 {
-  "url": "https://emmaus-preview.promelink.link",
+  "url": "https://howhow777.github.io/emmaus-scripture-study",
   "corpus": "4dce84e4f5eb107fa141",
   "checks": [
     {
@@ -154,10 +154,10 @@
     }
   ],
   "consoleErrors": [],
-  "browser": "155.0.8059.82",
   "realPhones": {
     "android": "passed-user-reported",
     "iphoneSafari": "passed-user-reported",
     "frameMetrics": "not supplied"
-  }
+  },
+  "browser": "155.0.8059.82"
 }

@@ -54,3 +54,5 @@ python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtim
 瀏覽器回歸另可執行 `python3 scripts/verify-browser.py --site https://emmaus-preview.promelink.link`，需要已安裝的 Playwright 與 Chrome；不呼叫模型，網路錯誤案例採注入並明確與真實模型成績分開。
 
 最終索引的48次真實模型驗收已達標（recall@10 100%、precision 99.17%）；Android與iPhone均由使用者回報測試通過。原始成績見 [reports/semantic-live.json](reports/semantic-live.json)。
+
+正式網址：[研究首頁](https://howhow777.github.io/emmaus-scripture-study/) · [互動圖譜](https://howhow777.github.io/emmaus-scripture-study/graph.html)。發布驗證可執行 `python3 scripts/verify-production.py`；會向公開API送出一次正常查詢，遵守既有快取與每日保護限制。

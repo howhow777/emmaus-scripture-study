@@ -1,0 +1,88 @@
+{
+  "verifiedAt": "2026-10-18T09:23:34+00:00",
+  "site": "https://howhow777.github.io/emmaus-scripture-study/",
+  "corpus": "4dce84e4f5eb107fa141",
+  "checks": [
+    {
+      "name": "Public graph HTTP 200",
+      "pass": true
+    },
+    {
+      "name": "Public corpus matches 901 passages and 206 studies",
+      "pass": true
+    },
+    {
+      "name": "Public literal query 彼拉多",
+      "pass": true
+    },
+    {
+      "name": "Public literal query 多馬",
+      "pass": true
+    },
+    {
+      "name": "Public literal query 釘痕",
+      "pass": true
+    },
+    {
+      "name": "Public literal query 挪亞",
+      "pass": true
+    },
+    {
+      "name": "Public literal Noah both Gospel nodes",
+      "pass": true
+    },
+    {
+      "name": "Real public API success and CORS",
+      "pass": true
+    },
+    {
+      "name": "Real public semantic Noah both nodes",
+      "pass": true
+    },
+    {
+      "name": "Public graph to reading backlink",
+      "pass": true
+    },
+    {
+      "name": "External Bible link opens correct passage",
+      "pass": true
+    },
+    {
+      "name": "Public reading to graph backlink",
+      "pass": true
+    },
+    {
+      "name": "Public bidirectional deep link",
+      "pass": true
+    },
+    {
+      "name": "No uncaught runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "realPublicSemantic": {
+    "query": "耶穌曾經講過挪亞嗎？",
+    "status": 200,
+    "cached": true,
+    "seconds": 0.27,
+    "results": [
+      {
+        "kind": "passage",
+        "ref": "MAT 24:37-39",
+        "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+      },
+      {
+        "kind": "passage",
+        "ref": "LUK 17:26-27",
+        "excerpt": "26節 挪亞的日子怎樣、人子的日子也要怎樣。 27節 那時候的人又喫又喝、又娶又嫁、到挪亞進方舟的那日、洪水就來、把他們全都滅了。"
+      },
+      {
+        "kind": "entry",
+        "entryId": "E187",
+        "excerpt": "挪亞的日子與人子的來臨"
+      }
+    ]
+  },
+  "browser": "155.0.8059.82"
+}

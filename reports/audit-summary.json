@@ -1,5 +1,5 @@
 {
-  "status": "accepted-ready-for-release",
+  "status": "released",
   "corpus": "4dce84e4f5eb107fa141",
   "studies": 206,
   "preservedStudies": 186,
@@ -74,9 +74,15 @@
     "report": "semantic-live.json"
   },
   "production": {
-    "status": "unchanged",
-    "commit": "6f422a304264fd10b4555a52bc1368208cecf38b",
-    "corpus": "21f0ae5f87764dbe7483",
-    "targetCorpus": "4dce84e4f5eb107fa141"
+    "status": "released",
+    "site": "https://howhow777.github.io/emmaus-scripture-study/",
+    "contentCommit": "9c167ad60c44cccd667e6778d9248677b70ec16b",
+    "corpus": "4dce84e4f5eb107fa141",
+    "documents": 1107,
+    "previousContentCommit": "6f422a304264fd10b4555a52bc1368208cecf38b",
+    "previousCorpus": "21f0ae5f87764dbe7483",
+    "browserChecks": 14,
+    "browserPass": true,
+    "verifiedAt": "2026-10-18T09:24:32+00:00"
   }
 }
