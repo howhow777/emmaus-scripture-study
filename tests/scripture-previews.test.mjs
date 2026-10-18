@@ -23,7 +23,7 @@ function referenceFromHref(href) {
 test('every Bible.com scripture destination has a distinct preview', () => {
   const html = file('index.html');
   const refs = new Set();
-  for (const text of [html, file('graph-data.js')]) {
+  for (const text of [html, file('graph-data.js'), file('coverage.html')]) {
     for (const match of text.matchAll(/https:\/\/www\.bible\.com\/bible\/46\/[0-9A-Z.%-]+/g)) {
       refs.add(referenceFromHref(match[0]));
     }
@@ -47,12 +47,12 @@ test('previews state their source and show up to four numbered verses', () => {
   for (const [ref, item] of Object.entries(passages)) {
     assert.ok(item.label, ref);
     assert.ok(Number.isInteger(item.total) && item.total > 0, ref);
-    assert.equal(item.verses.length, Math.min(item.total, 4), ref);
+    assert.equal(item.verses.length, Math.min(fullSearch.passages[ref].length, 4), ref);
     const match = /^[0-9A-Z]+ \d+(?::(\d+)(?:-\d+)?)?$/.exec(ref);
     assert.ok(match, ref);
     const first = Number(match[1] || 1);
     item.verses.forEach((verse, index) => {
-      assert.equal(verse.number, first + index, ref);
+      assert.equal(verse.number, fullSearch.passages[ref][index].number, ref);
       assert.ok(verse.text.length > 0, ref);
       assert.doesNotMatch(verse.text, /\{\{|\[\[|<[^>]+>/, ref);
     });
@@ -65,7 +65,7 @@ test('full search covers every cited verse beyond the four-verse preview', () =>
   for (const [ref, preview] of Object.entries(passages)) {
     const verses = fullSearch.passages[ref];
     assert.equal(JSON.stringify(verses.slice(0, 4)), JSON.stringify(preview.verses), ref);
-    assert.equal(verses.length, preview.total - (ref === 'PSA 8:1-9' ? 2 : 0), ref);
+    assert.equal(verses.reduce((n,v)=>n+(v.coveredNumbers?.length || 1),0), preview.total - (ref === 'PSA 8:1-9' ? 2 : 0), ref);
   }
   assert.equal(fullSearch.passages['LUK 24'].at(-1).number, 53);
   assert.match(fullSearch.passages['GEN 22:1-14'][5].text, /燔祭的柴放在/);
@@ -81,4 +81,11 @@ test('chapter and source transcription edge cases remain accurate', () => {
   assert.match(isaiah[2].text, /公義的靈/);
   assert.doesNotMatch(isaiah[1].text, /公義的靈/);
   assert.match(passages['EZK 47:1-12'].verses[1].text, /又領我從外邊轉到朝東的外門/);
+});
+
+test('merged numbering and variant-only source notes are explicit instead of empty verses',()=>{
+ const merged=fullSearch.passages['LUK 2:34-35'];
+ assert.deepEqual(Array.from(merged[0].coveredNumbers),[34,35]);
+ assert.equal(merged[0].numberLabel,'34–35');assert.match(merged[0].text,/西面/);
+ assert.match(fullSearch.passages['MRK 15:24-34'].find(v=>v.number===28).text,/本來源異文註/);
 });

@@ -86,7 +86,19 @@ PAGES = {
     "TIT": (335272, "657ca984d0d73bfbf3b1df455102e0a80f379f399c6fbd0bcabea40d1bf32053"),
     "ZEC": (413067, "adcc8f29ab05cbd37d1a89c9a94d1b4dc633c3b63d5b1425bc21f168a7e284b9"),
     "ZEP": (334733, "50d7fda5d86bcbdd0332bbd6a22f2b75690be8cb968fbf2494e012aec9834814"),
+    "1TH": (335268, "08f6519069fd49dc1a4495d004b7fc427d9aaf7922335977ca78f3be95afffa5"),
+    "1TI": (1338102, "33d187002cab8f87e8e7f91f90b82be3e3b1ac87f8c13291e6fb6107698305b7"),
+    "2TI": (1338094, "57cf0f8d84b05f0c5b61292d860ee45965920d8e908ed44625f0c83c046a933b"),
+    "PHM": (335273, "da2e46de4e612441d51d689ae7589997ccc09e54b67252d4ae0417b934361c0f"),
+    "2JN": (334876, "dbed5e012952ec2d1a839f9d0eb9698961775eb562fecbc447d7c0927b19a00f"),
+    "3JN": (335274, "2e9c6b6686d95ed08a3d69c64a0fe1f00554304e4a034b88ae3bde4b0a476f8e"),
+    "JUD": (335275, "8efb7d4b29442f733f58c616186701f983b9fcc59d4711d8756b585e01116b66"),
 }
+
+# These consecutive verse markers share one source paragraph. Cite the complete
+# group and retain the source numbering rather than inventing a split text.
+COMBINED = {('LUK',1,1):2,('LUK',2,34):35,('ACT',1,24):25,
+            ('ACT',4,29):30,('EPH',6,2):3,('COL',2,20):21}
 
 LINK_RE = re.compile(r"https://www\.bible\.com/bible/46/([0-9A-Z.%-]+)")
 REF_RE = re.compile(r"([0-9A-Z]+)\.(\d+)(?:\.(\d+)(?:-(\d+))?)?\.CUNP-神")
@@ -97,7 +109,7 @@ TEMPLATE_RE = re.compile(r"\{\{([^{}]+)\}\}")
 def references():
     """Collect every current Bible.com destination, including Jesus speech spans."""
     found = set()
-    for file in (INDEX, GRAPH):
+    for file in (INDEX, GRAPH, ROOT / "coverage.html"):
         for encoded in LINK_RE.findall(file.read_text(encoding="utf-8")):
             match = REF_RE.fullmatch(unquote(encoded))
             if not match:
@@ -171,6 +183,11 @@ def plain_verse(raw):
     # Superscript cross-reference numerals and textual-variant notes are not
     # scripture words. Retain dotted text and Psalm superscriptions.
     raw = re.sub(r"<sup\b[^>]*>.*?</sup>", "", raw, flags=re.I | re.S)
+    # A verse consisting solely of a textual-variant note must remain visible
+    # as a note rather than silently becoming an empty canonical verse.
+    variant_only = re.fullmatch(r"\s*\{\{\*\|(.+)\}\}\s*", raw, flags=re.S)
+    if variant_only:
+        return "（本來源異文註：" + plain_verse(variant_only[1]) + "）"
     raw = re.sub(r"<ref\b[^>]*>.*?</ref>", "", raw, flags=re.I | re.S)
 
     def template(match):
@@ -227,7 +244,21 @@ def build(source_dir):
         if missing:
             raise ValueError(f"Missing verses in {book} {chapter}: {missing}")
         verses = []
+        skipped = set()
         for number in numbers:
+            if number in skipped:
+                continue
+            combined_last = COMBINED.get((book, chapter, number))
+            if combined_last:
+                if combined_last not in numbers:
+                    raise ValueError(f'Source combines {book} {chapter}:{number}-{combined_last}; cite the complete group')
+                if chapter_verses[number] != '':
+                    raise ValueError(f'Combined source changed: {book} {chapter}:{number}')
+                verses.append({'number': number, 'numberLabel': f'{number}–{combined_last}',
+                               'coveredNumbers': list(range(number, combined_last+1)),
+                               'text': plain_verse(chapter_verses[combined_last])})
+                skipped.update(range(number+1,combined_last+1))
+                continue
             raw = chapter_verses[number]
             if book == "PSA" and chapter == 8 and number in (6, 7):
                 if raw != "":
@@ -245,7 +276,8 @@ def build(source_dir):
         key = passage_key(book, chapter, first, last)
         passages[key] = passage
         search_passages[key] = verses
-    return {"source": SOURCE, "passages": passages}, {"source": SOURCE, "passages": search_passages}
+    supplemental = json.loads((ROOT / "data/coverage/supplemental-passages.json").read_text())
+    return {"source": SOURCE, "passages": passages}, {"source": SOURCE, "passages": search_passages, "supplemental": {item["ref"]: item for item in supplemental}}
 
 
 def serialized(data):
@@ -271,7 +303,7 @@ def check_existing():
         if not item.get("label") or not isinstance(item.get("total"), int) or item["total"] < 1:
             raise ValueError(f"Invalid preview metadata: {key}")
         verses = item.get("verses")
-        if not isinstance(verses, list) or len(verses) != min(item["total"], 4):
+        if not isinstance(verses, list) or not 1 <= len(verses) <= min(item["total"], 4):
             raise ValueError(f"Invalid preview verse count: {key}")
         if any(not isinstance(v.get("number"), int) or not isinstance(v.get("text"), str) or not v["text"] for v in verses):
             raise ValueError(f"Invalid preview text: {key}")
@@ -291,12 +323,12 @@ def check_existing():
         book_chapter = key.split(":")[0]
         combined_psalm_8 = book_chapter == "PSA 8" and preview["total"] >= 8
         expected_length = preview["total"] - (2 if combined_psalm_8 else 0)
-        if not isinstance(verses, list) or len(verses) != expected_length or verses[:4] != preview["verses"]:
+        if not isinstance(verses, list) or sum(len(verse.get("coveredNumbers", [verse["number"]])) for verse in verses) != expected_length or verses[:4] != preview["verses"]:
             raise ValueError(f"Incomplete scripture search range: {key}")
         first = int(re.search(r":(\d+)", key).group(1)) if ":" in key else 1
         expected_numbers = [number for number in range(first, first + preview["total"])
                             if not (combined_psalm_8 and number in (6, 7))]
-        if [verse.get("number") for verse in verses] != expected_numbers or any(
+        if [number for verse in verses for number in verse.get("coveredNumbers", [verse.get("number")])] != expected_numbers or any(
             not isinstance(verse.get("text"), str) or not verse["text"] for verse in verses
         ):
             raise ValueError(f"Invalid scripture search verse: {key}")

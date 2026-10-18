@@ -1,0 +1,1516 @@
+{
+  "corpus": "ee126824683503ca2ef7",
+  "model": "gpt-6.1-sol",
+  "rounds": 2,
+  "cacheBypassed": true,
+  "runs": [
+    {
+      "round": 1,
+      "id": "S01",
+      "query": "耶穌曾經講過挪亞嗎？",
+      "seconds": 5.113,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 24:37-39",
+          "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 17:26-27",
+          "excerpt": "26節 挪亞的日子怎樣、人子的日子也要怎樣。 27節 那時候的人又喫又喝、又娶又嫁、到挪亞進方舟的那日、洪水就來、把他們全都滅了。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E187",
+          "excerpt": "挪亞的日子與人子的來臨"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 2,
+      "recallTotal": 2,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S02",
+      "query": "馬太福音裡耶穌談挪亞的日子在哪裡？",
+      "seconds": 5.28,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 24:37-39",
+          "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E187",
+          "excerpt": "挪亞的日子與人子的來臨"
+        }
+      ],
+      "diagnostics": {
+        "selected": 2,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 2,
+      "returned": 2,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S03",
+      "query": "耶穌把人子再來比作洪水前大家照常吃喝嫁娶",
+      "seconds": 5.209,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 24:37-39",
+          "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 17:26-27",
+          "excerpt": "26節 挪亞的日子怎樣、人子的日子也要怎樣。 27節 那時候的人又喫又喝、又娶又嫁、到挪亞進方舟的那日、洪水就來、把他們全都滅了。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E187",
+          "excerpt": "挪亞的日子與人子的來臨"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 2,
+      "recallTotal": 2,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S04",
+      "query": "耶穌提醒人不要像那位回頭看的女人",
+      "seconds": 5.541,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "LUK 17:28-32",
+          "excerpt": "28節 又好像羅得的日子．人又喫又喝、又買又賣、又耕種、又蓋造． 29節 到羅得出所多瑪的那日、就有火與硫磺從天上降下來、把他們全都滅了。 30節 人子顯現的日子、也要這樣。 31節 當那日、人在房上、器具在屋裏、不要下來拿．人在田裏．也不要回家。 32節 你們要回想羅得的妻子。"
+        },
+        {
+          "kind": "passage",
+          "ref": "GEN 19:15-29",
+          "excerpt": "15節 天明了、天使催逼羅得說、起來、帶着你的妻子、和你在這裏的兩個女兒出去、免得你因這城裏的罪惡、同被剿滅。 16節 但羅得遲延不走．二人因爲耶和華憐恤羅得、就拉着他的手、和他妻子的手、並他兩個女兒的手、把他們領出來、安置在城外。 17節 領他們出來以後、就說、逃命罷．不可回頭看、也不可在平原站住、要往山上逃跑、免得"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E188",
+          "excerpt": "羅得、所多瑪與回想羅得的妻子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S05",
+      "query": "耶穌提到大衛肚子餓吃了祭司才能吃的餅",
+      "seconds": 5.553,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 12:1-8",
+          "excerpt": "1節 那時、耶穌在安息日、從麥地經過．他的門徒餓了、就掐起麥穗來喫。 2節 法利賽人看見、就對耶穌說、看哪、你的門徒作安息日不可作的事了。 3節 耶穌對他們說、經上記着、大衞和跟從他的人飢餓之時所作的事、你們沒有念過麼。 4節 他怎麼進了　神的殿、喫了陳設餅、這餅不是他和跟從他的人可以喫得、惟獨祭司纔可以喫。 5節 再"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 2:23-28",
+          "excerpt": "23節 耶穌當安息日、從麥地經過．他門徒行路的時候、掐了麥穗。 24節 法利賽人對耶穌說、看哪、他們在安息日爲甚麼作不可作的事呢． 25節 耶穌對他們說、經上記着大衞和跟從他的人、缺乏飢餓之時所作的事、你們沒有念過麼。 26節 他當亞比亞他作大祭司的時候、怎麼進了　神的殿、喫了陳設餅、又給跟從他的人喫．這餅除了祭司以外"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 6:1-5",
+          "excerpt": "1節 有一個安息日、耶穌從麥地經過．他的門徒掐了麥穗、用手搓着喫。 2節 有幾個法利賽人說、你們爲甚麼作安息日不可作的事呢。 3節 耶穌對他們說、經上記着大衞和跟從他的人、飢餓之時所作的事、連這個你們也沒有念過麼． 4節 他怎麼進了　神的殿、拿陳設餅喫、又給跟從的人喫．這餅除了祭司以外、別人都不可喫。 5節 又對他們說"
+        },
+        {
+          "kind": "passage",
+          "ref": "1SA 21:1-6",
+          "excerpt": "1節 大衞到了挪伯祭司亞希米勒那裏．亞希米勒戰戰兢兢的出來迎接他、問他說、你爲甚麼獨自來、沒有人跟隨呢。 2節 大衞回答祭司亞希米勒說、王吩咐我一件事、說、我差遣你委託你的這件事、不要使人知道．故此我已派定少年人在某處等候我。 3節 現在你手下有甚麼．求你給我五個餅、或是別樣的食物。 4節 祭司對大衞說、我手下沒有尋常"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E189",
+          "excerpt": "大衛吃陳設餅與安息日的主"
+        }
+      ],
+      "diagnostics": {
+        "selected": 5,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 5,
+      "returned": 5,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S06",
+      "query": "耶穌說亞伯拉罕盼望看見祂的日子",
+      "seconds": 5.857,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "JHN 8:56-58",
+          "excerpt": "56節 你們的祖宗亞伯拉罕歡歡喜喜的仰望我的日子．旣看見了、就快樂。 57節 猶太人說、你還沒有五十歲、豈見過亞伯拉罕呢。 58節 耶穌說、我實實在在的告訴你們、還沒有亞伯拉罕、就有了我。"
+        },
+        {
+          "kind": "passage",
+          "ref": "JHN 8:56",
+          "excerpt": "56節 你們的祖宗亞伯拉罕歡歡喜喜的仰望我的日子．旣看見了、就快樂。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E190",
+          "excerpt": "亞伯拉罕歡喜仰望耶穌的日子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S07",
+      "query": "耶穌為什麼與罪人一起吃飯，祂引用憐憫勝過祭物",
+      "seconds": 5.607,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 9:9-13",
+          "excerpt": "9節 耶穌從那裏往前走、看見一個人名叫馬太、坐在稅關上、就對他說、你跟從我來．他就起來、跟從了耶穌。 10節 耶穌在屋裏坐席的時候、有好些稅吏和罪人來、與耶穌和他的門徒一同坐席。 11節 法利賽人看見、就對耶穌的門徒說、你們的先生爲甚麼和稅吏並罪人一同喫飯呢。 12節 耶穌聽見、就說、康健的人用不着醫生、有病的人纔用得"
+        },
+        {
+          "kind": "passage",
+          "ref": "HOS 6:6",
+          "excerpt": "6節 我喜愛良善、不喜愛祭祀、喜愛認識　神、勝於燔祭。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E192",
+          "excerpt": "我喜愛憐恤，不喜愛祭祀"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S08",
+      "query": "耶穌批評用嘴巴尊敬神，心卻離神很遠",
+      "seconds": 7.159,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 15:1-9",
+          "excerpt": "1節 那時有法利賽人和文士、從耶路撒冷來見耶穌說、 2節 你的門徒爲甚麼犯古人的遺傳呢．因爲喫飯的時候、他們不洗手。 3節 耶穌回答說、你們爲甚麼因着你們的遺傳、犯　神的誡命呢。 4節 神說、當孝敬父母．又說、咒罵父母的、必治死他。 5節 你們倒說、無論何人對父母說、我所當奉給你的、已經作了供獻． 6節 他就可以不孝敬"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 7:6-13",
+          "excerpt": "6節 耶穌說、以賽亞指着你們假冒爲善之人所說的豫言、是不錯的、如經上說、『這百姓用嘴唇尊敬我、心卻遠離我。 7節 他們將人的吩咐、當作道理教導人、所以拜我也是枉然。』 8節 你們是離棄　神的誡命、拘守人的遺傳。 9節 又說、你們誠然是廢棄　神的誡命、要守自己的遺傳。 10節 摩西說、『當孝敬父母。』又說、『咒罵父母的、"
+        },
+        {
+          "kind": "passage",
+          "ref": "ISA 29:13",
+          "excerpt": "13節 主說、因爲這百姓親近我、用嘴唇尊敬我、心卻遠離我．他們敬畏我、不過是領受人的吩咐。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E193",
+          "excerpt": "嘴唇尊敬與人間傳統：耶穌引用以賽亞"
+        }
+      ],
+      "diagnostics": {
+        "selected": 4,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 4,
+      "returned": 4,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S09",
+      "query": "耶穌說最重要的是盡心愛神，也愛鄰舍",
+      "seconds": 5.701,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 22:34-40",
+          "excerpt": "34節 法利賽人聽見耶穌堵住了撒都該人的口、他們就聚集。 35節 內中有一個人是律法師、要試探耶穌、就問他說、 36節 夫子、律法上的誡命、那一條是最大的呢。 37節 耶穌對他說、你要盡心、盡性、盡意、愛主你的　神。 38節 這是誡命中的第一、且是最大的。 39節 其次也相仿、就是要愛人如己。 40節 這兩條誡命、是律"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 12:28-34",
+          "excerpt": "28節 有一個文士來、聽見他們辯論、曉得耶穌回答的好、就問他說、誡命中那是第一要緊的呢。 29節 耶穌回答說、第一要緊的、就是說、以色列阿、你要聽．主我們　神、是獨一的主。 30節 你要盡心、盡性、盡意、盡力、愛主你的　神。 31節 其次、就是說、要愛人如己。再沒有比這兩條誡命更大的了。 32節 那文士對耶穌說、夫子說"
+        },
+        {
+          "kind": "passage",
+          "ref": "DEU 6:4-5",
+          "excerpt": "4節 以色列阿、你要聽．耶和華我們　神是獨一的主。 5節 你要盡心、盡性、盡力、愛耶和華你的　神。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LEV 19:18",
+          "excerpt": "18節 不可報仇、也不可埋怨你本國的子民、卻要愛人如己．我是耶和華。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E194",
+          "excerpt": "愛神愛人：律法與先知的總綱"
+        }
+      ],
+      "diagnostics": {
+        "selected": 5,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 5,
+      "returned": 5,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S10",
+      "query": "耶穌用先知在大魚肚子裡三天的事說明自己",
+      "seconds": 5.764,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 12:38-41",
+          "excerpt": "38節 當時有幾個文士和法利賽人、對耶穌說、夫子、我們願意你顯個神蹟給我們看。 39節 耶穌回答說、一個邪惡淫亂的世代求看神蹟．除了先知約拿的神蹟以外、再沒有神蹟給他們看。 40節 約拿三日三夜在大魚肚腹中．人子也要這樣三日三夜在地裏頭。 41節 當審判的時候、尼尼微人、要起來定這世代的罪、因爲尼尼微人聽了約拿所傳的、"
+        },
+        {
+          "kind": "passage",
+          "ref": "JON 1:17",
+          "excerpt": "17節 耶和華安排一條大魚吞了約拿、他在魚腹中三日三夜。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 11:29-32",
+          "excerpt": "29節 當衆人聚集的時候、耶穌開講說、這世代是一個邪惡的世代．他們求看神蹟、除了約拿的神蹟以外、再沒有神蹟給他們看。 30節 約拿怎樣爲尼尼微人成了神蹟、人子也要照樣爲這世代的人成了神蹟。 31節 當審判的時候、南方的女王、要起來定這世代的罪．因爲他從地極而來、要聽所羅門的智慧話．看哪、在這裏有一人比所羅門更大。 32"
+        },
+        {
+          "kind": "passage",
+          "ref": "JON 2:1-10",
+          "excerpt": "1節 約拿在魚腹中禱告耶和華他的　神、 2節 說、我遭遇患難求告耶和華、你就應允我．從陰間的深處呼求、你就俯聽我的聲音。 3節 你將我投下深淵、就是海的深處．大水環繞我．你的波浪洪濤、都漫過我身。 4節 我說、我從你眼前雖被驅逐、我仍要仰望你的聖殿。 5節 諸水環繞我、幾乎淹沒我．深淵圍住我、海草纏繞我的頭． 6節 我"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E152",
+          "excerpt": "約拿的記號：三日三夜與人子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 5,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 5,
+      "returned": 5,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S11",
+      "query": "耶穌把自己被舉起與曠野中的蛇相比",
+      "seconds": 5.697,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "JHN 3:14-17",
+          "excerpt": "14節 摩西在曠野怎樣舉蛇、人子也必照樣被舉起來． 15節 叫一切信他的都得永生。 16節 神愛世人、甚至將他的獨生子賜給他們、叫一切信他的、不至滅亡、反得永生。 17節 因爲　神差他的兒子降世、不是要定世人的罪、乃是要叫世人因他得救。"
+        },
+        {
+          "kind": "passage",
+          "ref": "NUM 21:4-9",
+          "excerpt": "4節 他們從何珥山起行、往紅海那條路走、要繞過以東地．百姓因這路難行、心中甚是煩躁． 5節 就怨讟　神和摩西、說、你們爲甚麼把我們從埃及領出來、使我們死在曠野呢．這裏沒有糧、沒有水、我們的心厭惡這淡薄的食物。 6節 於是耶和華使火蛇進入百姓中間、蛇就咬他們、以色列人中死了許多。 7節 百姓到摩西那裏說、我們怨讟耶和華和"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E037",
+          "excerpt": "銅蛇與被舉起的人子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S12",
+      "query": "耶穌說這裡有一位比智慧的所羅門王更大",
+      "seconds": 5.216,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 12:42",
+          "excerpt": "42節 當審判的時候、南方的女王、要起來定這世代的罪、因爲他從地極而來、要聽所羅門的智慧話．看哪、在這裏有一人比所羅門更大。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 11:31",
+          "excerpt": "31節 當審判的時候、南方的女王、要起來定這世代的罪．因爲他從地極而來、要聽所羅門的智慧話．看哪、在這裏有一人比所羅門更大。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E057",
+          "excerpt": "比所羅門更大的"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S13",
+      "query": "耶穌作永遠的大祭司，與那位同時是王和祭司的人相比",
+      "seconds": 5.799,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "HEB 7:1-28",
+          "excerpt": "1節 這麥基洗德、就是撒冷王、又是至高　神的祭司、本是長遠爲祭司的．他當亞伯拉罕殺敗諸王回來的時候、就迎接他、給他祝福。 2節 亞伯拉罕也將自己所得來的、取十分之一給他．他頭一個名繙出來、就是仁義王、他又名撒冷王、就是平安王的意思． 3節 他無父、無母、無族譜、無生之始、無命之終、乃是與　神的兒子相似。 4節 你們想一"
+        },
+        {
+          "kind": "passage",
+          "ref": "GEN 14:18-20",
+          "excerpt": "18節 又有撒冷王麥基洗德、帶着餅和酒、出來迎接．他是至高　神的祭司。 19節 他爲亞伯蘭祝福、說、願天地的主、至高的　神、賜福與亞伯蘭． 20節 至高的　神把敵人交在你手裏、是應當稱頌的。亞伯蘭就把所得的、拿出十分之一來、給麥基洗德。"
+        },
+        {
+          "kind": "passage",
+          "ref": "PSA 110:4",
+          "excerpt": "4節 耶和華起了誓、決不後悔、說、你是照着麥基洗德的等次、永遠爲祭司。"
+        },
+        {
+          "kind": "passage",
+          "ref": "HEB 5:5-10",
+          "excerpt": "5節 如此、基督也不是自取榮耀作大祭司、乃是在乎向他說『你是我的兒子、我今日生你。』的那一位． 6節 就如經上又有一處說、『你是照着麥基洗德的等次永遠爲祭司。』 7節 基督在肉體的時候、旣大聲哀哭、流淚禱告懇求那能救他免死的主、就因他的虔誠、蒙了應允。 8節 他雖然爲兒子、還是因所受的苦難學了順從． 9節 他旣得以完全"
+        },
+        {
+          "kind": "passage",
+          "ref": "HEB 6:13-20",
+          "excerpt": "13節 當初　神應許亞伯拉罕的時候、因爲沒有比自己更大可以指着起誓的、就指着自己起誓、說、 14節 『論福、我必賜大福給你．論子孫、我必叫你的子孫多起來。』 15節 這樣、亞伯拉罕旣恆久忍耐、就得了所應許的。 16節 人都是指着比自己大的起誓．並且以起誓爲實據、了結各樣的爭論。 17節 照樣、　神願意爲那承受應許的人、"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E009",
+          "excerpt": "麥基洗德：君王與祭司"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E085",
+          "excerpt": "永遠的祭司，按麥基洗德等次"
+        }
+      ],
+      "diagnostics": {
+        "selected": 7,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 6,
+      "returned": 7,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S14",
+      "query": "不相信耶穌復活，想親手摸祂手上釘子的傷痕",
+      "seconds": 5.108,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "JHN 20:25-27",
+          "excerpt": "25節 那些門徒就對他說、我們已經看見主了。多馬卻說、我非看見他手上的釘痕、用指頭探入那釘痕、又用手探入他的肋旁、我總不信。 26節 過了八日、門徒又在屋裏、多馬也和他們同在、門都關了．耶穌來站在當中說、願你們平安。 27節 就對多馬說、伸過你的指頭來、摸（摸原文作看）我的手．伸出你的手來、探入我的肋旁．不要疑惑、總要"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E167",
+          "excerpt": "兩臂之間的傷是否是釘痕？"
+        }
+      ],
+      "diagnostics": {
+        "selected": 2,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 2,
+      "returned": 2,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S15",
+      "query": "耶穌在逾越節晚餐把杯說成祂為人流的立約之血",
+      "seconds": 5.868,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 26:26-29",
+          "excerpt": "26節 他們喫的時候、耶穌拿起餅來、祝福、就擘開、遞給門徒、說、你們拿着喫．這是我的身體。 27節 又拿起杯來、祝謝了、遞給他們、說、你們都喝這個． 28節 因爲這是我立約的血、爲多人流出來、使罪得赦。 29節 但我告訴你們、從今以後、我不再喝這葡萄汁、直到我在我父的國裏、同你們喝新的那日子。"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 14:22-24",
+          "excerpt": "22節 他們喫的時候、耶穌拿起餅來、祝了福、就擘開遞給他們說、你們拿着喫．這是我的身體。 23節 又拿起杯來、祝謝了、遞給他們．他們都喝了。 24節 耶穌說、這是我立約的血、爲多人流出來的。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 22:14-20",
+          "excerpt": "14節 時候到了、耶穌坐席、使徒也和他同坐。 15節 耶穌對他們說、我很願意在受害以先、和你們喫這逾越節的筵席。 16節 我告訴你們、我不再喫這筵席、直到成就在　神的國裏。 17節 耶穌接過杯來、祝謝了、說、你們拿這個、大家分着喝。 18節 我告訴你們、從今以後、我不再喝這葡萄汁、直等　神的國來到。 19節 又拿起餅來"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 22:20",
+          "excerpt": "20節 飯後也照樣拿起杯來、說、這杯是用我血所立的新約、是爲你們流出來的。"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 14:24",
+          "excerpt": "24節 耶穌說、這是我立約的血、爲多人流出來的。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E023",
+          "excerpt": "立約之血與新約之血"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E017",
+          "excerpt": "逾越節羔羊與被獻的基督"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E131",
+          "excerpt": "新約：律法在心中，罪不再記念"
+        }
+      ],
+      "diagnostics": {
+        "selected": 8,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 8,
+      "returned": 8,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S16",
+      "query": "復活的耶穌應許讓得勝者吃生命樹的果子",
+      "seconds": 5.455,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "REV 2:7",
+          "excerpt": "7節 聖靈向衆教會所說的話、凡有耳的、就應當聽。得勝的、我必將　神樂園中生命樹的果子賜給他喫。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E205",
+          "excerpt": "生命樹與羔羊所賜的生命"
+        }
+      ],
+      "diagnostics": {
+        "selected": 2,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 2,
+      "returned": 2,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S17",
+      "query": "巧克力蛋糕做法",
+      "seconds": 5.408,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S18",
+      "query": "咖啡豆烘焙溫度",
+      "seconds": 5.317,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S19",
+      "query": "台北捷運時刻表",
+      "seconds": 6.158,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S20",
+      "query": "Python套件安裝",
+      "seconds": 5.245,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S21",
+      "query": "信用卡回饋比較",
+      "seconds": 5.367,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S22",
+      "query": "手機電池更換教學",
+      "seconds": 4.763,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S23",
+      "query": "最新颱風路徑",
+      "seconds": 5.032,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 1,
+      "id": "S24",
+      "query": "量子糾纏實驗步驟",
+      "seconds": 5.546,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S01",
+      "query": "耶穌曾經講過挪亞嗎？",
+      "seconds": 3.375,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 24:37-39",
+          "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 17:26-27",
+          "excerpt": "26節 挪亞的日子怎樣、人子的日子也要怎樣。 27節 那時候的人又喫又喝、又娶又嫁、到挪亞進方舟的那日、洪水就來、把他們全都滅了。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E187",
+          "excerpt": "挪亞的日子與人子的來臨"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 2,
+      "recallTotal": 2,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S02",
+      "query": "馬太福音裡耶穌談挪亞的日子在哪裡？",
+      "seconds": 4.03,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 24:37-39",
+          "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E187",
+          "excerpt": "挪亞的日子與人子的來臨"
+        }
+      ],
+      "diagnostics": {
+        "selected": 2,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 2,
+      "returned": 2,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S03",
+      "query": "耶穌把人子再來比作洪水前大家照常吃喝嫁娶",
+      "seconds": 3.755,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 24:37-39",
+          "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 17:26-27",
+          "excerpt": "26節 挪亞的日子怎樣、人子的日子也要怎樣。 27節 那時候的人又喫又喝、又娶又嫁、到挪亞進方舟的那日、洪水就來、把他們全都滅了。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E187",
+          "excerpt": "挪亞的日子與人子的來臨"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 2,
+      "recallTotal": 2,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S04",
+      "query": "耶穌提醒人不要像那位回頭看的女人",
+      "seconds": 7.497,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "LUK 17:28-32",
+          "excerpt": "28節 又好像羅得的日子．人又喫又喝、又買又賣、又耕種、又蓋造． 29節 到羅得出所多瑪的那日、就有火與硫磺從天上降下來、把他們全都滅了。 30節 人子顯現的日子、也要這樣。 31節 當那日、人在房上、器具在屋裏、不要下來拿．人在田裏．也不要回家。 32節 你們要回想羅得的妻子。"
+        },
+        {
+          "kind": "passage",
+          "ref": "GEN 19:15-29",
+          "excerpt": "15節 天明了、天使催逼羅得說、起來、帶着你的妻子、和你在這裏的兩個女兒出去、免得你因這城裏的罪惡、同被剿滅。 16節 但羅得遲延不走．二人因爲耶和華憐恤羅得、就拉着他的手、和他妻子的手、並他兩個女兒的手、把他們領出來、安置在城外。 17節 領他們出來以後、就說、逃命罷．不可回頭看、也不可在平原站住、要往山上逃跑、免得"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E188",
+          "excerpt": "羅得、所多瑪與回想羅得的妻子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S05",
+      "query": "耶穌提到大衛肚子餓吃了祭司才能吃的餅",
+      "seconds": 5.774,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 12:1-8",
+          "excerpt": "1節 那時、耶穌在安息日、從麥地經過．他的門徒餓了、就掐起麥穗來喫。 2節 法利賽人看見、就對耶穌說、看哪、你的門徒作安息日不可作的事了。 3節 耶穌對他們說、經上記着、大衞和跟從他的人飢餓之時所作的事、你們沒有念過麼。 4節 他怎麼進了　神的殿、喫了陳設餅、這餅不是他和跟從他的人可以喫得、惟獨祭司纔可以喫。 5節 再"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 2:23-28",
+          "excerpt": "23節 耶穌當安息日、從麥地經過．他門徒行路的時候、掐了麥穗。 24節 法利賽人對耶穌說、看哪、他們在安息日爲甚麼作不可作的事呢． 25節 耶穌對他們說、經上記着大衞和跟從他的人、缺乏飢餓之時所作的事、你們沒有念過麼。 26節 他當亞比亞他作大祭司的時候、怎麼進了　神的殿、喫了陳設餅、又給跟從他的人喫．這餅除了祭司以外"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 6:1-5",
+          "excerpt": "1節 有一個安息日、耶穌從麥地經過．他的門徒掐了麥穗、用手搓着喫。 2節 有幾個法利賽人說、你們爲甚麼作安息日不可作的事呢。 3節 耶穌對他們說、經上記着大衞和跟從他的人、飢餓之時所作的事、連這個你們也沒有念過麼． 4節 他怎麼進了　神的殿、拿陳設餅喫、又給跟從的人喫．這餅除了祭司以外、別人都不可喫。 5節 又對他們說"
+        },
+        {
+          "kind": "passage",
+          "ref": "1SA 21:1-6",
+          "excerpt": "1節 大衞到了挪伯祭司亞希米勒那裏．亞希米勒戰戰兢兢的出來迎接他、問他說、你爲甚麼獨自來、沒有人跟隨呢。 2節 大衞回答祭司亞希米勒說、王吩咐我一件事、說、我差遣你委託你的這件事、不要使人知道．故此我已派定少年人在某處等候我。 3節 現在你手下有甚麼．求你給我五個餅、或是別樣的食物。 4節 祭司對大衞說、我手下沒有尋常"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E189",
+          "excerpt": "大衛吃陳設餅與安息日的主"
+        }
+      ],
+      "diagnostics": {
+        "selected": 5,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 5,
+      "returned": 5,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S06",
+      "query": "耶穌說亞伯拉罕盼望看見祂的日子",
+      "seconds": 3.39,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "JHN 8:56-58",
+          "excerpt": "56節 你們的祖宗亞伯拉罕歡歡喜喜的仰望我的日子．旣看見了、就快樂。 57節 猶太人說、你還沒有五十歲、豈見過亞伯拉罕呢。 58節 耶穌說、我實實在在的告訴你們、還沒有亞伯拉罕、就有了我。"
+        },
+        {
+          "kind": "passage",
+          "ref": "JHN 8:56",
+          "excerpt": "56節 你們的祖宗亞伯拉罕歡歡喜喜的仰望我的日子．旣看見了、就快樂。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E190",
+          "excerpt": "亞伯拉罕歡喜仰望耶穌的日子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S07",
+      "query": "耶穌為什麼與罪人一起吃飯，祂引用憐憫勝過祭物",
+      "seconds": 6.008,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 9:9-13",
+          "excerpt": "9節 耶穌從那裏往前走、看見一個人名叫馬太、坐在稅關上、就對他說、你跟從我來．他就起來、跟從了耶穌。 10節 耶穌在屋裏坐席的時候、有好些稅吏和罪人來、與耶穌和他的門徒一同坐席。 11節 法利賽人看見、就對耶穌的門徒說、你們的先生爲甚麼和稅吏並罪人一同喫飯呢。 12節 耶穌聽見、就說、康健的人用不着醫生、有病的人纔用得"
+        },
+        {
+          "kind": "passage",
+          "ref": "HOS 6:6",
+          "excerpt": "6節 我喜愛良善、不喜愛祭祀、喜愛認識　神、勝於燔祭。"
+        },
+        {
+          "kind": "passage",
+          "ref": "MAT 9:12-13",
+          "excerpt": "12節 耶穌聽見、就說、康健的人用不着醫生、有病的人纔用得着。 13節 經上說、『我喜愛憐恤、不喜愛祭祀。』這句話的意思、你們且去揣摩．我來、本不是召義人、乃是召罪人。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E192",
+          "excerpt": "我喜愛憐恤，不喜愛祭祀"
+        }
+      ],
+      "diagnostics": {
+        "selected": 4,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 4,
+      "returned": 4,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S08",
+      "query": "耶穌批評用嘴巴尊敬神，心卻離神很遠",
+      "seconds": 5.568,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 15:1-9",
+          "excerpt": "1節 那時有法利賽人和文士、從耶路撒冷來見耶穌說、 2節 你的門徒爲甚麼犯古人的遺傳呢．因爲喫飯的時候、他們不洗手。 3節 耶穌回答說、你們爲甚麼因着你們的遺傳、犯　神的誡命呢。 4節 神說、當孝敬父母．又說、咒罵父母的、必治死他。 5節 你們倒說、無論何人對父母說、我所當奉給你的、已經作了供獻． 6節 他就可以不孝敬"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 7:6-13",
+          "excerpt": "6節 耶穌說、以賽亞指着你們假冒爲善之人所說的豫言、是不錯的、如經上說、『這百姓用嘴唇尊敬我、心卻遠離我。 7節 他們將人的吩咐、當作道理教導人、所以拜我也是枉然。』 8節 你們是離棄　神的誡命、拘守人的遺傳。 9節 又說、你們誠然是廢棄　神的誡命、要守自己的遺傳。 10節 摩西說、『當孝敬父母。』又說、『咒罵父母的、"
+        },
+        {
+          "kind": "passage",
+          "ref": "ISA 29:13",
+          "excerpt": "13節 主說、因爲這百姓親近我、用嘴唇尊敬我、心卻遠離我．他們敬畏我、不過是領受人的吩咐。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E193",
+          "excerpt": "嘴唇尊敬與人間傳統：耶穌引用以賽亞"
+        }
+      ],
+      "diagnostics": {
+        "selected": 4,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 4,
+      "returned": 4,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S09",
+      "query": "耶穌說最重要的是盡心愛神，也愛鄰舍",
+      "seconds": 3.262,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MRK 12:28-34",
+          "excerpt": "28節 有一個文士來、聽見他們辯論、曉得耶穌回答的好、就問他說、誡命中那是第一要緊的呢。 29節 耶穌回答說、第一要緊的、就是說、以色列阿、你要聽．主我們　神、是獨一的主。 30節 你要盡心、盡性、盡意、盡力、愛主你的　神。 31節 其次、就是說、要愛人如己。再沒有比這兩條誡命更大的了。 32節 那文士對耶穌說、夫子說"
+        },
+        {
+          "kind": "passage",
+          "ref": "MAT 22:34-40",
+          "excerpt": "34節 法利賽人聽見耶穌堵住了撒都該人的口、他們就聚集。 35節 內中有一個人是律法師、要試探耶穌、就問他說、 36節 夫子、律法上的誡命、那一條是最大的呢。 37節 耶穌對他說、你要盡心、盡性、盡意、愛主你的　神。 38節 這是誡命中的第一、且是最大的。 39節 其次也相仿、就是要愛人如己。 40節 這兩條誡命、是律"
+        },
+        {
+          "kind": "passage",
+          "ref": "DEU 6:4-5",
+          "excerpt": "4節 以色列阿、你要聽．耶和華我們　神是獨一的主。 5節 你要盡心、盡性、盡力、愛耶和華你的　神。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LEV 19:18",
+          "excerpt": "18節 不可報仇、也不可埋怨你本國的子民、卻要愛人如己．我是耶和華。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E194",
+          "excerpt": "愛神愛人：律法與先知的總綱"
+        }
+      ],
+      "diagnostics": {
+        "selected": 5,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 5,
+      "returned": 5,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S10",
+      "query": "耶穌用先知在大魚肚子裡三天的事說明自己",
+      "seconds": 5.628,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 12:38-41",
+          "excerpt": "38節 當時有幾個文士和法利賽人、對耶穌說、夫子、我們願意你顯個神蹟給我們看。 39節 耶穌回答說、一個邪惡淫亂的世代求看神蹟．除了先知約拿的神蹟以外、再沒有神蹟給他們看。 40節 約拿三日三夜在大魚肚腹中．人子也要這樣三日三夜在地裏頭。 41節 當審判的時候、尼尼微人、要起來定這世代的罪、因爲尼尼微人聽了約拿所傳的、"
+        },
+        {
+          "kind": "passage",
+          "ref": "JON 1:17",
+          "excerpt": "17節 耶和華安排一條大魚吞了約拿、他在魚腹中三日三夜。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 11:29-32",
+          "excerpt": "29節 當衆人聚集的時候、耶穌開講說、這世代是一個邪惡的世代．他們求看神蹟、除了約拿的神蹟以外、再沒有神蹟給他們看。 30節 約拿怎樣爲尼尼微人成了神蹟、人子也要照樣爲這世代的人成了神蹟。 31節 當審判的時候、南方的女王、要起來定這世代的罪．因爲他從地極而來、要聽所羅門的智慧話．看哪、在這裏有一人比所羅門更大。 32"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E152",
+          "excerpt": "約拿的記號：三日三夜與人子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 4,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 4,
+      "returned": 4,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S11",
+      "query": "耶穌把自己被舉起與曠野中的蛇相比",
+      "seconds": 5.4,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "JHN 3:14-17",
+          "excerpt": "14節 摩西在曠野怎樣舉蛇、人子也必照樣被舉起來． 15節 叫一切信他的都得永生。 16節 神愛世人、甚至將他的獨生子賜給他們、叫一切信他的、不至滅亡、反得永生。 17節 因爲　神差他的兒子降世、不是要定世人的罪、乃是要叫世人因他得救。"
+        },
+        {
+          "kind": "passage",
+          "ref": "JHN 3:14-15",
+          "excerpt": "14節 摩西在曠野怎樣舉蛇、人子也必照樣被舉起來． 15節 叫一切信他的都得永生。"
+        },
+        {
+          "kind": "passage",
+          "ref": "NUM 21:4-9",
+          "excerpt": "4節 他們從何珥山起行、往紅海那條路走、要繞過以東地．百姓因這路難行、心中甚是煩躁． 5節 就怨讟　神和摩西、說、你們爲甚麼把我們從埃及領出來、使我們死在曠野呢．這裏沒有糧、沒有水、我們的心厭惡這淡薄的食物。 6節 於是耶和華使火蛇進入百姓中間、蛇就咬他們、以色列人中死了許多。 7節 百姓到摩西那裏說、我們怨讟耶和華和"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E037",
+          "excerpt": "銅蛇與被舉起的人子"
+        }
+      ],
+      "diagnostics": {
+        "selected": 4,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 4,
+      "returned": 4,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S12",
+      "query": "耶穌說這裡有一位比智慧的所羅門王更大",
+      "seconds": 4.478,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 12:42",
+          "excerpt": "42節 當審判的時候、南方的女王、要起來定這世代的罪、因爲他從地極而來、要聽所羅門的智慧話．看哪、在這裏有一人比所羅門更大。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 11:31",
+          "excerpt": "31節 當審判的時候、南方的女王、要起來定這世代的罪．因爲他從地極而來、要聽所羅門的智慧話．看哪、在這裏有一人比所羅門更大。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E057",
+          "excerpt": "比所羅門更大的"
+        }
+      ],
+      "diagnostics": {
+        "selected": 3,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 3,
+      "returned": 3,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S13",
+      "query": "耶穌作永遠的大祭司，與那位同時是王和祭司的人相比",
+      "seconds": 7.669,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "HEB 7:1-28",
+          "excerpt": "1節 這麥基洗德、就是撒冷王、又是至高　神的祭司、本是長遠爲祭司的．他當亞伯拉罕殺敗諸王回來的時候、就迎接他、給他祝福。 2節 亞伯拉罕也將自己所得來的、取十分之一給他．他頭一個名繙出來、就是仁義王、他又名撒冷王、就是平安王的意思． 3節 他無父、無母、無族譜、無生之始、無命之終、乃是與　神的兒子相似。 4節 你們想一"
+        },
+        {
+          "kind": "passage",
+          "ref": "GEN 14:18-20",
+          "excerpt": "18節 又有撒冷王麥基洗德、帶着餅和酒、出來迎接．他是至高　神的祭司。 19節 他爲亞伯蘭祝福、說、願天地的主、至高的　神、賜福與亞伯蘭． 20節 至高的　神把敵人交在你手裏、是應當稱頌的。亞伯蘭就把所得的、拿出十分之一來、給麥基洗德。"
+        },
+        {
+          "kind": "passage",
+          "ref": "PSA 110:4",
+          "excerpt": "4節 耶和華起了誓、決不後悔、說、你是照着麥基洗德的等次、永遠爲祭司。"
+        },
+        {
+          "kind": "passage",
+          "ref": "HEB 5:5-10",
+          "excerpt": "5節 如此、基督也不是自取榮耀作大祭司、乃是在乎向他說『你是我的兒子、我今日生你。』的那一位． 6節 就如經上又有一處說、『你是照着麥基洗德的等次永遠爲祭司。』 7節 基督在肉體的時候、旣大聲哀哭、流淚禱告懇求那能救他免死的主、就因他的虔誠、蒙了應允。 8節 他雖然爲兒子、還是因所受的苦難學了順從． 9節 他旣得以完全"
+        },
+        {
+          "kind": "passage",
+          "ref": "HEB 6:13-20",
+          "excerpt": "13節 當初　神應許亞伯拉罕的時候、因爲沒有比自己更大可以指着起誓的、就指着自己起誓、說、 14節 『論福、我必賜大福給你．論子孫、我必叫你的子孫多起來。』 15節 這樣、亞伯拉罕旣恆久忍耐、就得了所應許的。 16節 人都是指着比自己大的起誓．並且以起誓爲實據、了結各樣的爭論。 17節 照樣、　神願意爲那承受應許的人、"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E009",
+          "excerpt": "麥基洗德：君王與祭司"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E085",
+          "excerpt": "永遠的祭司，按麥基洗德等次"
+        }
+      ],
+      "diagnostics": {
+        "selected": 7,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 6,
+      "returned": 7,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S14",
+      "query": "不相信耶穌復活，想親手摸祂手上釘子的傷痕",
+      "seconds": 5.03,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "JHN 20:25-27",
+          "excerpt": "25節 那些門徒就對他說、我們已經看見主了。多馬卻說、我非看見他手上的釘痕、用指頭探入那釘痕、又用手探入他的肋旁、我總不信。 26節 過了八日、門徒又在屋裏、多馬也和他們同在、門都關了．耶穌來站在當中說、願你們平安。 27節 就對多馬說、伸過你的指頭來、摸（摸原文作看）我的手．伸出你的手來、探入我的肋旁．不要疑惑、總要"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E167",
+          "excerpt": "兩臂之間的傷是否是釘痕？"
+        }
+      ],
+      "diagnostics": {
+        "selected": 2,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 2,
+      "returned": 2,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S15",
+      "query": "耶穌在逾越節晚餐把杯說成祂為人流的立約之血",
+      "seconds": 5.214,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "MAT 26:26-29",
+          "excerpt": "26節 他們喫的時候、耶穌拿起餅來、祝福、就擘開、遞給門徒、說、你們拿着喫．這是我的身體。 27節 又拿起杯來、祝謝了、遞給他們、說、你們都喝這個． 28節 因爲這是我立約的血、爲多人流出來、使罪得赦。 29節 但我告訴你們、從今以後、我不再喝這葡萄汁、直到我在我父的國裏、同你們喝新的那日子。"
+        },
+        {
+          "kind": "passage",
+          "ref": "MRK 14:22-24",
+          "excerpt": "22節 他們喫的時候、耶穌拿起餅來、祝了福、就擘開遞給他們說、你們拿着喫．這是我的身體。 23節 又拿起杯來、祝謝了、遞給他們．他們都喝了。 24節 耶穌說、這是我立約的血、爲多人流出來的。"
+        },
+        {
+          "kind": "passage",
+          "ref": "LUK 22:14-20",
+          "excerpt": "14節 時候到了、耶穌坐席、使徒也和他同坐。 15節 耶穌對他們說、我很願意在受害以先、和你們喫這逾越節的筵席。 16節 我告訴你們、我不再喫這筵席、直到成就在　神的國裏。 17節 耶穌接過杯來、祝謝了、說、你們拿這個、大家分着喝。 18節 我告訴你們、從今以後、我不再喝這葡萄汁、直等　神的國來到。 19節 又拿起餅來"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E023",
+          "excerpt": "立約之血與新約之血"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E017",
+          "excerpt": "逾越節羔羊與被獻的基督"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E131",
+          "excerpt": "新約：律法在心中，罪不再記念"
+        }
+      ],
+      "diagnostics": {
+        "selected": 6,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 6,
+      "returned": 6,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S16",
+      "query": "復活的耶穌應許讓得勝者吃生命樹的果子",
+      "seconds": 5.435,
+      "cached": false,
+      "results": [
+        {
+          "kind": "passage",
+          "ref": "REV 2:7",
+          "excerpt": "7節 聖靈向衆教會所說的話、凡有耳的、就應當聽。得勝的、我必將　神樂園中生命樹的果子賜給他喫。"
+        },
+        {
+          "kind": "entry",
+          "entryId": "E205",
+          "excerpt": "生命樹與羔羊所賜的生命"
+        }
+      ],
+      "diagnostics": {
+        "selected": 2,
+        "rejected": 0
+      },
+      "recallHits": 1,
+      "recallTotal": 1,
+      "relevantHits": 2,
+      "returned": 2,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S17",
+      "query": "巧克力蛋糕做法",
+      "seconds": 5.541,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S18",
+      "query": "咖啡豆烘焙溫度",
+      "seconds": 4.41,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S19",
+      "query": "台北捷運時刻表",
+      "seconds": 5.556,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S20",
+      "query": "Python套件安裝",
+      "seconds": 6.163,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S21",
+      "query": "信用卡回饋比較",
+      "seconds": 3.628,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S22",
+      "query": "手機電池更換教學",
+      "seconds": 3.266,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S23",
+      "query": "最新颱風路徑",
+      "seconds": 3.509,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    },
+    {
+      "round": 2,
+      "id": "S24",
+      "query": "量子糾纏實驗步驟",
+      "seconds": 5.105,
+      "cached": false,
+      "results": [],
+      "diagnostics": {
+        "selected": 0,
+        "rejected": 0
+      },
+      "recallHits": 0,
+      "recallTotal": 0,
+      "relevantHits": 0,
+      "returned": 0,
+      "requiredTopK": true,
+      "negativePass": true
+    }
+  ],
+  "summary": {
+    "runs": 48,
+    "recallAt10": 1.0,
+    "precision": 0.9834710743801653,
+    "negativePass": true,
+    "noahTop5": true
+  }
+}

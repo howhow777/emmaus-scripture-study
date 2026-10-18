@@ -1,0 +1,159 @@
+{
+  "url": "https://emmaus-preview.promelink.link",
+  "corpus": "4dce84e4f5eb107fa141",
+  "checks": [
+    {
+      "name": "default 49 core studies",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Noah actual literal UI both Gospels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Noah lookup auto all",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "verified Jesus-only Noah UI",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "core restriction explained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "testament hidden refs explained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "combined book Noah filter",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone quote searchable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone-only hidden result explained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone citation alias lookup",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "new non-core deep link auto reveal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "new study backlinks",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "new scripture hover preview",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "preview keyboard dismissal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "new reading anchor exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "new reading graph backlink",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "legacy E117 deep link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "HTTP 503 not empty success",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "stale corpus not empty success",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "unknown refs diagnostic not empty claim",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "request dispatched before superseding",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "stale reply cancelled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile Noah real layout",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile graph no page overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "coverage table mobile contained overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile held preview open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile held preview persists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "merged numbering actually rendered",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "merged preview no false truncation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "no uncaught JS errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "consoleErrors": [],
+  "browser": "155.0.8059.82",
+  "realPhones": "pending user"
+}

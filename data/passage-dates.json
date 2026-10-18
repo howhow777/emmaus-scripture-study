@@ -8693,6 +8693,4284 @@
       "sourceIds": [
         "usccb_rev"
       ]
+    },
+    "1CO 10:7-13": {
+      "background": {
+        "label": "主後約53–55年（哥林多教會）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約53–55年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_1co"
+      ]
+    },
+    "1CO 1:18-31": {
+      "background": {
+        "label": "主後約53–55年（哥林多教會）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約53–55年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_1co"
+      ]
+    },
+    "1KI 16:30-33": {
+      "background": {
+        "label": "主前約9世紀（以利亞與北國）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約7–6世紀（歷史書主要編纂）",
+        "certainty": "contested"
+      },
+      "note": "同卷各章所敘王朝不同；此為寬區間。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_1ki",
+        "usccb_history"
+      ]
+    },
+    "1KI 21:25-26": {
+      "background": {
+        "label": "主前約9世紀（以利亞與北國）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約7–6世紀（歷史書主要編纂）",
+        "certainty": "contested"
+      },
+      "note": "同卷各章所敘王朝不同；此為寬區間。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_1ki",
+        "usccb_history"
+      ]
+    },
+    "1SA 21:1-6": {
+      "background": {
+        "label": "主前約11–10世紀（撒母耳、掃羅與大衛）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約7–5世紀（歷史書編纂）",
+        "certainty": "contested"
+      },
+      "note": "可能含較早宮廷與地方傳統；現存書卷經後期編輯。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_1sa",
+        "usccb_history"
+      ]
+    },
+    "2CH 24:20-22": {
+      "background": {
+        "label": "主前約10世紀（所羅門時代的後期重述）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約5–4世紀（被擄後編纂）",
+        "certainty": "approximate"
+      },
+      "note": "歷代志重述更早的王國歷史，其寫作背景屬被擄後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_2ch",
+        "usccb_history"
+      ]
+    },
+    "2PE 2:5": {
+      "background": {
+        "label": "主後約100–150年（較後期教會處境）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約100–150年（二世紀前半推估）",
+        "certainty": "contested"
+      },
+      "note": "傳統歸彼得；多數現代研究視為較晚的托名作品，學術導論指出可至二世紀第二個25年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_2pe"
+      ]
+    },
+    "2PE 2:6-9": {
+      "background": {
+        "label": "主後約100–150年（較後期教會處境）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約100–150年（二世紀前半推估）",
+        "certainty": "contested"
+      },
+      "note": "傳統歸彼得；多數現代研究視為較晚的托名作品，學術導論指出可至二世紀第二個25年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_2pe"
+      ]
+    },
+    "2TI 2:8": {
+      "background": {
+        "label": "主後約60年代（書信敘事中的保羅晚年）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約60–110年（傳統與後期成書說有分歧）",
+        "certainty": "contested"
+      },
+      "note": "書信呈現保羅受囚、臨近離世的情境；傳統歸於保羅，現代研究對作者及成書時間有分歧，使用寬範圍而非確定年份。",
+      "sourceIds": [
+        "usccb_2tim",
+        "usccb_1tim"
+      ]
+    },
+    "ACT 26:22-23": {
+      "background": {
+        "label": "主後約50–60年代（保羅宣教）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（與路加福音相近）",
+        "certainty": "contested"
+      },
+      "note": "使徒行傳按敘事進展跨數十年；書寫時間晚於所述事件。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_act"
+      ]
+    },
+    "ACT 7:55-56": {
+      "background": {
+        "label": "主後約30–40年代（耶路撒冷初期教會）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（與路加福音相近）",
+        "certainty": "contested"
+      },
+      "note": "使徒行傳按敘事進展跨數十年；書寫時間晚於所述事件。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_act"
+      ]
+    },
+    "DEU 17:6": {
+      "background": {
+        "label": "年代未定（摩西講論的敘事背景）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（分層成書）",
+        "certainty": "contested"
+      },
+      "note": "與主前622年前後改革相關的材料及被擄後編輯皆被討論；傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_deu",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "DEU 24:1-4": {
+      "background": {
+        "label": "年代未定（摩西講論的敘事背景）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（分層成書）",
+        "certainty": "contested"
+      },
+      "note": "與主前622年前後改革相關的材料及被擄後編輯皆被討論；傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_deu",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "DEU 32:3-4": {
+      "background": {
+        "label": "年代未定（摩西講論的敘事背景）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（分層成書）",
+        "certainty": "contested"
+      },
+      "note": "與主前622年前後改革相關的材料及被擄後編輯皆被討論；傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_deu",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "DEU 32:35-36": {
+      "background": {
+        "label": "年代未定（摩西講論的敘事背景）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（分層成書）",
+        "certainty": "contested"
+      },
+      "note": "與主前622年前後改革相關的材料及被擄後編輯皆被討論；傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_deu",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "DEU 6:4-5": {
+      "background": {
+        "label": "年代未定（摩西講論的敘事背景）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（分層成書）",
+        "certainty": "contested"
+      },
+      "note": "與主前622年前後改革相關的材料及被擄後編輯皆被討論；傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_deu",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "EPH 2:19-22": {
+      "background": {
+        "label": "主後約61–100年（小亞細亞教會處境）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約61–100年（保羅獄中書信或後期門徒作品）",
+        "certainty": "contested"
+      },
+      "note": "傳統視為保羅主後61–63年獄中書信；不少學者推為後期門徒於80–100年寫作。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_eph"
+      ]
+    },
+    "EXO 15:1-18": {
+      "background": {
+        "label": "年代未定（出埃及與西奈傳統）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "出埃及事件的精確年代和規模有爭議；這裡不把傳統年代當成已證實事件年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_exo",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "EXO 20:12": {
+      "background": {
+        "label": "年代未定（出埃及與西奈傳統）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "出埃及事件的精確年代和規模有爭議；這裡不把傳統年代當成已證實事件年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_exo",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "EXO 21:17": {
+      "background": {
+        "label": "年代未定（出埃及與西奈傳統）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "出埃及事件的精確年代和規模有爭議；這裡不把傳統年代當成已證實事件年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_exo",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "EXO 24:15-18": {
+      "background": {
+        "label": "年代未定（出埃及與西奈傳統）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "出埃及事件的精確年代和規模有爭議；這裡不把傳統年代當成已證實事件年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_exo",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "GEN 19:15-29": {
+      "background": {
+        "label": "年代未定（族長敘事）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（終稿；材料更古）",
+        "certainty": "contested"
+      },
+      "note": "族長故事與創世敘事沒有可獨立核定的事件年；傳統歸於摩西，現代研究認為文本經長期傳承與編輯。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_gen",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "GEN 1:27": {
+      "background": {
+        "label": "年代未定（起源敘事）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（終稿；材料更古）",
+        "certainty": "contested"
+      },
+      "note": "創世記一至十一章屬起源敘事，不能換算為可考證的事件年；現存文本有被擄前傳統與被擄後編輯。傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_gen",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "GEN 2:24": {
+      "background": {
+        "label": "年代未定（起源敘事）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（終稿；材料更古）",
+        "certainty": "contested"
+      },
+      "note": "創世記一至十一章屬起源敘事，不能換算為可考證的事件年；現存文本有被擄前傳統與被擄後編輯。傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_gen",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "GEN 2:9": {
+      "background": {
+        "label": "年代未定（起源敘事）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（終稿；材料更古）",
+        "certainty": "contested"
+      },
+      "note": "創世記一至十一章屬起源敘事，不能換算為可考證的事件年；現存文本有被擄前傳統與被擄後編輯。傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_gen",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "GEN 3:22-24": {
+      "background": {
+        "label": "年代未定（起源敘事）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（終稿；材料更古）",
+        "certainty": "contested"
+      },
+      "note": "創世記一至十一章屬起源敘事，不能換算為可考證的事件年；現存文本有被擄前傳統與被擄後編輯。傳統歸於摩西。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_gen",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "HEB 10:26-31": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HEB 12:5-11": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HEB 6:13-20": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HOS 10:8": {
+      "background": {
+        "label": "主前約750–725年（北國以色列）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約8–6世紀（先知話語及編輯）",
+        "certainty": "contested"
+      },
+      "note": "何西阿事工在撒馬利亞陷落前；現存文本可含後來編輯。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_hos"
+      ]
+    },
+    "HOS 6:6": {
+      "background": {
+        "label": "主前約750–725年（北國以色列）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約8–6世紀（先知話語及編輯）",
+        "certainty": "contested"
+      },
+      "note": "何西阿事工在撒馬利亞陷落前；現存文本可含後來編輯。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_hos"
+      ]
+    },
+    "ISA 29:13": {
+      "background": {
+        "label": "主前約742–700年（以賽亞事工及其背景）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約8–6世紀（原始神諭及編輯）",
+        "certainty": "contested"
+      },
+      "note": "本段位於以賽亞書一至三十九章；部分內容仍可能有較晚補充。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_isa",
+        "yale_isaiah"
+      ]
+    },
+    "ISA 29:14": {
+      "background": {
+        "label": "主前約742–700年（以賽亞事工及其背景）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約8–6世紀（原始神諭及編輯）",
+        "certainty": "contested"
+      },
+      "note": "本段位於以賽亞書一至三十九章；部分內容仍可能有較晚補充。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_isa",
+        "yale_isaiah"
+      ]
+    },
+    "ISA 66:24": {
+      "background": {
+        "label": "主前約539–400年（被擄後社群）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（第三以賽亞）",
+        "certainty": "contested"
+      },
+      "note": "五十六至六十六章反映被擄後猶大處境；可能出自不同作者。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_isa",
+        "yale_isaiah",
+        "usccb_isaiah_56"
+      ]
+    },
+    "JER 9:23-24": {
+      "background": {
+        "label": "主前約7世紀末–6世紀初（猶大末期）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主前約7–5世紀（先知話語與後期編輯）",
+        "certainty": "contested"
+      },
+      "note": "耶利米的宣講、巴錄相關傳統與現存書卷編輯不可視為同一年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jer"
+      ]
+    },
+    "JHN 11:49-52": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 12:32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 12:32-34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 1:29-36": {
+      "background": {
+        "label": "年代未定（道成肉身的神學宣告）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 約翰序言表達神學與宇宙性宣告，不能把『太初』換成西曆年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 1:45": {
+      "background": {
+        "label": "年代未定（道成肉身的神學宣告）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 約翰序言表達神學與宇宙性宣告，不能把『太初』換成西曆年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 5:39-47": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 8:28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 8:56": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 8:56-58": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "LEV 19:18": {
+      "background": {
+        "label": "年代未定（古代祭儀與聖潔法規）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約7–5世紀（祭司法規與編輯）",
+        "certainty": "contested"
+      },
+      "note": "法規可能保存更早做法；文本形成不能直接等同制度起始年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_lev",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "LUK 10:25-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 10:26": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 10:28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 11:49-51": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 13:18-19": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 15:3-7": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 15:4-7": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 17:26-27": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 17:28-32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 18:31-33": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 18:31-34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 19:9-10": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 1:26-38": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 1:76-79": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 21:27": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 23:28-31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 3:21-22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 5:33-35": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 5:34-35": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 6:1-5": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 6:3-5": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 9:28-36": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 12:1-8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 12:3-8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 12:7": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 13:31-32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 15:1-9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 15:3-9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 16:4": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 17:1-8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 17:7": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 18:12-14": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 19:3-9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 19:4-6": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 19:8-9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 20:28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 21:12-13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 21:13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 21:33-40": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 21:33-41": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 21:42-44": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 21:9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 22:29-32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 22:34-40": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 22:37-40": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 22:41-46": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 22:42-45": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 23:34-36": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 23:39": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 24:37-39": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 25:31-32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:26-29": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:63-64": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:64": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 27:34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 27:35-38": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 3:1-3": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 3:16-17": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 9:12-13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 9:14-15": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 9:15": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 9:9-13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 10:11-12": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 10:2-12": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 10:3": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 10:45": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 10:5-9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 10:6-9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 11:9-10": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 12:10-11": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 12:24-27": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 12:28-34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 12:29-31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 12:34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 12:35-37": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 13:26": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 15:24-34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 15:36": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 1:9-11": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 2:23-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 2:25-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 7:6-13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 9:11-13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 9:12-13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 9:2-8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 9:43-48": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "NUM 25:1-3": {
+      "background": {
+        "label": "年代未定（曠野傳統與法規）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "敘事與法規經長期傳承；曠野事件沒有可確證的單一年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_num",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "NUM 28:9-10": {
+      "background": {
+        "label": "年代未定（曠野傳統與法規）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "敘事與法規經長期傳承；曠野事件沒有可確證的單一年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_num",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "NUM 31:16": {
+      "background": {
+        "label": "年代未定（曠野傳統與法規）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約8–5世紀（多層材料與終稿）",
+        "certainty": "contested"
+      },
+      "note": "敘事與法規經長期傳承；曠野事件沒有可確證的單一年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_num",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "PRO 3:11-12": {
+      "background": {
+        "label": "年代未定（人格化智慧的文學教導）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（被擄後序言推估）",
+        "certainty": "contested"
+      },
+      "note": "箴言一至九章被許多學者視為全書較晚的引言；不是所羅門說話的可考年表。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_pro",
+        "usccb_wisdom"
+      ]
+    },
+    "REV 15:2-4": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 20:6": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 21:22-27": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 22:1-5": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 2:14-16": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 2:17": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 2:20-23": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 2:7": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 3:19": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 5:9-10": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 6:15-17": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "ROM 1:1-4": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "1PE 1:10-12": {
+      "background": {
+        "label": "主後約60–110年（小亞細亞教會處境）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約60–110年（彼得或後期門徒）",
+        "certainty": "contested"
+      },
+      "note": "傳統歸彼得；部分學者視為一世紀末或二世紀初作品。",
+      "sourceIds": [
+        "usccb_1pe"
+      ]
+    },
+    "2PE 1:16-21": {
+      "background": {
+        "label": "主後約100–150年（較後期教會處境）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約100–150年（二世紀前半推估）",
+        "certainty": "contested"
+      },
+      "note": "傳統歸彼得；多數現代研究視為較晚的托名作品，學術導論指出可至二世紀第二個25年。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_2pe"
+      ]
+    },
+    "ACT 13:26-41": {
+      "background": {
+        "label": "主後約40–50年代（保羅宣教與耶路撒冷會議）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（與路加福音相近）",
+        "certainty": "contested"
+      },
+      "note": "使徒行傳按敘事進展跨數十年；書寫時間晚於所述事件。",
+      "sourceIds": [
+        "usccb_act"
+      ]
+    },
+    "ACT 3:13-21": {
+      "background": {
+        "label": "主後約30–40年代（耶路撒冷初期教會）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（與路加福音相近）",
+        "certainty": "contested"
+      },
+      "note": "使徒行傳按敘事進展跨數十年；書寫時間晚於所述事件。",
+      "sourceIds": [
+        "usccb_act"
+      ]
+    },
+    "ACT 7:44-50": {
+      "background": {
+        "label": "主後約30–40年代（耶路撒冷初期教會）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（與路加福音相近）",
+        "certainty": "contested"
+      },
+      "note": "使徒行傳按敘事進展跨數十年；書寫時間晚於所述事件。",
+      "sourceIds": [
+        "usccb_act"
+      ]
+    },
+    "GEN 17:10-14": {
+      "background": {
+        "label": "年代未定（族長敘事）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約6–5世紀（終稿；材料更古）",
+        "certainty": "contested"
+      },
+      "note": "族長故事與創世敘事沒有可獨立核定的事件年；傳統歸於摩西，現代研究認為文本經長期傳承與編輯。",
+      "sourceIds": [
+        "usccb_gen",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "HEB 10:19-25": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HEB 11:1-31": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HEB 12:1-3": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HEB 1:1-4": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "HEB 4:14-16": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "JHN 12:23": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 13:31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 13:32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 18:28-40": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 19:1-16": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 19:38-42": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 4:5-26": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 6:27": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 6:62": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 7:19": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 7:19-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 7:21-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 8:31-58": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "LEV 12:3": {
+      "background": {
+        "label": "年代未定（古代祭儀與聖潔法規）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主前約7–5世紀（祭司法規與編輯）",
+        "certainty": "contested"
+      },
+      "note": "法規可能保存更早做法；文本形成不能直接等同制度起始年。",
+      "sourceIds": [
+        "usccb_lev",
+        "usccb_pentateuch",
+        "yale_pentateuch"
+      ]
+    },
+    "LUK 10:12": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 10:23-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 12:10": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 12:27-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 12:40": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 12:8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 12:9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 13:16": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 16:19-31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 17:22-37": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 18:8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 1:5-25": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 21:36": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 22:22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 22:48": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 23:1-25": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 23:50-56": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 24:44-49": {
+      "background": {
+        "label": "主後約30–33年（復活後敘事）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 24:7": {
+      "background": {
+        "label": "主後約30–33年（復活後敘事）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 2:34-35": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 2:4-20": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 3:23-38": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 5:24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 6:22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 7:24-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 7:34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 9:22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 9:26": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 9:44": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 9:51-56": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "LUK 9:58": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 10:15": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 10:23": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 11:19": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 11:23-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 11:7-15": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 12:32": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 13:16-17": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 13:37": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 13:41": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 16:13": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 16:21-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 17:22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 17:9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 19:28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 1:1-17": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 20:18": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 23:37-39": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 24:27": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 24:33": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 24:44": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:2": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:45": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 26:47-68": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 27:11-26": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 27:57-61": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 5:17-20": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 6:28-30": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 8:20": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 9:6": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 10:33": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 13:29": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 14:21": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 14:41": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 15:42-47": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 2:10": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 8:31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 8:38": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 9:31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "MRK 9:9": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "REV 17:14": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 5:6-14": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "REV 7:9-17": {
+      "background": {
+        "label": "主後約90年代（亞細亞教會處境；異象非事件年）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–96年（現存形式）",
+        "certainty": "contested"
+      },
+      "note": "啟示錄關於新天新地等異象不表示未來事件可被標定年份。",
+      "sourceIds": [
+        "usccb_rev"
+      ]
+    },
+    "ROM 3:9-26": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "ROM 9:1-18": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "MAT 3:7-17": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "LUK 3:7-18": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 8:4": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 1:44": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 5:14": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 8:11-12": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "LUK 13:28-29": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 9:27-31": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 12:22-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 15:21-28": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 20:29-34": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 10:46-52": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 18:35-43": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 21:14-16": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 16:13-20": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 8:27-30": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 9:18-20": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 22:23-33": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 12:18-27": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 20:27-38": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 26:17-29": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 14:1-25": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 22:1-20": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MAT 27:47-54": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 15:35-39": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "JHN 1:19-28": {
+      "background": {
+        "label": "年代未定（道成肉身的神學宣告）",
+        "certainty": "unknown"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。 約翰序言表達神學與宇宙性宣告，不能把『太初』換成西曆年。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 2:13-23": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 13:1-5": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 17:12": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 18:1-11": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "JHN 15:1-8": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "MAT 5:21-48": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 18:16": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MAT 19:16-22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 10:17-22": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 18:18-23": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "JHN 8:17-18": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約90–100年（定稿）",
+        "certainty": "approximate"
+      },
+      "note": "第四福音書的早期傳統與定稿時間應區分。",
+      "sourceIds": [
+        "usccb_jhn"
+      ]
+    },
+    "MAT 23:23-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "MRK 9:49-50": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 16:16-18": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "MRK 14:43-52": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約65–75年（成書）",
+        "certainty": "contested"
+      },
+      "note": "傳統認為與彼得見證有關；現代研究多將寫成置於主後70年前後。",
+      "sourceIds": [
+        "usccb_mrk"
+      ]
+    },
+    "LUK 21:20-24": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 本段沿用同書卷相同歷史階段的年代通則；此標註不表示事件有可確認的精確年份。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
+    },
+    "ACT 1:4-8": {
+      "background": {
+        "label": "主後約30–40年代（耶路撒冷初期教會）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（與路加福音相近）",
+        "certainty": "contested"
+      },
+      "note": "使徒行傳按敘事進展跨數十年；書寫時間晚於所述事件。",
+      "sourceIds": [
+        "usccb_act"
+      ]
+    },
+    "ROM 7:1-6": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "ROM 8:1-4": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "ROM 9:19-33": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "ROM 10:1-21": {
+      "background": {
+        "label": "主後約56–58年（羅馬教會與保羅處境）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約56–58年（保羅書信）",
+        "certainty": "approximate"
+      },
+      "note": "此處背景與成書均為寬估，詳見書卷導論；不能視為逐節可確證的精確年份。",
+      "sourceIds": [
+        "usccb_rom"
+      ]
+    },
+    "GAL 2:15-21": {
+      "background": {
+        "label": "主後約48–56年（加拉太諸教會）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約48–56年（保羅書信）",
+        "certainty": "contested"
+      },
+      "note": "收信對象及與使徒行傳事件對應有爭議，因此用寬區間。",
+      "sourceIds": [
+        "usccb_gal"
+      ]
+    },
+    "GAL 3:1-29": {
+      "background": {
+        "label": "主後約48–56年（加拉太諸教會）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約48–56年（保羅書信）",
+        "certainty": "contested"
+      },
+      "note": "收信對象及與使徒行傳事件對應有爭議，因此用寬區間。",
+      "sourceIds": [
+        "usccb_gal"
+      ]
+    },
+    "GAL 4:1-7": {
+      "background": {
+        "label": "主後約48–56年（加拉太諸教會）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約48–56年（保羅書信）",
+        "certainty": "contested"
+      },
+      "note": "收信對象及與使徒行傳事件對應有爭議，因此用寬區間。",
+      "sourceIds": [
+        "usccb_gal"
+      ]
+    },
+    "HEB 12:18-24": {
+      "background": {
+        "label": "主後約50–96年（早期基督徒群體）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約50–96年（主後96年前）",
+        "certainty": "contested"
+      },
+      "note": "部分學者主張主後70年前，另有較晚推估；革利免約96年的作品似已引用希伯來書。",
+      "sourceIds": [
+        "usccb_heb"
+      ]
+    },
+    "1PE 1:22-25": {
+      "background": {
+        "label": "主後約60–110年（小亞細亞教會處境）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約60–110年（彼得或後期門徒）",
+        "certainty": "contested"
+      },
+      "note": "傳統歸彼得；部分學者視為一世紀末或二世紀初作品。",
+      "sourceIds": [
+        "usccb_1pe"
+      ]
+    },
+    "MAT 7:12": {
+      "background": {
+        "label": "主後約27–33年（耶穌事工）",
+        "certainty": "approximate"
+      },
+      "composition": {
+        "label": "主後約80–100年（成書）",
+        "certainty": "contested"
+      },
+      "note": "敘事中的耶穌事工與福音書成書相隔數十年；傳統歸使徒馬太，現代研究多主張後期編纂。",
+      "sourceIds": [
+        "usccb_mat"
+      ]
+    },
+    "LUK 2:21-39": {
+      "background": {
+        "label": "主前約6–4年（耶穌降生敘事）",
+        "certainty": "contested"
+      },
+      "composition": {
+        "label": "主後約80–90年（成書）",
+        "certainty": "approximate"
+      },
+      "note": "路加所敘事件早於其書寫；傳統歸路加，學術導論認為通常在主後70年之後。 降生年代依希律時代作寬估；兩卷童年敘事的時間線不能機械合併。",
+      "sourceIds": [
+        "usccb_luk"
+      ]
     }
   },
   "sources": {
@@ -8963,6 +13241,14 @@
     "yale_daniel": {
       "title": "Yale Open Courses：但以理書與啟示文學",
       "url": "https://oyc.yale.edu/religious-studies/rlst-145/lecture-23"
+    },
+    "usccb_2tim": {
+      "title": "USCCB《提摩太後書》導論",
+      "url": "https://bible.usccb.org/bible/2timothy/0"
+    },
+    "usccb_1tim": {
+      "title": "USCCB《提摩太前書》導論（教牧書信作者及年代）",
+      "url": "https://bible.usccb.org/bible/1timothy/0"
     }
   }
 }

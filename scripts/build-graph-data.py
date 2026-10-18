@@ -26,7 +26,7 @@ BOOK_GROUPS = {
     "minor-prophets": "HOS JOL AMO JON MIC NAM HAB ZEP HAG ZEC MAL",
     "gospels": "MAT MRK LUK JHN",
     "acts": "ACT",
-    "letters": "ROM 1CO 2CO GAL EPH PHP COL 2TH TIT HEB JAS 1PE 2PE 1JN",
+    "letters": "ROM 1CO 2CO GAL EPH PHP COL 1TH 2TH 1TI 2TI TIT PHM HEB JAS 1PE 2PE 1JN 2JN 3JN JUD",
     "revelation": "REV",
 }
 GROUP_BY_BOOK = {
@@ -115,8 +115,9 @@ def build():
     search = parser.scripts["searchData"]
     cards = parser.cards
     ids = [record["id"] for record in full]
-    if len(full) != 186 or len(set(ids)) != 186:
-        raise ValueError("Expected 186 distinct study entries")
+    expected = len(json.loads((ROOT / "data/research-baseline.json").read_text())["entries"]) + len(json.loads((ROOT / "data/research-additions.json").read_text())["newStudies"])
+    if len(full) != expected or len(set(ids)) != expected:
+        raise ValueError("Expected the reviewed baseline plus approved new studies")
     if ids != [record["id"] for record in search] or ids != [card["id"] for card in cards]:
         raise ValueError("Entry order differs between fullData, searchData and cards")
     if sum(bool(record["core"]) for record in full) != 49:

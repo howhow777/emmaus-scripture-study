@@ -34,3 +34,11 @@ launchctl kickstart -k "gui/$(id -u)/com.promelink.emmaus-search"
 ```sh
 python3 -m unittest discover -s server -p 'test_*.py'
 ```
+
+## 覆蓋查核預覽與模型驗收
+
+`server/preview.py` 在獨立 loopback 連接埠提供審核站及相同受限搜尋路由，以明確指定的預覽 Origin 驗證請求。它只服務公開網站檔案、data／reports 的 JSON／Markdown，拒絕程式、資料庫、私密設定與目錄穿越。正式服務仍使用原固定 Origin。
+
+macOS LaunchAgent 應從審核專用執行目錄讀取網站副本，避免 Documents 的隱私權限制；不要為此調整整台電腦的隱私權。預覽索引、程式與靜態副本均與正式版分開。使用新版程式的服務若共用計數資料庫，`BEGIN IMMEDIATE` 保證跨程序的每日預算原子遞增；正式程式仍須在發布時一併更新。
+
+`verify-semantic-live.py` 的 `use_cache=False` 僅為內部呼叫參數；公開 API 仍只接受 `query`，不接受模型、額度、快取繞過、messages或tools。評估結果須記錄corpus，新增經文後應重測，不能挪用前一版本的通過成績。額外驗證不得默默提高公開每日限制。

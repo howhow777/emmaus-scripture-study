@@ -1,0 +1,137 @@
+{
+  "MAT": {
+    "name": "馬太福音",
+    "revision": 1337560,
+    "sha256": "9b53db91ad895b57c4dc0ed24bfe570a1f637317ffc8053743c6943b1326f500"
+  },
+  "MRK": {
+    "name": "馬可福音",
+    "revision": 1337559,
+    "sha256": "bbc2d54215fcd275f0da9424d94ae0210dfdb6e26eb29443cc7150e1733f6238"
+  },
+  "LUK": {
+    "name": "路加福音",
+    "revision": 1338069,
+    "sha256": "7c91fd5e2e652ab375d3c9233000bd1c6bae5c3e1c5b72c0fcee913384de4ffc"
+  },
+  "JHN": {
+    "name": "約翰福音",
+    "revision": 1338105,
+    "sha256": "4dc7ed737c7f18fab98539ccc5d183d714f3c86acd6cebd11cefb6f22307c216"
+  },
+  "ACT": {
+    "name": "使徒行傳",
+    "revision": 1338141,
+    "sha256": "7b1eab18b665c41429b5ad951996ebf67ac1cc1cff08f2bf1724143cb0f3ec5f"
+  },
+  "ROM": {
+    "name": "羅馬書",
+    "revision": 1338103,
+    "sha256": "a47e7e37c41b7fd1d490ad87e4f3ac26c9f5375e731740efd473e41c849d7414"
+  },
+  "1CO": {
+    "name": "哥林多前書",
+    "revision": 1338104,
+    "sha256": "8097f6f4bb26118531edec126e8f2aaa3dd688fe0dfc4b3e10582642ded2608b"
+  },
+  "2CO": {
+    "name": "哥林多後書",
+    "revision": 1338099,
+    "sha256": "7fafef8b31ca034078edb741f8aab7031678ed7a0e675c111c080b008f7ce4b2"
+  },
+  "GAL": {
+    "name": "加拉太書",
+    "revision": 1338095,
+    "sha256": "5d69a235125056138d8ca1dcea67344cf85629a194b8d3f8ac9d26878fc449c0"
+  },
+  "EPH": {
+    "name": "以弗所書",
+    "revision": 1338100,
+    "sha256": "821956bebff473e49b25043111039ebd1645926270ab63c04ca8887da4004d01"
+  },
+  "PHP": {
+    "name": "腓立比書",
+    "revision": 335266,
+    "sha256": "2730a48bcfec3d9f8c1132d23d652e639c89f9892e21cd17d60bdef41a08ea87"
+  },
+  "COL": {
+    "name": "歌羅西書",
+    "revision": 335267,
+    "sha256": "5d2712e669b588802dfdbe089431e86b669cfbb62c12fe82bb0250c1c4f03859"
+  },
+  "1TH": {
+    "name": "帖撒羅尼迦前書",
+    "revision": 335268,
+    "sha256": "08f6519069fd49dc1a4495d004b7fc427d9aaf7922335977ca78f3be95afffa5"
+  },
+  "2TH": {
+    "name": "帖撒羅尼迦後書",
+    "revision": 335269,
+    "sha256": "e95f01d9c08b9f1ca6b55dc3fce427dc08a47d16067e3cbf2abaccc08f82fa8d"
+  },
+  "1TI": {
+    "name": "提摩太前書",
+    "revision": 1338102,
+    "sha256": "33d187002cab8f87e8e7f91f90b82be3e3b1ac87f8c13291e6fb6107698305b7"
+  },
+  "2TI": {
+    "name": "提摩太後書",
+    "revision": 1338094,
+    "sha256": "57cf0f8d84b05f0c5b61292d860ee45965920d8e908ed44625f0c83c046a933b"
+  },
+  "TIT": {
+    "name": "提多書",
+    "revision": 335272,
+    "sha256": "657ca984d0d73bfbf3b1df455102e0a80f379f399c6fbd0bcabea40d1bf32053"
+  },
+  "PHM": {
+    "name": "腓利門書",
+    "revision": 335273,
+    "sha256": "da2e46de4e612441d51d689ae7589997ccc09e54b67252d4ae0417b934361c0f"
+  },
+  "HEB": {
+    "name": "希伯來書",
+    "revision": 1338101,
+    "sha256": "fa852addee45e7f968d76d9e6bc8f7b66f1cad905d63e58bc92974b3f4f9ed12"
+  },
+  "JAS": {
+    "name": "雅各書",
+    "revision": 1338097,
+    "sha256": "a6de04acc2f5f1d227e9938d1a0d0eec9924e5c44c0b74faa04b626cf6768495"
+  },
+  "1PE": {
+    "name": "彼得前書",
+    "revision": 1338096,
+    "sha256": "d2ab6a5ce1dadc109ee2154bda9096390081aaca9cc23a814d19ecf2b8f16d8e"
+  },
+  "2PE": {
+    "name": "彼得後書",
+    "revision": 1338093,
+    "sha256": "3c366a6e72e0479d90df80381936152040ff0914a71798be1de16d3380f66c79"
+  },
+  "1JN": {
+    "name": "約翰一書",
+    "revision": 334875,
+    "sha256": "bc3a903dd4ca9faa19768542167eee1f8f601b896f74db61b0c6df946e11e9f9"
+  },
+  "2JN": {
+    "name": "約翰二書",
+    "revision": 334876,
+    "sha256": "dbed5e012952ec2d1a839f9d0eb9698961775eb562fecbc447d7c0927b19a00f"
+  },
+  "3JN": {
+    "name": "約翰三書",
+    "revision": 335274,
+    "sha256": "2e9c6b6686d95ed08a3d69c64a0fe1f00554304e4a034b88ae3bde4b0a476f8e"
+  },
+  "JUD": {
+    "name": "猶大書",
+    "revision": 335275,
+    "sha256": "8efb7d4b29442f733f58c616186701f983b9fcc59d4711d8756b585e01116b66"
+  },
+  "REV": {
+    "name": "啟示錄",
+    "revision": 414061,
+    "sha256": "a1620558d9c4030cb9c68c3391f34a9d96baaba854a90f676079db08058d1486"
+  }
+}

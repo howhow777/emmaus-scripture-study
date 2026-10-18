@@ -1,0 +1,785 @@
+{
+  "version": 1,
+  "literal": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "query": "挪亞",
+      "expectedRefs": [
+        "MAT 24:37-39",
+        "LUK 17:26-27"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "query": "挪亚",
+      "expectedRefs": [
+        "MAT 24:37-39",
+        "LUK 17:26-27"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P03",
+      "kind": "positive",
+      "query": "方舟",
+      "expectedRefs": [
+        "GEN 6:13-22",
+        "MAT 24:37-39"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P04",
+      "kind": "positive",
+      "query": "喫喝嫁娶",
+      "expectedRefs": [
+        "MAT 24:37-39"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P05",
+      "kind": "positive",
+      "query": "吃喝嫁娶",
+      "expectedRefs": [
+        "MAT 24:37-39"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P06",
+      "kind": "positive",
+      "query": "羅得",
+      "expectedRefs": [
+        "LUK 17:28-32"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P07",
+      "kind": "positive",
+      "query": "羅得的妻子",
+      "expectedRefs": [
+        "LUK 17:28-32"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P08",
+      "kind": "positive",
+      "query": "陳設餅",
+      "expectedRefs": [
+        "MAT 12:1-8",
+        "MRK 2:23-28",
+        "LUK 6:1-5"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P09",
+      "kind": "positive",
+      "query": "安息日的主",
+      "expectedRefs": [
+        "MAT 12:1-8"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P10",
+      "kind": "positive",
+      "query": "亞伯拉罕",
+      "expectedRefs": [
+        "JHN 8:56-58"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P11",
+      "kind": "positive",
+      "query": "仰望我的日子",
+      "expectedRefs": [
+        "JHN 8:56-58"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P12",
+      "kind": "positive",
+      "query": "憐恤",
+      "expectedRefs": [
+        "MAT 9:9-13"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P13",
+      "kind": "positive",
+      "query": "嘴唇",
+      "expectedRefs": [
+        "MAT 15:1-9"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P14",
+      "kind": "positive",
+      "query": "愛人如己",
+      "expectedRefs": [
+        "MAT 22:34-40"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P15",
+      "kind": "positive",
+      "query": "一體",
+      "expectedRefs": [
+        "MAT 19:3-9"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P16",
+      "kind": "positive",
+      "query": "從起初",
+      "expectedRefs": [
+        "MAT 19:3-9"
+      ],
+      "review": "「從起初」出現在新增研究標題；經文正文使用「那起初／但起初」，應命中研究並保留引用，不應聲稱經文逐字有此短語。",
+      "expectedEntries": [
+        "E191"
+      ],
+      "expectedHit": "study-title"
+    },
+    {
+      "id": "P17",
+      "kind": "positive",
+      "query": "約拿",
+      "expectedRefs": [
+        "MAT 12:38-41"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P18",
+      "kind": "positive",
+      "query": "三日三夜",
+      "expectedRefs": [
+        "MAT 12:38-41"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P19",
+      "kind": "positive",
+      "query": "銅蛇",
+      "expectedRefs": [
+        "JHN 3:14-17"
+      ],
+      "review": "「銅蛇」是研究標題與民數記用詞；約3:14正文說「舉蛇」，應由研究連結抵達，不應捏造「銅」字出現在約翰福音。",
+      "expectedEntries": [
+        "E037"
+      ],
+      "expectedHit": "study-title"
+    },
+    {
+      "id": "P20",
+      "kind": "positive",
+      "query": "所羅門",
+      "expectedRefs": [
+        "MAT 12:42"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P21",
+      "kind": "positive",
+      "query": "釘痕",
+      "expectedRefs": [
+        "JHN 20:25-27"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P22",
+      "kind": "positive",
+      "query": "多馬",
+      "expectedRefs": [
+        "JHN 20:25-27"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P23",
+      "kind": "positive",
+      "query": "說的是",
+      "expectedRefs": [
+        "MAT 26:63-64"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P24",
+      "kind": "positive",
+      "query": "彼拉多",
+      "expectedRefs": [
+        "JHN 18:28-40"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P25",
+      "kind": "positive",
+      "query": "查不出",
+      "expectedRefs": [
+        "LUK 23:1-25"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P26",
+      "kind": "positive",
+      "query": "伯利恆",
+      "expectedRefs": [
+        "LUK 2:4-20"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P27",
+      "kind": "positive",
+      "query": "童女",
+      "expectedRefs": [
+        "MAT 1:18-23"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P28",
+      "kind": "positive",
+      "query": "大衛",
+      "expectedRefs": [
+        "ROM 1:1-4"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P29",
+      "kind": "positive",
+      "query": "大衞",
+      "expectedRefs": [
+        "ROM 1:1-4"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P30",
+      "kind": "positive",
+      "query": "逾越節",
+      "expectedRefs": [
+        "MAT 26:17-29"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P31",
+      "kind": "positive",
+      "query": "立約的血",
+      "expectedRefs": [
+        "MAT 26:26-29"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P32",
+      "kind": "positive",
+      "query": "羔羊",
+      "expectedRefs": [
+        "JHN 1:29-36"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P33",
+      "kind": "positive",
+      "query": "麥基洗德",
+      "expectedRefs": [
+        "HEB 7:1-28"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P34",
+      "kind": "positive",
+      "query": "大祭司",
+      "expectedRefs": [
+        "HEB 4:14-16"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P35",
+      "kind": "positive",
+      "query": "生命樹",
+      "expectedRefs": [
+        "REV 2:7"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P36",
+      "kind": "positive",
+      "query": "巴蘭",
+      "expectedRefs": [
+        "REV 2:14-16"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P37",
+      "kind": "positive",
+      "query": "耶洗別",
+      "expectedRefs": [
+        "REV 2:20-23"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P38",
+      "kind": "positive",
+      "query": "記念",
+      "expectedRefs": [
+        "2TI 2:8"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P39",
+      "kind": "positive",
+      "query": "彌賽亞",
+      "expectedRefs": [
+        "JHN 4:5-26"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "P40",
+      "kind": "positive",
+      "query": "不滅的火",
+      "expectedRefs": [
+        "MRK 9:43-48"
+      ],
+      "review": "固定和合本正文逐段核對；部分查詢為搜尋專用字形等價，不改寫顯示原文。"
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "query": "巧克力蛋糕做法",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "query": "咖啡豆烘焙溫度",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "query": "台北捷運時刻表",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "query": "Python套件安裝",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "query": "信用卡回饋比較",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "query": "手機電池更換教學",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "query": "最新颱風路徑",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "query": "量子糾纏實驗步驟",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "query": "高鐵自由座票價",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "query": "減脂熱量計算",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "query": "蘋果筆電維修報價",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "query": "巴黎飯店訂房折扣",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "query": "電動車充電規格",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "query": "健身課表下載",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "query": "微波爐保固登錄",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "query": "印表機墨水型號",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "query": "電影上映場次",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "query": "藍牙耳機配對密碼",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "query": "外送優惠折扣碼",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "query": "股票即時報價",
+      "expectedRefs": [],
+      "review": "與本網站耶穌相關經文研究範圍無關；不應勉強給出經文。"
+    }
+  ],
+  "semantic": [
+    {
+      "id": "S01",
+      "query": "耶穌曾經講過挪亞嗎？",
+      "requiredAnchors": [
+        "MAT 24:37",
+        "LUK 17:26"
+      ],
+      "relevantEntries": [
+        "E187",
+        "E007"
+      ],
+      "topK": 5,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S02",
+      "query": "馬太福音裡耶穌談挪亞的日子在哪裡？",
+      "requiredAnchors": [
+        "MAT 24:37"
+      ],
+      "relevantEntries": [
+        "E187"
+      ],
+      "topK": 5,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S03",
+      "query": "耶穌把人子再來比作洪水前大家照常吃喝嫁娶",
+      "requiredAnchors": [
+        "MAT 24:37",
+        "LUK 17:26"
+      ],
+      "relevantEntries": [
+        "E187"
+      ],
+      "topK": 5,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S04",
+      "query": "耶穌提醒人不要像那位回頭看的女人",
+      "requiredAnchors": [
+        "LUK 17:32"
+      ],
+      "relevantEntries": [
+        "E188"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S05",
+      "query": "耶穌提到大衛肚子餓吃了祭司才能吃的餅",
+      "requiredAnchors": [
+        "MAT 12:3"
+      ],
+      "relevantEntries": [
+        "E189"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S06",
+      "query": "耶穌說亞伯拉罕盼望看見祂的日子",
+      "requiredAnchors": [
+        "JHN 8:56"
+      ],
+      "relevantEntries": [
+        "E190",
+        "E016"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S07",
+      "query": "耶穌為什麼與罪人一起吃飯，祂引用憐憫勝過祭物",
+      "requiredAnchors": [
+        "MAT 9:13"
+      ],
+      "relevantEntries": [
+        "E192"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S08",
+      "query": "耶穌批評用嘴巴尊敬神，心卻離神很遠",
+      "requiredAnchors": [
+        "MAT 15:8"
+      ],
+      "relevantEntries": [
+        "E193"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S09",
+      "query": "耶穌說最重要的是盡心愛神，也愛鄰舍",
+      "requiredAnchors": [
+        "MAT 22:37"
+      ],
+      "relevantEntries": [
+        "E194"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S10",
+      "query": "耶穌用先知在大魚肚子裡三天的事說明自己",
+      "requiredAnchors": [
+        "MAT 12:40"
+      ],
+      "relevantEntries": [
+        "E152"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S11",
+      "query": "耶穌把自己被舉起與曠野中的蛇相比",
+      "requiredAnchors": [
+        "JHN 3:14"
+      ],
+      "relevantEntries": [
+        "E037"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S12",
+      "query": "耶穌說這裡有一位比智慧的所羅門王更大",
+      "requiredAnchors": [
+        "MAT 12:42"
+      ],
+      "relevantEntries": [
+        "E057"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S13",
+      "query": "耶穌作永遠的大祭司，與那位同時是王和祭司的人相比",
+      "requiredAnchors": [
+        "HEB 7:1"
+      ],
+      "relevantEntries": [
+        "E009",
+        "E085",
+        "E026"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S14",
+      "query": "不相信耶穌復活，想親手摸祂手上釘子的傷痕",
+      "requiredAnchors": [
+        "JHN 20:25"
+      ],
+      "relevantEntries": [
+        "E167"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S15",
+      "query": "耶穌在逾越節晚餐把杯說成祂為人流的立約之血",
+      "requiredAnchors": [
+        "MAT 26:28"
+      ],
+      "relevantEntries": [
+        "E017",
+        "E023",
+        "E131",
+        "E185"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S16",
+      "query": "復活的耶穌應許讓得勝者吃生命樹的果子",
+      "requiredAnchors": [
+        "REV 2:7"
+      ],
+      "relevantEntries": [
+        "E205"
+      ],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S17",
+      "query": "巧克力蛋糕做法",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S18",
+      "query": "咖啡豆烘焙溫度",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S19",
+      "query": "台北捷運時刻表",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S20",
+      "query": "Python套件安裝",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S21",
+      "query": "信用卡回饋比較",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S22",
+      "query": "手機電池更換教學",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S23",
+      "query": "最新颱風路徑",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    },
+    {
+      "id": "S24",
+      "query": "量子糾纏實驗步驟",
+      "requiredAnchors": [],
+      "relevantEntries": [],
+      "topK": 10,
+      "review": "按原文主題、人物、動作與語者核對；准許同主題的舊約背景及平行段落，不准許無關人物僅同字串。"
+    }
+  ]
+}

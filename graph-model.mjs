@@ -1,6 +1,12 @@
 // Shared, DOM-free selection logic for the graph and its data checks.
+// Search-only equivalences; never rewrite displayed scripture text.
+const SEARCH_FORMS = { '衞':'衛','喫':'吃','豫':'預','眞':'真','着':'著','爲':'為','裏':'裡','羣':'群','亚':'亞','钉':'釘','马':'馬','罗':'羅','约':'約','圣':'聖','经':'經','诗':'詩','记':'記','创':'創','赛':'賽','书':'書' };
+const BOOK_QUERIES = { '創世記':'GEN','創':'GEN','出埃及記':'EXO','出':'EXO','利未記':'LEV','利':'LEV','民數記':'NUM','民':'NUM','申命記':'DEU','申':'DEU','詩篇':'PSA','詩':'PSA','以賽亞書':'ISA','賽':'ISA','馬太福音':'MAT','馬太':'MAT','太':'MAT','馬可福音':'MRK','馬可':'MRK','可':'MRK','路加福音':'LUK','路加':'LUK','路':'LUK','約翰福音':'JHN','約翰':'JHN','約':'JHN','使徒行傳':'ACT','徒':'ACT','羅馬書':'ROM','羅':'ROM','希伯來書':'HEB','來':'HEB','啟示錄':'REV','啟':'REV' };
+const BOOK_PATTERN = new RegExp('(' + Object.keys(BOOK_QUERIES).sort((a,b)=>b.length-a.length).join('|') + ')\\s*(?=[0-9])', 'g');
 export function normalizeQuery(value) {
-  return String(value).normalize('NFKC').toLocaleLowerCase().replace(/[\p{P}\p{Z}\p{S}]+/gu, '');
+  return String(value).normalize('NFKC').replace(/[衞喫豫眞着爲裏羣亚钉马罗约圣经诗记创赛书]/g, c => SEARCH_FORMS[c])
+    .replace(BOOK_PATTERN, (_, name) => BOOK_QUERIES[name])
+    .toLocaleLowerCase().replace(/[\p{P}\p{Z}\p{S}]+/gu, '');
 }
 
 export function passageSearchIndex(passages) {
@@ -62,4 +68,17 @@ export function visibleGraph(data, state, passageSearch = {}) {
     }
   }
   return { entries, nodeIds: [...nodes], links };
+}
+
+export function standaloneMatches(ref, state, books, spokenRefs = new Set()) {
+  const code = ref.split(' ')[0], book = books[code];
+  if (!book) return false;
+  if (state.testament !== 'both' && state.testament !== book.testament) return false;
+  if (state.book && state.book !== code) return false;
+  if (state.group && state.group !== book.group) return false;
+  if (state.pentateuch && book.group !== 'pentateuch') return false;
+  if (state.speech && !spokenRefs.has(ref)) return false;
+  // These attributes describe a study, so an unlinked citation cannot satisfy them.
+  if (state.topic || state.evidence || state.compare) return false;
+  return true;
 }

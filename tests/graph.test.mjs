@@ -18,6 +18,9 @@ assert.ok(searchScript.startsWith(searchPrefix));
 const searchData = JSON.parse(searchScript.slice(searchPrefix.length, -2));
 const passageSearch = passageSearchIndex(searchData.passages);
 const index = read('../index.html');
+const baseline = JSON.parse(read('../data/research-baseline.json'));
+const additions = JSON.parse(read('../data/research-additions.json'));
+const expectedStudies = baseline.entries.length + additions.newStudies.length;
 const dating = JSON.parse(read('../data/passage-dates.json'));
 const datingPage = read('../dating.html');
 
@@ -28,15 +31,15 @@ const base = {
 const show = changes => visibleGraph(data, { ...base, ...changes }, passageSearch);
 const ids = graph => graph.entries.map(entry => entry.id);
 
-test('generated data matches the 186 original cards and their linked passages', () => {
+test('generated data matches the preserved original and reviewed added cards and their linked passages', () => {
   assert.equal(data.version, 1);
-  assert.equal(data.entries.length, 186);
+  assert.equal(data.entries.length, expectedStudies);
   assert.equal(data.entries.filter(entry => entry.core).length, 49);
-  assert.equal(new Set(data.entries.map(entry => entry.id)).size, 186);
+  assert.equal(new Set(data.entries.map(entry => entry.id)).size, expectedStudies);
 
   const cards = new Map([...index.matchAll(/<article class="entry" id="(E\d{3})"[\s\S]*?<\/article>/g)]
     .map(match => [match[1], match[0]]));
-  assert.equal(cards.size, 186);
+  assert.equal(cards.size, expectedStudies);
   assert.match(index, /href="graph\.html"[^>]*>探索互動經文圖譜/);
   assert.match(index, /link\.href='graph\.html#'\+id/);
 
@@ -90,7 +93,7 @@ test('every linked passage and Jesus speech span has a dated, sourced detail', (
 test('citation edges represent only listed passages; topic edges remain distinct', () => {
   const graph = show({});
   const expectedLinks = data.entries.reduce((count, entry) => count + entry.ot.length + entry.nt.length, 0);
-  assert.equal(graph.entries.length, 186);
+  assert.equal(graph.entries.length, expectedStudies);
   assert.equal(graph.links.length, expectedLinks);
   assert.equal(new Set(graph.nodeIds).size, graph.nodeIds.length);
   assert.ok(graph.links.every(link => link.kind === 'citation'));
@@ -154,7 +157,9 @@ test('Pentateuch filter matches all five books and composes with New Testament d
   const codes = new Set(['GEN', 'EXO', 'LEV', 'NUM', 'DEU']);
   for (const code of codes) assert.equal(data.books[code].group, 'pentateuch');
   const pentateuch = show({ pentateuch: true });
-  assert.equal(pentateuch.entries.length, 48);
+  const newPentateuch = additions.newStudies.filter(e=>e.ot.split(';').some(ref=>codes.has(ref.split(' ')[0])));
+  assert.equal(pentateuch.entries.length, 48 + newPentateuch.length);
+  for(const e of baseline.entries.filter(e=>e.ot.split(';').some(ref=>codes.has(ref.split(' ')[0]))))assert.ok(pentateuch.entries.some(x=>x.id===e.id));
   assert.ok(pentateuch.entries.every(entry => entry.ot.some(passage => codes.has(passage.ref.split(' ')[0]))));
   assert.deepEqual(ids(pentateuch), ids(show({ group: 'pentateuch' })));
   const nt = show({ pentateuch: true, testament: 'nt' });
@@ -164,8 +169,12 @@ test('Pentateuch filter matches all five books and composes with New Testament d
 
 test('Jesus-spoken verses use the verified annotation, independent of legacy comparison flag', () => {
   const speech = show({ speech: true, testament: 'nt' });
-  assert.equal(speech.entries.length, 65);
-  assert.equal(speech.links.length, 87);
+  const reviewedParents = new Set(baseline.speech.map(s=>s.entryId+'|'+s.ntRef));
+  for(const change of additions.referenceAdditions)for(const ref of Object.keys(change.speech))reviewedParents.add(change.entryId+'|'+ref);
+  for(const e of additions.newStudies)for(const ref of Object.keys(e.speech))reviewedParents.add(e.id+'|'+ref);
+  assert.equal(speech.entries.length,new Set([...reviewedParents].map(x=>x.split('|')[0])).size);
+  assert.equal(speech.links.length,reviewedParents.size);
+  for(const old of baseline.speech)assert.ok(speech.links.some(link=>link.entryId===old.entryId&&link.ref===old.ntRef));
   assert.ok(speech.links.every(link => link.spoken));
   assert.ok(ids(speech).includes('E034'));
   assert.ok(!data.entries.find(entry => entry.id === 'E034').jesus);
@@ -173,7 +182,7 @@ test('Jesus-spoken verses use the verified annotation, independent of legacy com
   assert.ok(!ids(show({ compare: true })).includes('E034'));
 
   const servant = speech.links.filter(link => link.entryId === 'E117');
-  assert.deepEqual(servant.map(link => link.ref), ['LUK 22:37']);
+  assert.deepEqual(servant.map(link => link.ref), ['LUK 22:37',...additions.referenceAdditions.find(x=>x.entryId==='E117').nt.filter(ref=>Object.hasOwn(additions.referenceAdditions.find(x=>x.entryId==='E117').speech,ref))]);
   assert.ok(data.speech.find(item => item.entryId === 'E117' && item.ntRef === 'LUK 22:37').spans.length);
   assert.deepEqual(data.speech.find(item => item.entryId === 'E037' && item.ntRef === 'JHN 3:14-17')
     .spans.map(span => span.ref), ['JHN 3:14-15']);

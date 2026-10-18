@@ -1,0 +1,65 @@
+{
+  "status": "pending-final-live-suite-and-real-phones",
+  "corpus": "4dce84e4f5eb107fa141",
+  "studies": 206,
+  "preservedStudies": 186,
+  "preservedCore": 49,
+  "newStudies": 20,
+  "parallelReferencesAdded": 57,
+  "modifiedExistingStudies": 29,
+  "supplementalCitations": 148,
+  "indexedPassages": 901,
+  "graphPassages": 680,
+  "siteOnlyPassages": 221,
+  "indexedVerseRecordsWithOverlaps": 4188,
+  "ntBooks": 27,
+  "ntChapters": 260,
+  "ntVerseMarkers": 7957,
+  "independentCandidates": 1220,
+  "candidateDecisions": {
+    "included": 497,
+    "supplemental": 318,
+    "excluded": 405,
+    "pending": 0
+  },
+  "candidatesWithSourceOtFootnotes": 273,
+  "literalGolden": {
+    "positive": 40,
+    "negative": 20,
+    "pass": true
+  },
+  "automaticChecks": {
+    "javascript": 42,
+    "python": 9,
+    "pass": true
+  },
+  "browserChecks": {
+    "count": 30,
+    "pass": true,
+    "realPhones": "pending"
+  },
+  "liveSemanticSmoke": {
+    "corpus": "4dce84e4f5eb107fa141",
+    "realHttps": true,
+    "pass": true,
+    "cases": 1
+  },
+  "priorLiveSuite": {
+    "corpus": "ee126824683503ca2ef7",
+    "runs": 48,
+    "recallAt10": 1,
+    "precision": 0.9834710743801653,
+    "negativePass": true,
+    "noahTop5": true,
+    "finalCorpusAcceptance": false
+  },
+  "finalLiveSuite": {
+    "status": "pending",
+    "reason": "48 uncached calls required after final index additions; current public 100-per-day protection would be insufficient; awaiting approval for separately bounded internal evaluation or next day"
+  },
+  "production": {
+    "status": "unchanged",
+    "commit": "6f422a304264fd10b4555a52bc1368208cecf38b",
+    "corpus": "21f0ae5f87764dbe7483"
+  }
+}

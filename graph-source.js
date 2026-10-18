@@ -1,6 +1,6 @@
 import { zoom, zoomIdentity } from 'd3-zoom';
 import { select } from 'd3-selection';
-import { entryMatches, nodeMatchesKeyword, normalizeQuery, passageSearchIndex, visibleGraph } from './graph-model.mjs';
+import { entryMatches, nodeMatchesKeyword, normalizeQuery, passageSearchIndex, standaloneMatches, visibleGraph } from './graph-model.mjs';
 import { TOPIC_ORDER, seedNode, makeSimulation, placeTopicRing } from './graph-layout.mjs';
 import { MIN_ZOOM, MAX_ZOOM, clampZoom, panTransform, pinchTransform, tapEligible, STILL_SWAY, swayImpulse, springStep, displayX, displayY } from './graph-motion.mjs';
 import { selectionAfterTap, hashAfterSelection } from './graph-selection.mjs';
@@ -39,6 +39,10 @@ const scriptureSearch = window.EMMAUS_SCRIPTURE_SEARCH?.passages || {};
 const passageSearch = passageSearchIndex(scriptureSearch);
 const graphRefs = new Set(entries.flatMap(entry => [...entry.ot, ...entry.nt].map(passage => passage.ref)));
 const otherRefs = Object.keys(scriptureSearch).filter(ref => !graphRefs.has(ref));
+const spokenCitationRefs = new Set([
+  ...(data.speech || []).flatMap(item => item.spans.map(span => span.ref)),
+  ...Object.entries(window.EMMAUS_SCRIPTURE_SEARCH?.supplemental || {}).filter(([, item]) => item.speech).map(([ref]) => ref)
+]);
 const passageDates = data.dates || {};
 const entriesById = new Map(entries.map(entry => [entry.id, entry]));
 const speechByEntry = new Map();
@@ -161,7 +165,7 @@ function matchesEntry(entry, state) {
 function buildVisible() {
   const state = readState();
   const query = normalizeQuery(state.search);
-  otherSearchRefs = query ? otherRefs.filter(ref => state.semanticRefs.has(ref) || passageSearch[ref]?.some(verse => verse.includes(query))) : [];
+  otherSearchRefs = query ? otherRefs.filter(ref => citationMatches(ref, state) && standaloneMatches(ref, state, data.books, spokenCitationRefs)) : [];
   const result = visibleGraph(data, state, passageSearch);
   visibleEntries = result.entries;
   visibleLinks = result.links;
@@ -208,7 +212,7 @@ function renderResultList() {
   const query = normalizeQuery(controls.search.value);
   target.replaceChildren();
   if (!visibleEntries.length && !otherSearchRefs.length) {
-    const p = document.createElement('p'); p.textContent = '沒有符合條件的研究，請放寬篩選。'; target.append(p);
+    const p = document.createElement('p'); p.textContent = '本次在已收錄的研究範圍內沒有符合結果；可能需放寬篩選或換個說法。這不表示聖經沒有相關內容。'; target.append(p);
   }
   const matchedPassages = query ? visibleNodes.filter(node =>
     (node.kind === 'ot' || node.kind === 'nt')
@@ -227,7 +231,7 @@ function renderResultList() {
   if (otherSearchRefs.length) {
     const section = document.createElement('section'); section.className = 'result-group';
     section.append(element('h3', `站內其他引用經文（${otherSearchRefs.length}）`));
-    section.append(element('p', '這些經文未列為研究條目的引用，圖上沒有關係線。', 'result-note'));
+    section.append(element('p', '這些是研究範圍內的其他引用，圖上沒有新增關係線。詳見經文覆蓋查核。', 'result-note'));
     const list = document.createElement('ul');
     for (const ref of otherSearchRefs) {
       const [code, chapterVerse] = ref.split(' ');
@@ -457,6 +461,10 @@ function drawLinks(links, color, lineWidth, dashed = false) {
   ctx.stroke(); ctx.setLineDash([]);
 }
 function highlighted(node) { return searchHitIds.has(node.id) || semanticHitIds.has(node.id); }
+function citationMatches(ref, state) {
+  const code = ref.split(' ')[0];
+  return state.semanticRefs.has(ref) || nodeMatchesKeyword({ ref, label: `${data.books[code]?.name || code} ${ref.split(' ')[1]}` }, state.search, passageSearch);
+}
 function nodeRadius(node, pulse = 0) {
   const base = Math.max(node.kind === 'topic' ? 6 : node.kind === 'entry' ? 4.8 : 3.6,
     (node.kind === 'topic' ? 4 : 2.1) / transform.k);
@@ -467,9 +475,11 @@ function renderSearchFeedback(state) {
   if (!state.search) { target.hidden = true; target.replaceChildren(); return; }
   const total = entries.filter(entry => matchesEntry(entry, { ...state, scope: 'all', book: '', group: '', topic: '', evidence: '', pentateuch: false, speech: false, compare: false })).length;
   const hidden = total - visibleEntries.length;
-  target.replaceChildren(); target.hidden = hidden <= 0;
-  if (hidden > 0) {
-    target.append(element('p', `另有 ${hidden} 組搜尋結果被目前的篩選隱藏。`));
+  const shownRefs = new Set([...visibleNodes.filter(node => node.ref).map(node => node.ref), ...otherSearchRefs]);
+  const hiddenRefs = Object.keys(scriptureSearch).filter(ref => citationMatches(ref, state) && !shownRefs.has(ref)).length;
+  target.replaceChildren(); target.hidden = hidden <= 0 && hiddenRefs <= 0;
+  if (hidden > 0 || hiddenRefs > 0) {
+    target.append(element('p', `目前篩選隱藏了 ${hidden} 組研究、${hiddenRefs} 處命中經文。`));
     const button = element('button', '顯示全部搜尋結果'); button.type = 'button';
     button.addEventListener('click', () => {
       controls.scope.value = 'all'; controls.testament.value = 'both';
@@ -492,7 +502,7 @@ async function searchSemantic() {
   $('semanticSearch').disabled = true;
   $('semanticStatus').textContent = '模型正在理解搜尋意圖…文字搜尋仍可使用。';
   try {
-    const response = await fetch(window.EMMAUS_SEMANTIC_CONFIG.endpoint, {
+    const response = await fetch((window.EMMAUS_SEMANTIC_CONFIG.endpoint || new URL('search', location.href).href), {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }), signal: controller.signal, credentials: 'omit'
     });
@@ -502,7 +512,7 @@ async function searchSemantic() {
     if (semanticRequest !== controller || controls.search.value.trim() !== query) return;
     semanticResult = { results: result.results.filter(item => item.kind === 'passage' ? Object.prototype.hasOwnProperty.call(scriptureSearch, item.ref) : item.kind === 'entry' && entriesById.has(item.entryId)) };
     if (!scopeChosenByUser) controls.scope.value = 'all';
-    $('semanticStatus').textContent = semanticResult.results.length ? '已加入模型的語意建議；請點開原文核對。語意建議不代表新增經文關係或證據。' : '模型未找到合適的本站經文，仍顯示文字搜尋結果。';
+    $('semanticStatus').textContent = semanticResult.results.length ? '已加入模型的語意建議；請點開原文核對。語意建議不代表新增經文關係或證據。' : (result.diagnostics?.rejected ? '模型提出的引用不在目前索引內，尚無可驗證的語意結果；不表示聖經沒有相關內容。' : '模型本次未選出相關的已收錄經文；不表示聖經沒有相關內容。仍顯示文字搜尋結果。');
     buildVisible();
   } catch (error) {
     if (semanticRequest !== controller) return;

@@ -106,13 +106,14 @@
     pinned = pin;
     touchY = pin ? pressY : null;
     heading.textContent = item.label;
-    extent.textContent = item.total > item.verses.length
-      ? `節錄前 ${item.verses.length} 節／全段 ${item.total} 節` : `全段 ${item.total} 節`;
+    const displayed = item.verses.reduce((count, verse) => count + (verse.coveredNumbers?.length || 1), 0);
+    extent.textContent = item.total > displayed
+      ? `節錄前 ${displayed} 節／全段 ${item.total} 節` : `全段 ${item.total} 節`;
     verses.replaceChildren(...item.verses.map(verse => {
       const row = document.createElement('p');
       row.className = 'scripture-preview-verse';
       const number = document.createElement('strong');
-      number.textContent = verse.number;
+      number.textContent = verse.numberLabel || verse.number;
       const text = document.createElement('span');
       text.textContent = verse.text;
       row.append(number, text);

@@ -1,0 +1,38 @@
+{
+  "url": "https://emmaus-preview.promelink.link/graph.html",
+  "status": 200,
+  "response": {
+    "corpus": "4dce84e4f5eb107fa141",
+    "model": "gpt-6.1-sol",
+    "results": [
+      {
+        "kind": "passage",
+        "ref": "MAT 24:37-39",
+        "excerpt": "37節 挪亞的日子怎樣、人子降臨也要怎樣。 38節 當洪水以前的日子、人照常喫喝嫁娶、直到挪亞進方舟的那日． 39節 不知不覺洪水來了、把他們全都沖去．人子降臨也要這樣。"
+      },
+      {
+        "kind": "passage",
+        "ref": "LUK 17:26-27",
+        "excerpt": "26節 挪亞的日子怎樣、人子的日子也要怎樣。 27節 那時候的人又喫又喝、又娶又嫁、到挪亞進方舟的那日、洪水就來、把他們全都滅了。"
+      },
+      {
+        "kind": "entry",
+        "entryId": "E187",
+        "excerpt": "挪亞的日子與人子的來臨"
+      }
+    ],
+    "cached": false,
+    "diagnostics": {
+      "selected": 3,
+      "rejected": 0
+    }
+  },
+  "semanticHits": [
+    "entry:E187",
+    "nt:MAT 24:37-39",
+    "nt:LUK 17:26-27"
+  ],
+  "seconds": 5.53,
+  "pass": true,
+  "type": "one real HTTPS browser smoke case; not the two-round acceptance suite"
+}

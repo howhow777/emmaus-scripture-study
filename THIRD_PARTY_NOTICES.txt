@@ -214,3 +214,14 @@ corrects a misplaced verse marker in Isaiah 4:3–4 and joins the continued
 line in Ezekiel 47:2 in that transcription. The previews are not the same
 edition as the external Bible.com CUNP-神 links; wording and punctuation may
 differ.
+
+Coverage audit and full cited-passage search
+============================================================
+The full-text search uses the same pinned public-domain CUV transcription.
+The independent NT audit pins all 27 New Testament books and hashes in
+data/audit-source-pins.json. Translator cross-reference notes trigger review;
+they do not automatically create graph relationships. Six NT groups with
+combined verse markers retain combined numbering; verse-only textual variant
+notes are explicitly identified as notes instead of being invented as text.
+All excerpts preserve original spelling. Search equivalences do not rewrite
+scripture. The source cache is not distributed in the website package.

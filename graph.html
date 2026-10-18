@@ -4,28 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="以互動圖譜探索《以馬忤斯之路》186組研究條目與舊約、新約經文的連結。">
+  <meta name="description" content="以互動圖譜探索《以馬忤斯之路》206組研究條目與舊約、新約經文的連結。">
   <title>互動經文圖譜｜以馬忤斯之路</title>
-  <link rel="stylesheet" href="graph.css?v=search4">
+  <link rel="stylesheet" href="graph.css?v=coverage1">
   <link rel="stylesheet" href="scripture-preview.css?v=touch2">
   <script defer src="graph-data.js"></script>
   <script defer src="scripture-previews-data.js"></script>
   <script defer src="scripture-search-data.js"></script>
-  <script defer src="semantic-config.js?v=search4"></script>
-  <script defer src="graph.bundle.js?v=search4"></script>
+  <script defer src="semantic-config.js?v=coverage1"></script>
+  <script defer src="graph.bundle.js?v=coverage1"></script>
   <script defer src="scripture-preview.js?v=touch2"></script>
 </head>
 <body>
-  <noscript><p class="no-script">互動圖譜需要 JavaScript。你仍可<a href="index.html#catalog">閱讀完整的 186 組研究條目</a>。</p></noscript>
+  <noscript><p class="no-script">互動圖譜需要 JavaScript。你仍可<a href="index.html#catalog">閱讀完整的 206 組研究條目</a>。</p></noscript>
   <a class="skip-link" href="#graphControls">跳到圖譜篩選</a>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="返回《以馬忤斯之路》研究首頁"><span class="brand-mark" aria-hidden="true">✦</span><span>以馬忤斯之路</span></a>
-    <nav aria-label="頁面導覽"><a href="index.html">閱讀研究</a><span aria-current="page">互動圖譜</span></nav>
+    <nav aria-label="頁面導覽"><a href="index.html">閱讀研究</a><a href="coverage.html">覆蓋查核</a><span aria-current="page">互動圖譜</span></nav>
   </header>
   <main>
     <section class="intro" aria-labelledby="graphTitle">
       <div><p class="eyebrow">SCRIPTURE ATLAS / 互動經文圖譜</p><h1 id="graphTitle">循著經文之間的光。</h1><p class="intro-copy">復活後的耶穌在以馬忤斯路上向門徒講解聖經；這幅圖邀請你探索相關研究與經文。<a href="index.html#why">閱讀故事與建站緣起 ↗</a> 點選節點閱讀連結，或放大、拖移、篩選想看的路徑。</p></div>
-      <a class="back-link" href="index.html#catalog">回到 186 組研究 <span aria-hidden="true">↗</span></a>
+      <a class="back-link" href="index.html#catalog">回到 206 組研究 <span aria-hidden="true">↗</span></a>
     </section>
     <div class="research-boundary" role="note"><strong>讀圖界線</strong><span>實線表示研究條目實際列出的經文；經文雲內圍成一圈的十個主題點是閱讀入口；選取主題後會突出它的虛線，虛線只表示共用主題，並非經文彼此直接引用或應驗。布局將 A／B 條目的經文線設得最短、C 次之、D 較長；共用經文的條目也會聚在附近。實際線長仍受共用節點、碰撞與布局影響，不能當作證據分數。A–D 只標示條目的主要連結類型，並非每條附帶經文的獨立評分。這是研究索引，不是以馬忤斯路上講章的還原。</span></div>
     <div class="workspace">
@@ -37,7 +37,7 @@
             <p class="filter-note">輸入即查文字；按此按鈕或 Enter 加入語意搜尋。搜尋內容會傳至站主的 Hermes 專用搜尋服務與雲端模型；僅搜尋本站引用段落。</p>
             <p id="semanticStatus" class="filter-note" role="status" aria-live="polite"></p>
             <div id="searchFeedback" class="search-feedback" role="status" hidden></div>
-            <div class="filter-pair"><label class="field" for="scopeFilter"><span>研究範圍</span><select id="scopeFilter"><option value="core">主線 49 組</option><option value="all">全部 186 組</option></select></label><label class="field" for="testamentFilter"><span>顯示經文</span><select id="testamentFilter"><option value="both">舊約＋新約</option><option value="ot">只看舊約</option><option value="nt">只看新約</option></select></label></div>
+            <div class="filter-pair"><label class="field" for="scopeFilter"><span>研究範圍</span><select id="scopeFilter"><option value="core">主線 49 組</option><option value="all">全部 206 組</option></select></label><label class="field" for="testamentFilter"><span>顯示經文</span><select id="testamentFilter"><option value="both">舊約＋新約</option><option value="ot">只看舊約</option><option value="nt">只看新約</option></select></label></div>
             <div class="filter-pair"><label class="field" for="bookFilter"><span>相關書卷</span><select id="bookFilter"><option value="">全部書卷</option></select></label><label class="field" for="groupFilter"><span>書卷類別</span><select id="groupFilter"><option value="">全部類別</option></select></label></div>
             <div class="filter-pair"><label class="field" for="topicFilter"><span>救恩主題</span><select id="topicFilter"><option value="">全部主題</option></select></label><label class="field" for="evidenceFilter"><span>證據類型</span><select id="evidenceFilter"><option value="">全部類型</option><option value="A">A · 明確引用／採用</option><option value="B">B · 明示類比／對照</option><option value="C">C · 主題呼應</option><option value="D">D · 有爭議的候選</option></select></label></div>
             <div class="check-list">
@@ -46,7 +46,7 @@
               <label><input id="jesusCompareOnly" type="checkbox"><span>原研究「耶穌親引／比較」</span></label>
               <label><input id="showTopics" type="checkbox" checked><span>顯示主題節點與虛線</span></label>
             </div>
-            <p class="filter-note">關鍵字搜尋研究說明與站內引用經文的完整文字（維基文庫和合本）。初次載入顯示主線 49 組；輸入關鍵字時會切換至全部 186 組，也可手動只查主線。未列為研究條目引用的經文會單獨列出，不畫關係線；其他條件篩選研究條目，「顯示經文」決定圖上呈現哪一約。</p>
+            <p class="filter-note">關鍵字搜尋研究說明與站內引用經文的完整文字（維基文庫和合本）。初次載入顯示主線 49 組；輸入關鍵字時會切換至全部 206 組，也可手動只查主線。未列為研究條目引用的經文會單獨列出，不畫關係線；其他條件篩選研究條目，「顯示經文」決定圖上呈現哪一約。</p>
             <button class="reset-button" id="clearFilters" type="button">清除篩選</button>
           </div>
         </details>
