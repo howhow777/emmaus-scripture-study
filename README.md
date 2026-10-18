@@ -46,9 +46,11 @@ npm run check:graph
 
 ```sh
 python3 server/search_service.py --runtime /path/to/private-review-runtime --build .
-python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtime --rounds 2 --output reports/semantic-live.json
+python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtime --rounds 2 --call-limit 48 --output reports/semantic-live.json
 ```
 
 驗證執行器強制略過快取，記錄每次原始回應及 corpus。可用 `--resume` 接續同一 corpus，不能接續到不同資料版本。服務部署與前端 `semantic-config.js` 的 corpus 必須一致；預覽採獨立執行目錄，正式環境須待手機驗收後才更新。
 
 瀏覽器回歸另可執行 `python3 scripts/verify-browser.py --site https://emmaus-preview.promelink.link`，需要已安裝的 Playwright 與 Chrome；不呼叫模型，網路錯誤案例採注入並明確與真實模型成績分開。
+
+最終索引的48次真實模型驗收已達標（recall@10 100%、precision 99.17%）；Android與iPhone均由使用者回報測試通過。原始成績見 [reports/semantic-live.json](reports/semantic-live.json)。

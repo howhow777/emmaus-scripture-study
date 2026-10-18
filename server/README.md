@@ -42,3 +42,5 @@ python3 -m unittest discover -s server -p 'test_*.py'
 macOS LaunchAgent 應從審核專用執行目錄讀取網站副本，避免 Documents 的隱私權限制；不要為此調整整台電腦的隱私權。預覽索引、程式與靜態副本均與正式版分開。使用新版程式的服務若共用計數資料庫，`BEGIN IMMEDIATE` 保證跨程序的每日預算原子遞增；正式程式仍須在發布時一併更新。
 
 `verify-semantic-live.py` 的 `use_cache=False` 僅為內部呼叫參數；公開 API 仍只接受 `query`，不接受模型、額度、快取繞過、messages或tools。評估結果須記錄corpus，新增經文後應重測，不能挪用前一版本的通過成績。額外驗證不得默默提高公開每日限制。
+
+內部驗證可用 `--call-limit 48` 搭配獨立私有 runtime 將本次測試硬性限制於48次；這個CLI選項不由公開API接受，也不提高公開服務每日100次的限制。

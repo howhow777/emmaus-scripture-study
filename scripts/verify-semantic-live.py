@@ -20,10 +20,11 @@ def evaluate(case,result,graph):
  top=refs[:case['topK']];found=sum(any(overlap(a,r) for r in refs[:10]) for a in case['requiredAnchors'])
  return {'recallHits':found,'recallTotal':len(case['requiredAnchors']),'relevantHits':sum(relevant(h) for h in hits),'returned':len(hits), 'requiredTopK':all(any(overlap(a,r) for r in top) for a in case['requiredAnchors']), 'negativePass':bool(case['requiredAnchors']) or not hits}
 def main():
- p=argparse.ArgumentParser();p.add_argument('--runtime',type=Path,required=True);p.add_argument('--output',type=Path,default=ROOT/'reports/semantic-live.json');p.add_argument('--rounds',type=int,default=2);p.add_argument('--resume',action='store_true');a=p.parse_args()
- golden=json.loads((ROOT/'data/coverage/search-golden.json').read_text());graph=service.read_asset(ROOT,'graph-data.js');search=service.Search(a.runtime)
+ p=argparse.ArgumentParser();p.add_argument('--runtime',type=Path,required=True);p.add_argument('--output',type=Path,default=ROOT/'reports/semantic-live.json');p.add_argument('--rounds',type=int,default=2);p.add_argument('--resume',action='store_true');p.add_argument('--call-limit',type=int,default=service.DAILY_MODEL_CALLS);a=p.parse_args()
+ if not 1<=a.call_limit<=service.DAILY_MODEL_CALLS:p.error('Internal call limit must be between 1 and the public default')
+ golden=json.loads((ROOT/'data/coverage/search-golden.json').read_text());graph=service.read_asset(ROOT,'graph-data.js');search=service.Search(a.runtime,daily_limit=a.call_limit)
  if search.index['corpus'] != service.corpus_hash(service.documents(ROOT)):raise SystemExit('Runtime index is stale; rebuild before testing')
- report=json.loads(a.output.read_text()) if a.resume and a.output.exists() else {'corpus':search.index['corpus'],'model':service.MODEL,'rounds':a.rounds,'cacheBypassed':True,'runs':[]}
+ report=json.loads(a.output.read_text()) if a.resume and a.output.exists() else {'corpus':search.index['corpus'],'model':service.MODEL,'rounds':a.rounds,'cacheBypassed':True,'callLimit':a.call_limit,'runs':[]}
  if report['corpus']!=search.index['corpus']:raise SystemExit('Cannot resume a different corpus')
  done={(r['round'],r['id']) for r in report['runs']}
  for round_ in range(1,a.rounds+1):

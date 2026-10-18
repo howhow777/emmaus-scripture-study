@@ -1,0 +1,9 @@
+{
+  "approved": true,
+  "message": "核可",
+  "recordedAt": "2026-10-18T09:14:47+00:00",
+  "scope": "Final corpus 24 cases x 2 uncached rounds; private internal evaluation budget",
+  "maxModelCalls": 48,
+  "publicDailyLimit": 100,
+  "corpus": "4dce84e4f5eb107fa141"
+}

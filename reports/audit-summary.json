@@ -1,5 +1,5 @@
 {
-  "status": "pending-final-live-suite",
+  "status": "accepted-ready-for-release",
   "corpus": "4dce84e4f5eb107fa141",
   "studies": 206,
   "preservedStudies": 186,
@@ -58,19 +58,25 @@
     "finalCorpusAcceptance": false
   },
   "finalLiveSuite": {
-    "status": "pending",
-    "reason": "48 uncached calls required after final index additions; current public 100-per-day protection would be insufficient; awaiting approval for separately bounded internal evaluation or next day",
-    "budgetCheck": {
-      "recordedAt": "2026-10-18T09:12:09+00:00",
-      "dailyLimit": 100,
-      "used": 61,
-      "remaining": 39,
-      "required": 48
-    }
+    "status": "passed",
+    "corpus": "4dce84e4f5eb107fa141",
+    "runs": 48,
+    "recallAt10": 1.0,
+    "precision": 0.9916666666666667,
+    "negativePass": true,
+    "noahTop5": true,
+    "cacheBypassed": true,
+    "internalModelCalls": 48,
+    "internalCallLimit": 48,
+    "publicDailyLimit": 100,
+    "publicCallsAfterEvaluation": 61,
+    "finishedAt": "2026-10-18T09:19:53+00:00",
+    "report": "semantic-live.json"
   },
   "production": {
     "status": "unchanged",
     "commit": "6f422a304264fd10b4555a52bc1368208cecf38b",
-    "corpus": "21f0ae5f87764dbe7483"
+    "corpus": "21f0ae5f87764dbe7483",
+    "targetCorpus": "4dce84e4f5eb107fa141"
   }
 }

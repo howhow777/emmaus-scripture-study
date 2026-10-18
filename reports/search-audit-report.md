@@ -1,6 +1,6 @@
 # 經文搜尋與覆蓋查核
 
-日期：2026-10-18。狀態：修訂已上獨立預覽；Android與iPhone已由使用者回報測試通過；最終版本的完整模型重測待完成。正式站未更新。
+日期：2026-10-18。狀態：修訂已上獨立預覽；Android與iPhone已由使用者回報測試通過；最終48次模型重測亦達標。正在發布正式版。
 
 預覽：[互動圖譜](https://emmaus-preview.promelink.link/graph.html) · [逐卷查核](https://emmaus-preview.promelink.link/coverage.html)
 
@@ -50,15 +50,23 @@
 
 原始證據：[瀏覽器](browser-audit.json)、[真實HTTPS模型](browser-live-semantic.json)、[外部連結](external-links.json)、[機器可讀摘要](audit-summary.json)。
 
-## 模型兩輪驗收的狀態
+## 模型兩輪驗收的結果
 
-第一個擴充索引 `ee126824683503ca2ef7` 曾完成24案例×2輪，共48次未快取的真實模型呼叫。recall@10為100%，precision為98.35%；兩輪的8個無關查詢均空結果，三個挪亞問題的必要段落均進前五。評分依預先凍結的案例及相關引用範圍，不在看到答案後放寬標準。原始紀錄保留於[前一索引驗證](diagnostics/semantic-live-before-final-corpus.json)。初期一個中斷且索引已過期的嘗試另列診斷，不計入48次成績。
+最終索引 **`4dce84e4f5eb107fa141`** 已完成24案例×2輪，共48次未快取的真實模型呼叫，沒有服務錯誤或漏跑。
 
-後續的來源交叉註調查又補收耶穌直接引用誡命等段落，最終索引改為 **`4dce84e4f5eb107fa141`**。前述48次成績**不能代替最終索引驗收**。最終索引目前只通過上表的一個真實HTTPS冒煙案例，完整48次重測待執行。
+- recall@10：**100%**；必要經文錨點全數找回。
+- precision：**99.17%（119／120筆回傳）**；依預先凍結的相關範圍評分，沒有看到答案後放寬標準。
+- 兩輪共16次無關查詢均為空結果。
+- 三個挪亞問題每輪的必要段落均進前五，共六項檢查通過。
+- 兩輪均逐次略過應用程式快取，使用真正模型及不同session；沒有以注入回應或舊版成績替代。
 
-現行服務的每日100次未快取呼叫是站主設定的保護措施，不代表已確認Codex訂閱耗盡。現有計數不足以完整再跑48次；依計畫停止條件，已請使用者選擇額外最多48次的獨立內部驗證，或維持額度分日完成。尚未獲答覆前，不繞過保護。公開服務的100次限制沒有提高。
+原始紀錄：[最終48次模型驗證](semantic-live.json)。第二輪麥基洗德案例另選了來6:13–20；依凍結評分範圍保守計為一筆不相關回傳，沒有為提高分數修訂案例。
 
-完成門檻仍為：recall@10 ≥95%、precision ≥90%、三個挪亞問題每輪必要段落前五、無關問題空結果，並且所有案例使用真正模型、略過快取、無漏跑或隱藏失敗。
+先前索引 `ee126824683503ca2ef7` 的48次結果僅保留為[歷史診斷](diagnostics/semantic-live-before-final-corpus.json)，未挪用為本版驗收。
+
+使用者明確核可本次額外最多48次內部驗證，見[核可紀錄](evaluation-approval.json)。本輪採獨立的私有計數資料庫，實際計數48次，執行器上限48；公開服務每日100次限制未提高。模型驗證開始前與結束時的公開計數皆為61次，沒有重設既有計數。這是站主的保護限制，不代表對Codex訂閱剩餘量的估計。
+
+驗收門檻：recall@10 ≥95%、precision ≥90%、三個挪亞問題每輪必要段落前五、無關問題空結果。本版已達標。
 
 ## 預覽與發布
 
@@ -68,7 +76,7 @@
 
 Android與iPhone已由使用者分別回報「android測試ok」、「iPhone測試ok」，均記錄為實機通過；未提供幀距數值，亦未另確認瀏覽器版本。詳見[實機驗收紀錄](device-acceptance.json)。
 
-尚待：最終48次模型驗收；通過後才更新正式後端與GitHub Pages、正式網站包並核對公開版本。手機模擬不替代實機，也未宣稱取得兩台手機的p95幀距。此次未修改圖譜手勢、節點距離或主題圈演算法。
+模型與實機驗收均已完成；接續更新正式後端與GitHub Pages、正式網站包並核對公開版本。手機模擬不替代實機，也未宣稱取得兩台手機的p95幀距。此次未修改圖譜手勢、節點距離或主題圈演算法。發布檔案使用新的資料版本網址，避免新頁面混用舊的經文快取。
 
 ## 重跑方法
 
@@ -86,9 +94,9 @@ npm run check:graph
 # 需已安裝Playwright與Chrome；不呼叫模型，錯誤案例採注入
 python3 scripts/verify-browser.py --site https://emmaus-preview.promelink.link
 
-# 需先確認本次額度；會實際呼叫模型48次
+# 需先核可額度並使用獨立私有runtime；會實際呼叫模型48次
 python3 server/search_service.py --runtime /path/to/private-review-runtime --build .
-python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtime --rounds 2 --output reports/semantic-live.json
+python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtime --rounds 2 --call-limit 48 --output reports/semantic-live.json
 ```
 
 若使用`--resume`，僅能接續相同corpus的既有紀錄；任何服務錯誤會停止並保留失敗，不能刪除失敗後宣稱全數成功。前端與服務corpus不符時須顯示更新訊息，不回退成查無經文。
