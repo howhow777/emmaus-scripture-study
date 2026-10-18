@@ -1,5 +1,5 @@
 {
-  "status": "pending-final-live-suite-and-iphone",
+  "status": "pending-final-live-suite",
   "corpus": "4dce84e4f5eb107fa141",
   "studies": 206,
   "preservedStudies": 186,
@@ -38,7 +38,7 @@
     "pass": true,
     "realPhones": {
       "android": "passed-user-reported",
-      "iphoneSafari": "pending",
+      "iphoneSafari": "passed-user-reported",
       "frameMetrics": "not supplied"
     }
   },
@@ -59,7 +59,14 @@
   },
   "finalLiveSuite": {
     "status": "pending",
-    "reason": "48 uncached calls required after final index additions; current public 100-per-day protection would be insufficient; awaiting approval for separately bounded internal evaluation or next day"
+    "reason": "48 uncached calls required after final index additions; current public 100-per-day protection would be insufficient; awaiting approval for separately bounded internal evaluation or next day",
+    "budgetCheck": {
+      "recordedAt": "2026-10-18T09:12:09+00:00",
+      "dailyLimit": 100,
+      "used": 61,
+      "remaining": 39,
+      "required": 48
+    }
   },
   "production": {
     "status": "unchanged",

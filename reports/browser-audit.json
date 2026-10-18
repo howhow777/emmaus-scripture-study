@@ -157,7 +157,7 @@
   "browser": "155.0.8059.82",
   "realPhones": {
     "android": "passed-user-reported",
-    "iphoneSafari": "pending",
+    "iphoneSafari": "passed-user-reported",
     "frameMetrics": "not supplied"
   }
 }

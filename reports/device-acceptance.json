@@ -7,6 +7,9 @@
     "frameMetrics": "not supplied"
   },
   "iphoneSafari": {
-    "status": "pending"
+    "status": "passed-user-reported",
+    "message": "iPhone測試ok",
+    "recordedAt": "2026-10-18T09:12:09+00:00",
+    "frameMetrics": "not supplied"
   }
 }

@@ -7,7 +7,11 @@ parser=argparse.ArgumentParser(description='HTTPS browser regression; no model c
 parser.add_argument('--site',default='https://emmaus-preview.promelink.link');args=parser.parse_args();SITE=args.site.rstrip('/')
 OUT=ROOT.parent/'emmaus-audit-runtime';OUT.mkdir(exist_ok=True)
 config=json.loads((ROOT/'semantic-config.js').read_text().split('=',1)[1].strip().removesuffix(';'))
-report={'url':SITE,'corpus':config['corpus'],'checks':[],'consoleErrors':[]}
+acceptance_path=ROOT/'reports/device-acceptance.json'
+acceptance=json.loads(acceptance_path.read_text()) if acceptance_path.exists() else {}
+phones={key:acceptance.get(key,{}).get('status','pending') for key in ['android','iphoneSafari']} if acceptance.get('corpus')==config['corpus'] else {'android':'pending','iphoneSafari':'pending'}
+phones['frameMetrics']='not supplied'
+report={'url':SITE,'corpus':config['corpus'],'checks':[],'consoleErrors':[],'realPhones':phones}
 def check(name,condition,detail=''):
  report['checks'].append({'name':name,'pass':bool(condition),'detail':detail})
  (ROOT/'reports/browser-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
@@ -84,4 +88,4 @@ with sync_playwright() as p:
  check('merged preview no false truncation',mp.locator('.scripture-preview-extent').inner_text()=='全段 2 節')
  mp.screenshot(path=str(OUT/'mobile-merged-preview.png'),full_page=False)
  check('no uncaught JS errors',not report['consoleErrors'],report['consoleErrors'])
- report['browser']=browser.version;report['realPhones']='pending user';(ROOT/'reports/browser-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');browser.close()
+ report['browser']=browser.version;(ROOT/'reports/browser-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');browser.close()

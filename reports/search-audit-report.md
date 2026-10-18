@@ -1,6 +1,6 @@
 # 經文搜尋與覆蓋查核
 
-日期：2026-10-18。狀態：修訂已上獨立預覽；Android已由使用者回報測試通過；最終版本的完整模型重測及iPhone Safari實機驗收待完成。正式站未更新。
+日期：2026-10-18。狀態：修訂已上獨立預覽；Android與iPhone已由使用者回報測試通過；最終版本的完整模型重測待完成。正式站未更新。
 
 預覽：[互動圖譜](https://emmaus-preview.promelink.link/graph.html) · [逐卷查核](https://emmaus-preview.promelink.link/coverage.html)
 
@@ -66,9 +66,9 @@
 
 正式GitHub Pages仍為原版`6f422a3`；正式API仍回報`21f0ae5f87764dbe7483`、784文件。已保存公開首頁／圖譜雜湊及健康回應。功能分支含下一版正式設定；預覽以自身corpus設定覆寫，不能直接把預覽分支合入main而漏掉後端索引更新。
 
-Android已由使用者回報「android測試ok」，記錄為實機通過；未提供幀距數值，亦未另確認瀏覽器版本。詳見[實機驗收紀錄](device-acceptance.json)。
+Android與iPhone已由使用者分別回報「android測試ok」、「iPhone測試ok」，均記錄為實機通過；未提供幀距數值，亦未另確認瀏覽器版本。詳見[實機驗收紀錄](device-acceptance.json)。
 
-尚待：最終48次模型驗收、iPhone Safari實機回饋；通過後才更新正式後端與GitHub Pages、正式網站包並核對公開版本。手機模擬不替代實機，也未宣稱取得兩台手機的p95幀距。此次未修改圖譜手勢、節點距離或主題圈演算法。
+尚待：最終48次模型驗收；通過後才更新正式後端與GitHub Pages、正式網站包並核對公開版本。手機模擬不替代實機，也未宣稱取得兩台手機的p95幀距。此次未修改圖譜手勢、節點距離或主題圈演算法。
 
 ## 重跑方法
 
