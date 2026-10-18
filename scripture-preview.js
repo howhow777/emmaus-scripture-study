@@ -8,8 +8,9 @@
   card.id = 'scripturePreview';
   card.setAttribute('role', 'region');
   card.setAttribute('aria-label', '經文預覽');
+  card.tabIndex = 0;
   card.hidden = true;
-  card.innerHTML = '<div class="scripture-preview-head"><div><span class="scripture-preview-kicker">經文預覽</span><h2></h2></div><button class="scripture-preview-close" type="button" aria-label="關閉經文預覽">×</button></div><p class="scripture-preview-extent"></p><div class="scripture-preview-verses"></div><p class="scripture-preview-version"></p><a class="scripture-preview-open" target="_blank" rel="noopener noreferrer">開啟原經文全文 ↗</a><span id="scripturePreviewHint" class="scripture-preview-sr-only">經文預覽已開啟。按向下鍵進入預覽，按 Escape 關閉。</span>';
+  card.innerHTML = '<div class="scripture-preview-head"><div><span class="scripture-preview-kicker">經文預覽</span><h2></h2></div><button class="scripture-preview-close" type="button" aria-label="關閉經文預覽">×</button></div><p class="scripture-preview-extent"></p><div class="scripture-preview-verses"></div><p class="scripture-preview-version"></p><a class="scripture-preview-open" target="_blank" rel="noopener noreferrer">開啟原經文網頁 ↗</a><span id="scripturePreviewHint" class="scripture-preview-sr-only">經文預覽已開啟。按向下鍵進入預覽，使用方向鍵或 Page Down 捲動，按 Escape 關閉。</span>';
   document.body.append(card);
   const status = document.createElement('span');
   status.className = 'scripture-preview-sr-only';
@@ -98,18 +99,39 @@
     card.style.top = `${top}px`;
   }
   function open(link, pin = false, announce = false, pressY = null) {
-    const item = data.passages[reference(link)];
+    const ref = reference(link);
+    const item = data.passages[ref];
     if (!item) return false;
+    // Moving back onto the same active link must not reset a reader's position.
+    if (activeLink === link && !card.hidden) {
+      stopTimers();
+      if (pin) {
+        pinned = true;
+        touchY = pressY;
+        card.classList.add('is-pinned');
+        position();
+      }
+      return true;
+    }
     if (activeLink && activeLink !== link) activeLink.removeAttribute('aria-describedby');
     stopTimers();
     activeLink = link;
     pinned = pin;
     touchY = pin ? pressY : null;
     heading.textContent = item.label;
-    const displayed = item.verses.reduce((count, verse) => count + (verse.coveredNumbers?.length || 1), 0);
-    extent.textContent = item.total > displayed
-      ? `節錄前 ${displayed} 節／全段 ${item.total} 節` : `全段 ${item.total} 節`;
-    verses.replaceChildren(...item.verses.map(verse => {
+    const first = Number(ref.match(/:(\d+)/)?.[1] || 1);
+    const end = Number(ref.match(/:(\d+)(?:-(\d+))?$/)?.slice(1).filter(Boolean).at(-1) || first + item.total - 1);
+    const numbers = (item.verses || []).flatMap(verse => {
+      if (Array.isArray(verse.coveredNumbers)) return verse.coveredNumbers;
+      const range = /^(\d+)[–-](\d+)$/.exec(verse.numberLabel || '');
+      return range ? Array.from({ length: Number(range[2]) - Number(range[1]) + 1 }, (_, i) => Number(range[1]) + i) : [verse.number];
+    });
+    const complete = Number.isInteger(item.total) && item.total > 0 && end - first + 1 === item.total
+      && numbers.length === item.total && numbers.every((number, i) => number === first + i)
+      && item.verses.every(verse => typeof verse.text === 'string' && verse.text.trim());
+    extent.textContent = complete ? `全段 ${item.total} 節` : '預覽資料不完整，請重新整理；仍有問題時可開啟原經文網頁。';
+    extent.classList.toggle('is-incomplete', !complete);
+    verses.replaceChildren(...(complete ? item.verses : []).map(verse => {
       const row = document.createElement('p');
       row.className = 'scripture-preview-verse';
       const number = document.createElement('strong');
@@ -129,6 +151,7 @@
     original.href = link.href;
     card.classList.toggle('is-pinned', pin);
     card.hidden = false;
+    card.scrollTop = 0;
     link.setAttribute('aria-describedby', 'scripturePreviewHint');
     position();
     if (announce) status.textContent = `${item.label} 經文預覽已開啟。按向下鍵進入預覽，按 Escape 關閉。`;
@@ -219,12 +242,27 @@
   }, true);
   document.addEventListener('keydown', event => {
     lastInput = 'keyboard';
-    if (event.key === 'Escape' && !card.hidden) close();
+    if (event.key === 'Escape' && !card.hidden) {
+      event.preventDefault();
+      event.stopPropagation();
+      close();
+      return;
+    }
     if (event.key === 'ArrowDown' && event.target === activeLink && !card.hidden) {
       event.preventDefault();
       pinned = true;
       card.classList.add('is-pinned');
-      closeButton.focus({ preventScroll: true });
+      position();
+      card.focus({ preventScroll: true });
+      return;
+    }
+    if (!card.hidden && card.contains(event.target)) {
+      const step = Math.max(40, card.clientHeight - card.querySelector('.scripture-preview-head').offsetHeight - 24);
+      const scroll = { ArrowDown: 40, ArrowUp: -40, PageDown: step, PageUp: -step, Home: -card.scrollHeight, End: card.scrollHeight }[event.key];
+      if (scroll !== undefined) {
+        event.preventDefault();
+        card.scrollTop += scroll;
+      }
     }
   });
   window.addEventListener('scroll', event => {

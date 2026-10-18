@@ -2,7 +2,7 @@
 
 這是可直接部署到 GitHub Pages 的靜態網站。`index.html` 是研究閱讀頁，`graph.html` 是互動經文圖譜，`dating.html` 提供每處引用段落的年代說明與來源，`coverage.html` 記錄範圍內的補充經文及 27 卷新約查核。頁面使用相對連結，因此放在同一目錄即可互通，也能從下載的網站包離線閱讀；Bible.com 與學術來源連結仍需要網路。
 
-閱讀頁與圖譜詳情中的 Bible.com 經文連結可用滑鼠懸浮預覽；手機長按連結約半秒可預覽，輕點仍開啟原連結。鍵盤選取連結可預覽，按向下鍵進入預覽、Escape 關閉。預覽至多顯示前四節，文字取自維基文庫的和合本 1919 用字版（神版）；外連是 Bible.com 的新標點和合本（神版），文字與標點可能不同。
+閱讀頁與圖譜詳情中的 Bible.com 經文連結可用滑鼠懸浮預覽；手機長按連結約半秒可預覽，輕點仍開啟原連結。鍵盤選取連結可預覽，按向下鍵進入預覽、Escape 關閉。預覽直接顯示引用段落全文；長段落可在預覽視窗內捲動，標題與關閉按鈕保留在頂端。按向下鍵進入後可用方向鍵、Page Up／Down、Home／End 捲動。預覽文字取自維基文庫的和合本 1919 用字版（神版）；外連是 Bible.com 的新標點和合本（神版），文字與標點可能不同。
 
 圖譜關鍵字會搜尋研究說明與站內每處引用經文的完整段落，並在結果清單顯示命中的經節；搜尋文字使用上述維基文庫和合本。初次載入顯示主線 49 組，輸入關鍵字時自動切換為全部 206 組，也可手動只查主線。未列為研究條目引用的站內經文會單獨列出並直達原經文，不在圖上畫新的關係線。網站只索引已引用的段落，不是全本聖經搜尋。
 
@@ -58,3 +58,9 @@ python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtim
 正式網址：[研究首頁](https://howhow777.github.io/emmaus-scripture-study/) · [互動圖譜](https://howhow777.github.io/emmaus-scripture-study/graph.html)。發布驗證可執行 `python3 scripts/verify-production.py`；會向公開API送出一次正常查詢，遵守既有快取與每日保護限制。
 
 [下載完整網站包](https://howhow777.github.io/emmaus-scripture-study/emmaus_website.zip)（可離線閱讀與文字搜尋；AI及外部經文連結需要網路）。
+
+## 全文預覽驗證
+
+`npm run audit:previews` 將全部 901 處引用與固定來源、合排節號、外連及入口逐一核對，結果在 `reports/preview-completeness.json`。需要倉庫外的固定來源快取。原先 315 處被裁成前四節，修訂後直接顯示引用段落全文；搜尋資料及語意索引維持原樣。
+
+`npm run verify:previews` 用 Chrome／Playwright 對 HTTPS 預覽檢查每個真實經文入口的文字，並實際使用滑鼠、鍵盤及觸控捲到長段落末尾，輸出 `reports/preview-browser.json`；不呼叫語意模型。觸控模擬不代表 iPhone Safari 或 Android Chrome 的實機驗收，這一版須另行確認後才發布正式站與下載包。

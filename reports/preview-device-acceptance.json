@@ -1,0 +1,19 @@
+{
+  "release": "full-preview1",
+  "date": "2026-10-19",
+  "site": "https://emmaus-preview.promelink.link/",
+  "iphoneSafari": {
+    "status": "pending",
+    "note": "This release requires a new full-passage scroll test; previous search-release approvals do not apply."
+  },
+  "androidChrome": {
+    "status": "pending",
+    "note": "This release requires a new full-passage scroll test; previous search-release approvals do not apply."
+  },
+  "passages": [
+    {"ref": "LUK 1:26-38", "lastVerse": 38},
+    {"ref": "ISA 7:10-17", "lastVerse": 17},
+    {"ref": "LUK 24", "lastVerse": 53}
+  ],
+  "production": "unchanged pending this release's device acceptance"
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build short, offline scripture previews from pinned Wikisource CUV pages.
+"""Build complete, offline scripture previews from pinned Wikisource CUV pages.
 
 The preview text is the Wikisource transcription adjusted toward 1919 usage,
 not the CUNP-神 edition reached by the existing Bible.com links. `--fetch`
@@ -270,7 +270,7 @@ def build(source_dir):
             verses.append(verse)
         passage = {
             "label": label,
-            "verses": verses[:4],
+            "verses": verses,
             "total": len(numbers),
         }
         key = passage_key(book, chapter, first, last)
@@ -288,6 +288,20 @@ def serialized_search(data):
     return "window.EMMAUS_SCRIPTURE_SEARCH=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
 
 
+def covered_numbers(verses):
+    """Expand source-preserved combined numbering without changing source text."""
+    numbers = []
+    for verse in verses:
+        if "coveredNumbers" in verse:
+            numbers.extend(verse["coveredNumbers"])
+        elif re.fullmatch(r"\d+[–-]\d+", str(verse.get("numberLabel", ""))):
+            first, last = map(int, re.split("[–-]", verse["numberLabel"]))
+            numbers.extend(range(first, last + 1))
+        else:
+            numbers.append(verse["number"])
+    return numbers
+
+
 def check_existing():
     if not OUTPUT.exists():
         raise ValueError("scripture-previews-data.js is missing")
@@ -303,10 +317,13 @@ def check_existing():
         if not item.get("label") or not isinstance(item.get("total"), int) or item["total"] < 1:
             raise ValueError(f"Invalid preview metadata: {key}")
         verses = item.get("verses")
-        if not isinstance(verses, list) or not 1 <= len(verses) <= min(item["total"], 4):
+        if not isinstance(verses, list) or not 1 <= len(verses) <= item["total"]:
             raise ValueError(f"Invalid preview verse count: {key}")
         if any(not isinstance(v.get("number"), int) or not isinstance(v.get("text"), str) or not v["text"] for v in verses):
             raise ValueError(f"Invalid preview text: {key}")
+        first = int(re.search(r":(\d+)", key).group(1)) if ":" in key else 1
+        if covered_numbers(verses) != list(range(first, first + item["total"])):
+            raise ValueError(f"Incomplete scripture preview range: {key}")
     if current != serialized(data):
         raise ValueError("scripture-previews-data.js is not canonically serialized")
     if not SEARCH_OUTPUT.exists():
@@ -323,7 +340,7 @@ def check_existing():
         book_chapter = key.split(":")[0]
         combined_psalm_8 = book_chapter == "PSA 8" and preview["total"] >= 8
         expected_length = preview["total"] - (2 if combined_psalm_8 else 0)
-        if not isinstance(verses, list) or sum(len(verse.get("coveredNumbers", [verse["number"]])) for verse in verses) != expected_length or verses[:4] != preview["verses"]:
+        if not isinstance(verses, list) or sum(len(verse.get("coveredNumbers", [verse["number"]])) for verse in verses) != expected_length or verses != preview["verses"]:
             raise ValueError(f"Incomplete scripture search range: {key}")
         first = int(re.search(r":(\d+)", key).group(1)) if ":" in key else 1
         expected_numbers = [number for number in range(first, first + preview["total"])

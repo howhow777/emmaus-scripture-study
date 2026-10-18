@@ -40,14 +40,14 @@ test('every Bible.com scripture destination has a distinct preview', () => {
   }
 });
 
-test('previews state their source and show up to four numbered verses', () => {
+test('previews state their source and show every cited verse', () => {
   assert.match(source.label, /維基文庫 1919 用字版.*神版/);
   assert.match(source.url, /^https:\/\/zh\.wikisource\.org\//);
   assert.match(source.note, /CUNP-神/);
   for (const [ref, item] of Object.entries(passages)) {
     assert.ok(item.label, ref);
     assert.ok(Number.isInteger(item.total) && item.total > 0, ref);
-    assert.equal(item.verses.length, Math.min(fullSearch.passages[ref].length, 4), ref);
+    assert.equal(item.verses.length, fullSearch.passages[ref].length, ref);
     const match = /^[0-9A-Z]+ \d+(?::(\d+)(?:-\d+)?)?$/.exec(ref);
     assert.ok(match, ref);
     const first = Number(match[1] || 1);
@@ -59,12 +59,12 @@ test('previews state their source and show up to four numbered verses', () => {
   }
 });
 
-test('full search covers every cited verse beyond the four-verse preview', () => {
+test('preview and full search contain identical complete cited passages', () => {
   assert.equal(JSON.stringify(fullSearch.source), JSON.stringify(source));
   assert.deepEqual(new Set(Object.keys(fullSearch.passages)), new Set(Object.keys(passages)));
   for (const [ref, preview] of Object.entries(passages)) {
     const verses = fullSearch.passages[ref];
-    assert.equal(JSON.stringify(verses.slice(0, 4)), JSON.stringify(preview.verses), ref);
+    assert.equal(JSON.stringify(verses), JSON.stringify(preview.verses), ref);
     assert.equal(verses.reduce((n,v)=>n+(v.coveredNumbers?.length || 1),0), preview.total - (ref === 'PSA 8:1-9' ? 2 : 0), ref);
   }
   assert.equal(fullSearch.passages['LUK 24'].at(-1).number, 53);
@@ -74,7 +74,7 @@ test('full search covers every cited verse beyond the four-verse preview', () =>
 
 test('chapter and source transcription edge cases remain accurate', () => {
   assert.equal(passages['LUK 24'].total, 53);
-  assert.deepEqual(Array.from(passages['LUK 24'].verses, v => v.number), [1, 2, 3, 4]);
+  assert.deepEqual(Array.from(passages['LUK 24'].verses, v => v.number), Array.from({length:53}, (_,i)=>i+1));
   assert.match(passages['LUK 24:44-47'].verses[0].text, /摩西的律法/);
   const isaiah = passages['ISA 4:2-6'].verses;
   assert.match(isaiah[1].text, /賸在錫安/);
@@ -88,4 +88,23 @@ test('merged numbering and variant-only source notes are explicit instead of emp
  assert.deepEqual(Array.from(merged[0].coveredNumbers),[34,35]);
  assert.equal(merged[0].numberLabel,'34–35');assert.match(merged[0].text,/西面/);
  assert.match(fullSearch.passages['MRK 15:24-34'].find(v=>v.number===28).text,/本來源異文註/);
+});
+
+function numbers(verses) {
+  return verses.flatMap(verse => verse.coveredNumbers || (verse.numberLabel?.includes('–')
+    ? Array.from({length:Number(verse.numberLabel.split('–')[1])-Number(verse.numberLabel.split('–')[0])+1}, (_,i)=>Number(verse.numberLabel.split('–')[0])+i)
+    : [verse.number]));
+}
+test('every preview covers its complete citation with no omissions or duplicates', () => {
+  assert.equal(Object.keys(passages).length, 901);
+  for (const [ref,item] of Object.entries(passages)) {
+    const first=Number(ref.match(/:(\d+)/)?.[1] || 1);
+    assert.deepEqual(Array.from(numbers(item.verses)),Array.from({length:item.total},(_,i)=>first+i),ref);
+  }
+  for (const [ref,total,last] of [['LUK 1:26-38',13,38],['ISA 7:10-17',8,17],['LUK 24',53,53]]) {
+    assert.equal(passages[ref].total,total,ref);
+    assert.equal(passages[ref].verses.at(-1).number,last,ref);
+  }
+  assert.equal(numbers(passages['PSA 8:1-9'].verses).length,9);
+  assert.match(passages['MRK 15:24-34'].verses.find(v=>v.number===28).text,/本來源異文註/);
 });

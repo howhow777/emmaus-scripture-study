@@ -138,7 +138,7 @@ test('keyword search finds every verse in cited 和合本 ranges and retains the
   assert.ok(ids(show({ scope: 'core', search: '審判' })).includes('E117'));
   assert.ok(ids(show({ scope: 'all', search: '彼拉多' })).includes('E140'));
   assert.deepEqual(ids(show({ scope: 'core', search: '彼拉多', book: 'GEN' })), []);
-  assert.ok(!previews.passages['GEN 22:1-14'].verses.some(verse => verse.text.includes('燔祭的柴放在')));
+  assert.ok(previews.passages['GEN 22:1-14'].verses.some(verse => verse.text.includes('燔祭的柴放在')));
   assert.ok(ids(show({ scope: 'core', search: '燔祭的柴放在' })).includes('E011'));
 });
 
