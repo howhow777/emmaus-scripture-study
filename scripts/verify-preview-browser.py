@@ -17,8 +17,9 @@ OUT = ROOT.parent / 'emmaus-full-preview-runtime'
 OUT.mkdir(exist_ok=True)
 REPORT = ROOT / 'reports/preview-browser.json'
 expected = json.loads((ROOT / 'scripture-search-data.js').read_text().split('=', 1)[1][:-2])['passages']
+acceptance = json.loads((ROOT / 'reports/preview-device-acceptance.json').read_text())
 report = {'url': SITE, 'startedAt': datetime.now(timezone.utc).isoformat(), 'checks': [], 'passages': {}, 'consoleErrors': [], 'modelRequests': 0, 'assetSha256': {},
-          'realPhones': {'iphoneSafari': 'pending for this full-preview release', 'androidChrome': 'pending for this full-preview release'},
+          'realPhones': {key: acceptance[key] for key in ['iphoneSafari', 'androidChrome']},
           'limitations': 'Chromium touch emulation is not real iPhone Safari or Android hardware acceptance.'}
 
 
@@ -72,8 +73,18 @@ def keyboard_open(page, ref):
     return link
 
 
+def check_close(page, label):
+    result = page.locator('.scripture-preview-close').evaluate('''button => {
+      const b=button.getBoundingClientRect(),s=button.querySelector('svg').getBoundingClientRect();
+      return {width:b.width,height:b.height,offsetX:s.x+s.width/2-b.x-b.width/2,offsetY:s.y+s.height/2-b.y-b.height/2,
+        accessibleName:button.getAttribute('aria-label')};
+    }''')
+    check(label + ' close icon centered in circular touch target', abs(result['width']-result['height']) < .5 and result['width'] >= 44
+          and abs(result['offsetX']) < .5 and abs(result['offsetY']) < .5 and result['accessibleName'] == '關閉經文預覽', result)
+
+
 for name in ['scripture-preview.js', 'scripture-preview.css', 'scripture-previews-data.js']:
-    with urlopen(Request(SITE + '/' + name + '?v=full-preview1', headers={'User-Agent': 'Mozilla/5.0'}), timeout=30) as response:
+    with urlopen(Request(SITE + '/' + name + '?v=full-preview2', headers={'User-Agent': 'Mozilla/5.0'}), timeout=30) as response:
         body = response.read()
     report['assetSha256'][name] = hashlib.sha256(body).hexdigest()
     check('HTTPS preview matches current ' + name, body == (ROOT / name).read_bytes())
@@ -118,6 +129,7 @@ with sync_playwright() as playwright:
             page.keyboard.press('Tab')
         results = page.evaluate(verify_links, {'expected': expected, 'entries': filename == 'graph.html'})
         check(filename + ' all actual scripture anchors render full source text', all(row['pass'] for row in results), {'anchorCount': len(results), 'failures': [r for r in results if not r['pass']][:5]})
+        check_close(page, filename)
         for row in results:
             prior = report['passages'].setdefault(row['ref'], dict(row, entrypoints=[]))
             if filename not in prior['entrypoints']:
@@ -235,7 +247,10 @@ with sync_playwright() as playwright:
                 mp.wait_for_timeout(100)
             g = geometry(mp)
             check(f'{width}x{height} {ref} finger scrolling reaches last verse without background scroll', g['tailVisible'] and g['headerVisible'] and g['contained'] and g['bodyY'] == before and g['innerScroll'] == 'visible', g)
+            check_close(mp, f'{width}x{height} {ref} scrolled header')
             mp.screenshot(path=str(OUT / f'touch-{width}-{height}-{ref.replace(" ", "-").replace(":", "-")}.png'))
+            mp.get_by_role('button', name='關閉經文預覽', exact=True).click()
+            check(f'{width}x{height} {ref} close control works', not mp.locator('#scripturePreview').is_visible())
         if width == 390:
             mp.goto(SITE + '/index.html#E098')
             mp.mouse.move(0, 0)

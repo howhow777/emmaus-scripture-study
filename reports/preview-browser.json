@@ -1,6 +1,6 @@
 {
   "url": "https://emmaus-preview.promelink.link",
-  "startedAt": "2026-10-18T23:25:08.732664+00:00",
+  "startedAt": "2026-10-19T02:57:01.561815+00:00",
   "checks": [
     {
       "name": "HTTPS preview matches current scripture-preview.js",
@@ -26,6 +26,17 @@
       }
     },
     {
+      "name": "index.html close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
       "name": "coverage.html all actual scripture anchors render full source text",
       "pass": true,
       "detail": {
@@ -34,11 +45,33 @@
       }
     },
     {
+      "name": "coverage.html close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
       "name": "graph.html all actual scripture anchors render full source text",
       "pass": true,
       "detail": {
         "anchorCount": 886,
         "failures": []
+      }
+    },
+    {
+      "name": "graph.html close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
       }
     },
     {
@@ -228,6 +261,22 @@
       }
     },
     {
+      "name": "390x844 LUK 1:26-38 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "390x844 LUK 1:26-38 close control works",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "390x844 ISA 7:10-17 long-press opens pinned",
       "pass": true,
       "detail": null
@@ -254,6 +303,22 @@
       }
     },
     {
+      "name": "390x844 ISA 7:10-17 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "390x844 ISA 7:10-17 close control works",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "390x844 LUK 24 long-press opens pinned",
       "pass": true,
       "detail": null
@@ -278,6 +343,22 @@
         "bodyY": 270,
         "innerScroll": "visible"
       }
+    },
+    {
+      "name": "390x844 LUK 24 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "390x844 LUK 24 close control works",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "movement before hold threshold cancels preview",
@@ -326,6 +407,22 @@
       }
     },
     {
+      "name": "320x568 LUK 1:26-38 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "320x568 LUK 1:26-38 close control works",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "320x568 ISA 7:10-17 long-press opens pinned",
       "pass": true,
       "detail": null
@@ -339,17 +436,33 @@
       "name": "320x568 ISA 7:10-17 finger scrolling reaches last verse without background scroll",
       "pass": true,
       "detail": {
-        "scrollTop": 489,
+        "scrollTop": 490,
         "max": 529,
         "contained": true,
         "headerVisible": true,
         "tailVisible": true,
-        "tailTop": 88.234375,
-        "tailBottom": 188.984375,
+        "tailTop": 87.234375,
+        "tailBottom": 187.984375,
         "headerBottom": 82.640625,
         "bodyY": 125347,
         "innerScroll": "visible"
       }
+    },
+    {
+      "name": "320x568 ISA 7:10-17 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "320x568 ISA 7:10-17 close control works",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "320x568 LUK 24 long-press opens pinned",
@@ -365,17 +478,33 @@
       "name": "320x568 LUK 24 finger scrolling reaches last verse without background scroll",
       "pass": true,
       "detail": {
-        "scrollTop": 3154,
+        "scrollTop": 3257,
         "max": 3257,
         "contained": true,
         "headerVisible": true,
         "tailVisible": true,
-        "tailTop": 226.421875,
-        "tailBottom": 251.609375,
+        "tailTop": 123.421875,
+        "tailBottom": 148.609375,
         "headerBottom": 82.640625,
         "bodyY": 471,
         "innerScroll": "visible"
       }
+    },
+    {
+      "name": "320x568 LUK 24 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "320x568 LUK 24 close control works",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "844x390 CSS viewport unchanged by native window sizing",
@@ -396,17 +525,33 @@
       "name": "844x390 LUK 1:26-38 finger scrolling reaches last verse without background scroll",
       "pass": true,
       "detail": {
-        "scrollTop": 530,
+        "scrollTop": 619,
         "max": 619,
         "contained": true,
         "headerVisible": true,
         "tailVisible": true,
-        "tailTop": 187.984375,
-        "tailBottom": 238.359375,
+        "tailTop": 98.984375,
+        "tailBottom": 149.359375,
         "headerBottom": 82.640625,
         "bodyY": 91735,
         "innerScroll": "visible"
       }
+    },
+    {
+      "name": "844x390 LUK 1:26-38 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "844x390 LUK 1:26-38 close control works",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "844x390 ISA 7:10-17 long-press opens pinned",
@@ -422,17 +567,33 @@
       "name": "844x390 ISA 7:10-17 finger scrolling reaches last verse without background scroll",
       "pass": true,
       "detail": {
-        "scrollTop": 351,
+        "scrollTop": 352,
         "max": 377,
         "contained": true,
         "headerVisible": true,
         "tailVisible": true,
-        "tailTop": 100.296875,
-        "tailBottom": 175.859375,
+        "tailTop": 99.296875,
+        "tailBottom": 174.859375,
         "headerBottom": 82.640625,
         "bodyY": 91541,
         "innerScroll": "visible"
       }
+    },
+    {
+      "name": "844x390 ISA 7:10-17 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "844x390 ISA 7:10-17 close control works",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "844x390 LUK 24 long-press opens pinned",
@@ -448,17 +609,33 @@
       "name": "844x390 LUK 24 finger scrolling reaches last verse without background scroll",
       "pass": true,
       "detail": {
-        "scrollTop": 2521,
+        "scrollTop": 2576,
         "max": 2576,
         "contained": true,
         "headerVisible": true,
         "tailVisible": true,
-        "tailTop": 179.359375,
-        "tailBottom": 204.546875,
+        "tailTop": 124.359375,
+        "tailBottom": 149.546875,
         "headerBottom": 82.640625,
         "bodyY": 376,
         "innerScroll": "visible"
       }
+    },
+    {
+      "name": "844x390 LUK 24 scrolled header close icon centered in circular touch target",
+      "pass": true,
+      "detail": {
+        "width": 44,
+        "height": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "accessibleName": "關閉經文預覽"
+      }
+    },
+    {
+      "name": "844x390 LUK 24 close control works",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "LUK 2:34-35 browser verified",
@@ -10225,13 +10402,22 @@
   "consoleErrors": [],
   "modelRequests": 0,
   "assetSha256": {
-    "scripture-preview.js": "32740096200fa4dee836e7c5c51a893a6d8b55ad7db23af93047d7117d78598b",
-    "scripture-preview.css": "43e758a62b638266bda4b88ea07d9c04922f5d5776426b1d075f9fd0e3c4375f",
+    "scripture-preview.js": "f58c9647d423b897974a9f7be61858dca3b034eb2d3315c686f687f36f3d02eb",
+    "scripture-preview.css": "41478504265df4e08cb187c0206f49a1a068c43cdb30830cd0f7aac896e41929",
     "scripture-previews-data.js": "00ca4494d2d96915d1253385983dc58ae5455765dfc61a8b43660bc034d704ef"
   },
   "realPhones": {
-    "iphoneSafari": "pending for this full-preview release",
-    "androidChrome": "pending for this full-preview release"
+    "iphoneSafari": {
+      "status": "pending",
+      "note": "This release requires a new full-passage scroll test; previous search-release approvals do not apply."
+    },
+    "androidChrome": {
+      "status": "passed_with_visual_issue",
+      "testedRelease": "full-preview1",
+      "note": "User confirmed Android full-passage preview works; reported the close glyph offset inside an oval border. Button corrected in full-preview2; visual recheck pending.",
+      "functionalStatus": "passed",
+      "closeButtonVisualStatus": "pending"
+    }
   },
   "limitations": "Chromium touch emulation is not real iPhone Safari or Android hardware acceptance.",
   "browser": "155.0.8059.82"

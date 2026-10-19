@@ -19,8 +19,14 @@
 - `preview-browser.json`：真實 Chrome 開啟首頁、覆蓋頁與圖譜動態詳情的經文連結，逐項比對渲染文字；另檢查長段落尾節的實際可見性、捲動與鍵盤／觸控行為。
 - 搜尋資料、圖譜研究資料與語意設定和基準版本 `435f765` 逐位元相同；語意 corpus 維持 `4dce84e4f5eb107fa141`。這次不呼叫模型。
 - Chrome 觸控模擬需讓原生視窗大於模擬 viewport，否則底緣的 CDP 手勢超出 compositor 有效範圍。測試腳本會設定原生視窗並核對 CSS viewport 不變；沒有因這個測試環境問題加入額外的網頁手勢程式。
-- 本次通過 `npm test` 的 43 項 JavaScript、9 項 Python 測試（零跳過），`npm run check:graph`、`npm run audit:previews`，以及 HTTPS 瀏覽器的 65 項操作檢查（涵蓋 901 處引用）。瀏覽器報告記錄已測試資產的 SHA-256，無未捕捉的 JavaScript 錯誤，模型請求數為零。
+- 本次通過 `npm test` 的 43 項 JavaScript、9 項 Python 測試（零跳過），`npm run check:graph`、`npm run audit:previews`，以及 HTTPS 瀏覽器的 86 項操作檢查（涵蓋 901 處引用）。瀏覽器報告記錄已測試資產的 SHA-256，無未捕捉的 JavaScript 錯誤，模型請求數為零。
 
 ## 發布狀態
 
 預覽：https://emmaus-preview.promelink.link/ 。正式 GitHub Pages 與正式下載包維持原版，等本次 iPhone Safari 與 Android Chrome 完整捲動驗收後發布。先前搜尋版本的手機核可不作為本次驗收。
+
+## Android 關閉按鈕修訂（full-preview2）
+
+使用者回報 Android 全文預覽正常，另附關閉圖示偏移的截圖。首頁通用 `button` 樣式帶入 `min-height:44px` 及 `padding:9px 16px`，原先 32px 的關閉按鈕因此變成橢圓且文字偏移。關閉按鈕改為明確的 44×44px、零內距，使用格線置中的 SVG 圖示；不依賴字型的乘號字形。三頁同步升級預覽資產版本。
+
+實際瀏覽器核對首頁、圖譜與覆蓋頁，以及三種手機尺寸的捲動後標題：圓框寬高 44px，圖示水平與垂直中心差均為 0px，關閉與全文捲動通過。Android 全文功能驗收已記錄，修訂後按鈕外觀尚待使用者目視確認；iPhone Safari 本次全文驗收仍待確認。

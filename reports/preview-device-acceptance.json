@@ -1,5 +1,5 @@
 {
-  "release": "full-preview1",
+  "release": "full-preview2",
   "date": "2026-10-19",
   "site": "https://emmaus-preview.promelink.link/",
   "iphoneSafari": {
@@ -7,13 +7,25 @@
     "note": "This release requires a new full-passage scroll test; previous search-release approvals do not apply."
   },
   "androidChrome": {
-    "status": "pending",
-    "note": "This release requires a new full-passage scroll test; previous search-release approvals do not apply."
+    "status": "passed_with_visual_issue",
+    "testedRelease": "full-preview1",
+    "note": "User confirmed Android full-passage preview works; reported the close glyph offset inside an oval border. Button corrected in full-preview2; visual recheck pending.",
+    "functionalStatus": "passed",
+    "closeButtonVisualStatus": "pending"
   },
   "passages": [
-    {"ref": "LUK 1:26-38", "lastVerse": 38},
-    {"ref": "ISA 7:10-17", "lastVerse": 17},
-    {"ref": "LUK 24", "lastVerse": 53}
+    {
+      "ref": "LUK 1:26-38",
+      "lastVerse": 38
+    },
+    {
+      "ref": "ISA 7:10-17",
+      "lastVerse": 17
+    },
+    {
+      "ref": "LUK 24",
+      "lastVerse": 53
+    }
   ],
   "production": "unchanged pending this release's device acceptance"
 }

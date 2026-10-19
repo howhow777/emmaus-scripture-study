@@ -10,7 +10,7 @@
   card.setAttribute('aria-label', '經文預覽');
   card.tabIndex = 0;
   card.hidden = true;
-  card.innerHTML = '<div class="scripture-preview-head"><div><span class="scripture-preview-kicker">經文預覽</span><h2></h2></div><button class="scripture-preview-close" type="button" aria-label="關閉經文預覽">×</button></div><p class="scripture-preview-extent"></p><div class="scripture-preview-verses"></div><p class="scripture-preview-version"></p><a class="scripture-preview-open" target="_blank" rel="noopener noreferrer">開啟原經文網頁 ↗</a><span id="scripturePreviewHint" class="scripture-preview-sr-only">經文預覽已開啟。按向下鍵進入預覽，使用方向鍵或 Page Down 捲動，按 Escape 關閉。</span>';
+  card.innerHTML = '<div class="scripture-preview-head"><div><span class="scripture-preview-kicker">經文預覽</span><h2></h2></div><button class="scripture-preview-close" type="button" aria-label="關閉經文預覽"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6L18 18M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div><p class="scripture-preview-extent"></p><div class="scripture-preview-verses"></div><p class="scripture-preview-version"></p><a class="scripture-preview-open" target="_blank" rel="noopener noreferrer">開啟原經文網頁 ↗</a><span id="scripturePreviewHint" class="scripture-preview-sr-only">經文預覽已開啟。按向下鍵進入預覽，使用方向鍵或 Page Down 捲動，按 Escape 關閉。</span>';
   document.body.append(card);
   const status = document.createElement('span');
   status.className = 'scripture-preview-sr-only';

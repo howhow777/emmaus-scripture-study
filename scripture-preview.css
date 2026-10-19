@@ -6,7 +6,8 @@
 .scripture-preview-head{position:sticky;top:-17px;z-index:1;margin:-17px -18px 0;padding:17px 18px 8px;background:#fffef9;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .scripture-preview-kicker{display:block;color:#8a6b35;font-size:10px;font-weight:700;letter-spacing:.12em}
 .scripture-preview h2{margin:3px 0 0;color:#1d4837;font-size:19px;font-weight:650;line-height:1.35}
-.scripture-preview-close{flex:none;width:32px;height:32px;border:1px solid #cbd6c8;border-radius:50%;background:#f3f5ed;color:#345944;font-size:22px;line-height:1;cursor:pointer}
+.scripture-preview-close{flex:none;display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;appearance:none;border:1px solid #cbd6c8;border-radius:50%;background:#f3f5ed;color:#345944;cursor:pointer}
+.scripture-preview-close svg{display:block;width:20px;height:20px;pointer-events:none}
 .scripture-preview-close:hover{background:#e6eddf}
 .scripture-preview-extent.is-incomplete{color:#963d2e}
 .scripture-preview:focus-visible{outline:3px solid #b5873f;outline-offset:2px}
