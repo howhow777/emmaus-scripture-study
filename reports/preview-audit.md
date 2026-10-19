@@ -23,7 +23,7 @@
 
 ## 發布狀態
 
-full-preview2 已獲本次 iPhone Safari、Android Chrome 與關閉按鈕驗收通過，依核可發布至正式 GitHub Pages 並更新下載包。紀錄見 `preview-device-acceptance.json`。
+full-preview2 已獲本次 iPhone Safari、Android Chrome 與關閉按鈕驗收通過，已正式發布至 https://howhow777.github.io/emmaus-scripture-study/ 並更新下載包。正式站的 901 處引用與 86 項操作檢查全部通過；雙向跳轉與實際外部經文頁面也已驗證。紀錄見 `preview-device-acceptance.json`、`preview-production.json` 與 `preview-release-links.json`。
 
 ## Android 關閉按鈕修訂（full-preview2）
 

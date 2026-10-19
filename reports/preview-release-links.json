@@ -1,0 +1,49 @@
+{
+  "verifiedAt": "2026-10-19T03:07:51.737233+00:00",
+  "site": "https://howhow777.github.io/emmaus-scripture-study/",
+  "contentCommit": "6a59797",
+  "checks": [
+    {
+      "name": "public graph and approved scope",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "graph to reading article link",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reading to selected graph link",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "external Bible link opens cited passage",
+      "pass": true,
+      "detail": "https://www.bible.com/bible/46/ISA.7.10-17.CUNP-%E7%A5%9E"
+    },
+    {
+      "name": "no uncaught script errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "public download HTTP 200",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "public package matches released bytes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "download ZIP integrity and homepage",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "packageSha256": "e0fff97b16a5b7feed8a06152b7de630dc036dde864310f34f9bca145fd5bc58",
+  "packagePhase": "initial release before final verification report is bundled"
+}

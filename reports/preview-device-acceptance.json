@@ -30,6 +30,9 @@
       "lastVerse": 53
     }
   ],
-  "production": "approved_for_release",
-  "confirmedAt": "2026-10-19T03:06:06+00:00"
+  "production": "published_verified",
+  "confirmedAt": "2026-10-19T03:06:06+00:00",
+  "productionUrl": "https://howhow777.github.io/emmaus-scripture-study/",
+  "productionVerifiedAt": "2026-10-19T03:08:38+00:00",
+  "productionReport": "reports/preview-production.json"
 }
