@@ -11,11 +11,12 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parent.parent
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--site', default='https://emmaus-preview.promelink.link')
+parser.add_argument('--report', type=Path, default=Path('reports/preview-browser.json'))
 args = parser.parse_args()
 SITE = args.site.rstrip('/')
 OUT = ROOT.parent / 'emmaus-full-preview-runtime'
 OUT.mkdir(exist_ok=True)
-REPORT = ROOT / 'reports/preview-browser.json'
+REPORT = args.report if args.report.is_absolute() else ROOT / args.report
 expected = json.loads((ROOT / 'scripture-search-data.js').read_text().split('=', 1)[1][:-2])['passages']
 acceptance = json.loads((ROOT / 'reports/preview-device-acceptance.json').read_text())
 report = {'url': SITE, 'startedAt': datetime.now(timezone.utc).isoformat(), 'checks': [], 'passages': {}, 'consoleErrors': [], 'modelRequests': 0, 'assetSha256': {},

@@ -10408,17 +10408,21 @@
   },
   "realPhones": {
     "iphoneSafari": {
-      "status": "pending",
-      "note": "This release requires a new full-passage scroll test; previous search-release approvals do not apply."
+      "status": "passed",
+      "testedRelease": "full-preview2",
+      "functionalStatus": "passed",
+      "closeButtonVisualStatus": "passed",
+      "evidence": "User: iPhone 測試ok / 按鈕也已OK"
     },
     "androidChrome": {
-      "status": "passed_with_visual_issue",
-      "testedRelease": "full-preview1",
-      "note": "User confirmed Android full-passage preview works; reported the close glyph offset inside an oval border. Button corrected in full-preview2; visual recheck pending.",
+      "status": "passed",
+      "testedRelease": "full-preview2",
       "functionalStatus": "passed",
-      "closeButtonVisualStatus": "pending"
+      "closeButtonVisualStatus": "passed",
+      "evidence": "User previously confirmed Android ok; after the close-control correction, user confirmed 按鈕也已OK."
     }
   },
   "limitations": "Chromium touch emulation is not real iPhone Safari or Android hardware acceptance.",
-  "browser": "155.0.8059.82"
+  "browser": "155.0.8059.82",
+  "deviceAcceptanceUpdatedAt": "2026-10-19T03:06:06+00:00"
 }

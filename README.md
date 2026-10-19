@@ -63,4 +63,4 @@ python3 scripts/verify-semantic-live.py --runtime /path/to/private-review-runtim
 
 `npm run audit:previews` 將全部 901 處引用與固定來源、合排節號、外連及入口逐一核對，結果在 `reports/preview-completeness.json`。需要倉庫外的固定來源快取。原先 315 處被裁成前四節，修訂後直接顯示引用段落全文；搜尋資料及語意索引維持原樣。
 
-`npm run verify:previews` 用 Chrome／Playwright 對 HTTPS 預覽檢查每個真實經文入口的文字，並實際使用滑鼠、鍵盤及觸控捲到長段落末尾，輸出 `reports/preview-browser.json`；不呼叫語意模型。觸控模擬不代表 iPhone Safari 或 Android Chrome 的實機驗收，這一版須另行確認後才發布正式站與下載包。
+`npm run verify:previews` 用 Chrome／Playwright 對 HTTPS 預覽檢查每個真實經文入口的文字，並實際使用滑鼠、鍵盤及觸控捲到長段落末尾，輸出 `reports/preview-browser.json`；不呼叫語意模型。觸控模擬不代表實機驗收；本次 full-preview2 已由使用者完成 iPhone Safari、Android Chrome 與關閉按鈕確認，紀錄在 `reports/preview-device-acceptance.json`。

@@ -23,10 +23,10 @@
 
 ## 發布狀態
 
-預覽：https://emmaus-preview.promelink.link/ 。正式 GitHub Pages 與正式下載包維持原版，等本次 iPhone Safari 與 Android Chrome 完整捲動驗收後發布。先前搜尋版本的手機核可不作為本次驗收。
+full-preview2 已獲本次 iPhone Safari、Android Chrome 與關閉按鈕驗收通過，依核可發布至正式 GitHub Pages 並更新下載包。紀錄見 `preview-device-acceptance.json`。
 
 ## Android 關閉按鈕修訂（full-preview2）
 
 使用者回報 Android 全文預覽正常，另附關閉圖示偏移的截圖。首頁通用 `button` 樣式帶入 `min-height:44px` 及 `padding:9px 16px`，原先 32px 的關閉按鈕因此變成橢圓且文字偏移。關閉按鈕改為明確的 44×44px、零內距，使用格線置中的 SVG 圖示；不依賴字型的乘號字形。三頁同步升級預覽資產版本。
 
-實際瀏覽器核對首頁、圖譜與覆蓋頁，以及三種手機尺寸的捲動後標題：圓框寬高 44px，圖示水平與垂直中心差均為 0px，關閉與全文捲動通過。Android 全文功能驗收已記錄，修訂後按鈕外觀尚待使用者目視確認；iPhone Safari 本次全文驗收仍待確認。
+實際瀏覽器核對首頁、圖譜與覆蓋頁，以及三種手機尺寸的捲動後標題：圓框寬高 44px，圖示水平與垂直中心差均為 0px，關閉與全文捲動通過。Android 全文功能、iPhone Safari 全文功能與修訂後按鈕外觀均已由使用者確認通過。
